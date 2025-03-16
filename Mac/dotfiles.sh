@@ -55,6 +55,18 @@ sudo chmod 744 /usr/local/bin
 
 
 # ==============================================================================
+# Create ~/Bin folder in which to put local code repositorities
+if [[ -d "$HOME/Bin/" ]]; then
+  bullet "~/Bin exists. Put user scripts and code you want in the PATH here"
+else
+  mkdir ~/Bin
+  sudo chown -R "$USER":admin $HOME/Bin
+  sudo chmod 744 $HOME/Bin
+  bullet "✅ Created ~/Bin - New folder for user code and scripts in the PATH"
+fi
+
+
+# ==============================================================================
 # Create ~/Code folder in which to put local code repositorities
 if [[ -d "$HOME/Code/" ]]; then
   bullet "~/Code exists. Use this folder for personal repositories"
@@ -76,16 +88,16 @@ fi
 # ==============================================================================
 # Create a symlink to Dropbox's location in CloudStore if valid
 #
-if [[ -d "$HOME/Dropbox/" ]]; then
-  bullet "~/Dropbox alias exists. Delete symlink if broken, then re-run"
-else
-  if [[ -d "$HOME/Library/CloudStorage/Dropbox/" ]]; then
-    bullet "✅ Setup ~/Dropbox - Symlink to ~/Library/CloudStorage/Dropbox/"
-    ln -s $HOME/Library/CloudStorage/Dropbox $HOME/Dropbox
-  else
-    alert "Dropbox not installed" "Missing folder: ~/Library/CloudStorage/Dropbox/"
-  fi
-fi
+#if [[ -d "$HOME/Dropbox/" ]]; then
+#  bullet "~/Dropbox alias exists. Delete symlink if broken, then re-run"
+#else
+#  if [[ -d "$HOME/Library/CloudStorage/Dropbox/" ]]; then
+#    bullet "✅ Setup ~/Dropbox - Symlink to ~/Library/CloudStorage/Dropbox/"
+#    ln -s $HOME/Library/CloudStorage/Dropbox $HOME/Dropbox
+#  else
+#    alert "Dropbox not installed" "Missing folder: ~/Library/CloudStorage/Dropbox/"
+#  fi
+#sfi
 
 # ==============================================================================
 # Check if the ~/local.sh file exists, if not then copy the template to $HOME

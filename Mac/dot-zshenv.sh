@@ -1,7 +1,7 @@
 # .zshenv - Loaded in every session, even if not interactive. Great for PATH.
 
-# Adding the Dotfiles/Mac folder to PATH, as well as Homebrew
-export PATH="$DOTFILES_ROOT/Mac:/opt/homebrew/bin"
+# Adding the $HOME/bin and dotfiles/Mac folders to PATH, as well as Homebrew
+export PATH="$HOME/Bin:$DOTFILES_ROOT/Mac:/opt/homebrew/bin"
 
 # Setting for Apple silicon version of Ruby. Pre-pend it and Gems to the PATH
 export PATH=$PATH:/opt/homebrew/opt/ruby/bin

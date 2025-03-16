@@ -1,4 +1,8 @@
 .DS_Store
+.build
+.swiftpm
+.vscode
+Package.resolved
 *~
 \#*
 .\#*
@@ -7,10 +11,6 @@
 *.xcuserstate
 *.xcuserdata
 xcuserdata
-Package.resolved
-.swiftpm
-.vscode
-.build
 DerivedData
 
 
