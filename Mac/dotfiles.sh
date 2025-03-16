@@ -55,11 +55,12 @@ sudo chmod 744 /usr/local/bin
 
 
 # ==============================================================================
-# Create ~/Developer folder in which to put local developer stuff, e.g. repos
-if [[ -d "$HOME/Developer/" ]]; then
-  bullet "~/Developer exists. Use this folder for personal repositories"
+# Create ~/Code folder in which to put local code repositorities
+if [[ -d "$HOME/Code/" ]]; then
+  bullet "~/Code exists. Use this folder for personal repositories"
 else
-  bullet "✅ Created ~/Developer - New folder for local developer work"
+  mkdir ~/Code
+  bullet "✅ Created ~/Code - New folder for local developer work"
 fi
 
 # ==============================================================================

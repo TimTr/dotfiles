@@ -1,4 +1,4 @@
-# Overview of Dotfiles
+# Overview of dotfiles
 
 Describe the general approach.
 

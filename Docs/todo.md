@@ -1,4 +1,4 @@
-# TODO Items
+# TODO items for dotfiles project
 
 - Add basic support for Linux
 - Report current ruby, swift, python, and Homebrew versions on setup    
