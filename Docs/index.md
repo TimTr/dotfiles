@@ -1,4 +1,4 @@
-# TimTr Dotfiles Documentation
+# TimTr dotfiles documentation
 
 This is the `index.md` file within the docs
 
