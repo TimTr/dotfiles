@@ -1,6 +1,6 @@
 # TimTr Dotfiles Documentation
 
-This is the `index.md` file at root. **Update May 18, 2024 8:50pm**
+This is the `index.md` file at root. **Updated April 22, 2025.**
 
 This forms the root of the GitHub Pages documentation generated for this repository. It will link over to files within the `./Docs` folder of this repo for the actual documentation.
 
@@ -18,7 +18,7 @@ This project does not really need a full set of docs. In reality, this documenta
 
 ## Table of Contents
 
-`Dotfiles` is covered by the [MIT license](license.md).
+This 'dotfiles` rpoject is covered by the [MIT license](license.md).
 
 
 ### Credits
