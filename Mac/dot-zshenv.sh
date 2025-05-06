@@ -13,6 +13,14 @@ export PATH="$PATH:/usr/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin"
 # Python3 - Augument the default PATH for Python3 use
 export PY_PYTHON=3
 
+# Node.js and npm setup (this first part loads NVM)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# This loads nvm bash_completion
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  
+
+
 # ==============================================================================
 ## Below this line are dynamically added variables and commands
 # ==============================================================================
