@@ -67,12 +67,12 @@ fi
 
 
 # ==============================================================================
-# Create ~/Code folder in which to put local code repositorities
-if [[ -d "$HOME/Code/" ]]; then
+# Create ~/Developer folder in which to put local code repositorities
+if [[ -d "$HOME/Developer/" ]]; then
   bullet "~/Code exists. Use this folder for personal repositories"
 else
-  mkdir ~/Code
-  bullet "✅ Created ~/Code - New folder for local developer work"
+  mkdir ~/Developer
+  bullet "✅ Created ~/Developer - New folder for local developer work"
 fi
 
 # ==============================================================================
