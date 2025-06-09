@@ -6,16 +6,25 @@ import PackageDescription
 
 
 let package = Package(
-    name: "fizzbuzz",
+    name: "DotRunner",
     targets: [
         .executableTarget(
-            name: "fizzbuzz-swift",
-            path: "first-target",
-            sources: ["FizzBuzz.swift"]),
-        .executableTarget(
-            name: "fizzbuzz-c",
-            path: "second-target")
-    ]
+            name: "dotrunner",
+            path: "DotRunner",
+            sources: ["main.swift"])
+    ] // close the targets list
+)
+
+
+
+
+
+/**
+ .executableTarget(
+     name: "fizzbuzz-c",
+     path: "second-target")
+*/
+
     
 /***
     defaultLocalization: [LanguageTag]? = nil,
@@ -28,4 +37,3 @@ let package = Package(
     cxxLanguageStandard: CXXLanguageStandard? = nil
 */
 
-)
