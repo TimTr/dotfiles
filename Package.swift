@@ -11,7 +11,7 @@ let package = Package(
         .executableTarget(
             name: "dotrunner",
             path: "DotRunner",
-            sources: ["main.swift"])
+            sources: ["DotRunner.swift"])
     ] // close the targets list
 )
 

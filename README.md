@@ -2,7 +2,7 @@
 
 To setup on Mac or Linux:
 
-``` shell
+```shell
     git clone https://github.com/timtr/dotfiles.git
     cd dotfiles
     ./setup.sh
@@ -14,6 +14,7 @@ Once installed, run `dotfiles.sh` from the PATH to reset your config. For instan
 
 Documentation is a work in progress. [See a preview](https://timtr.github.io/Dotfiles/):
 
+
 ## Overview
 
 This is my personal collection of setup scripts for macOS and Linux (WIP). It includes settings for `zsh`, macOS Terminal, Xcode, Swift, and other tools and apps. This set will also install Homebrew and a recent version of Ruby.
@@ -22,9 +23,11 @@ The setup will assume your settings are configured directly within the `dotfiles
 
 Amost the most important pieces is the `dotfiles/Config/dot-gitignore` file that installs into `~/.gitignore` since that filters out build and other temporary files.
 
+
 ## Work-specific Git configuration
 
 The `Config` folder includes a `dot-gitconfig-work` file that is installed to control the Git behavior for respositories in the `~/Work` folder. In this case, it is setting up to do code signing at commit time, and changing the username and email for those commits. This general approach can work for any sub-folder custom configuration, especially for custom email addresses depending on the folder they are stored in on disk. Feel free to edit to match your workflow and configuration.
+
 
 ## Features
 
@@ -36,6 +39,7 @@ The `Config` folder includes a `dot-gitconfig-work` file that is installed to co
 
 **Dropbox** - Optionally symlink in `$HOME` points to `~/Library/CloudStorage/Dropbox` if Dropbox is installed on the computer. I often have this commented out.
 
+
 ## Using a custom Swift toolchain
 
 You can download new Swift toolchains from [Swift.org](https://swift.org/download/#snapshots) and set them to be used by default.  The `~/local.sh` file is perfect to place to configure these settings per-machine, rather than configure in the main Dotfiles repo.
@@ -46,6 +50,7 @@ Once installed, you can install Homebrew and run demos. For example, run `demo-h
 
 You can also open the `Dotfiles/Demos/demo-safari-cycle.html` file to launch Safari and begin cycling through many web pages, simulating an automated web test harness.
 
+
 ## Useful reference links
 
 Documentation (or the start of docs) can be [found here](https://timtr.github.io/Dotfiles/docs/). Note that the `docs` folder must be in lower-case for GitHub Pages support. Capital `Docs` will fail.
@@ -53,6 +58,7 @@ Documentation (or the start of docs) can be [found here](https://timtr.github.io
 Which `zsh` files contain which settings: [CodeSpaces and Dotfiles](https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout)
 
 Docs on using `setup.sh` with [GitHub CodeSpaces and Dotfiles](https://docs.github.com/en/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account)
+
 
 ### ZSH order of loading
 
