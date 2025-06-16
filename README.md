@@ -12,7 +12,7 @@ This will run `./setup.sh` from within the local `dotfiles` folder for first-run
 
 Once installed, run `dotfiles.sh` from the PATH to reset your config. For instance, if you want to reset the `~/local.sh` file to default config, simply delete it, then run `dotfiles.sh`. You can also run `help.sh` for additional help.
 
-Documentation is a work in progress. [See a preview](https://timtr.github.io/Dotfiles/):
+Documentation is a work in progress. [See a preview](https://timtr.github.io/dotfiles/):
 
 
 ## Overview
