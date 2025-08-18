@@ -1,0 +1,114 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXFileReference section */
+		BAD0E0152E5395CD00274CAF /* index.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = index.md; sourceTree = "<group>"; };
+		BAD0E0162E5395CD00274CAF /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
+		BAD0E0172E5395CD00274CAF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BAD0E0182E5395CD00274CAF /* setup.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = setup.sh; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		BAD0DFF42E5395B200274CAF /* Config */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Config;
+			sourceTree = "<group>";
+		};
+		BAD0DFF92E5395B200274CAF /* Docs */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Docs;
+			sourceTree = "<group>";
+		};
+		BAD0DFFE2E5395B200274CAF /* DotRunner */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DotRunner;
+			sourceTree = "<group>";
+		};
+		BAD0E0082E5395B200274CAF /* Linux */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Linux;
+			sourceTree = "<group>";
+		};
+		BAD0E0142E5395B200274CAF /* Mac */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Mac;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXGroup section */
+		BAD0DFDD2E53946700274CAF = {
+			isa = PBXGroup;
+			children = (
+				BAD0E0172E5395CD00274CAF /* README.md */,
+				BAD0DFF42E5395B200274CAF /* Config */,
+				BAD0DFF92E5395B200274CAF /* Docs */,
+				BAD0DFFE2E5395B200274CAF /* DotRunner */,
+				BAD0E0082E5395B200274CAF /* Linux */,
+				BAD0E0142E5395B200274CAF /* Mac */,
+				BAD0E0152E5395CD00274CAF /* index.md */,
+				BAD0E0162E5395CD00274CAF /* license.txt */,
+				BAD0E0182E5395CD00274CAF /* setup.sh */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		BAD0DFDE2E53946700274CAF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 2600;
+			};
+			buildConfigurationList = BAD0DFE12E53946700274CAF /* Build configuration list for PBXProject "dotfiles" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BAD0DFDD2E53946700274CAF;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		BAD0DFE22E53946700274CAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		BAD0DFE32E53946700274CAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BAD0DFE12E53946700274CAF /* Build configuration list for PBXProject "dotfiles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAD0DFE22E53946700274CAF /* Debug */,
+				BAD0DFE32E53946700274CAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BAD0DFDE2E53946700274CAF /* Project object */;
+}

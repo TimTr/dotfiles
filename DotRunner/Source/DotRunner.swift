@@ -1,5 +1,4 @@
-// FizzBuzz.swift
-
+// DotRunner.swift
 
 @main
 struct FizzBuzz {
