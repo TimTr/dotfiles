@@ -15,6 +15,6 @@
         default = simple
 [credential]
 	helper = osxkeychain
-[includeIf "gitdir:~/Work/"]
-	path = ~/Work/.gitconfig-work
+[includeIf "gitdir:~/Documents/"]
+	path = ~/Documents/.gitconfig-work
 

@@ -119,7 +119,7 @@ echo "Empty file to silence new shell messages" >> $HOME/.hushlogin
 
 # Copy Git and other config files
 cp $DOTFILES_ROOT/Config/dot-gitconfig $HOME/.gitconfig
-cp $DOTFILES_ROOT/Config/dot-gitconfig-work $HOME/Work/.gitconfig-work
+cp $DOTFILES_ROOT/Config/dot-gitconfig-work $HOME/Documents/.gitconfig-work
 cp $DOTFILES_ROOT/Config/dot-gitignore $HOME/.gitignore
 cp $DOTFILES_ROOT/Config/dot-vimrc $HOME/.vimrc
 
