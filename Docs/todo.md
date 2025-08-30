@@ -1,6 +1,7 @@
 # TODO items for dotfiles project
 
 - Add basic support for Linux
+- Git tool to use `~/Documents` instead of the `~/Work` for custom code signing
 - Report current ruby, swift, python, and Homebrew versions on setup    
 - Function to delete `./DS_Store` files recursively down a folder structure 
 

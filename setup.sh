@@ -38,22 +38,10 @@ exit 0
 # fi
 
 
-
-# Check if the file exists to enforce install from $HOME/dotfiles
-#
-# if [[ -f "$HOME/dotfiles/setup.sh" ]]; then
-#    echo
-# else
-#    echo
-#    echo "~/dotfiles/setup.sh does NOT exist."
-#    echo "You must install \"dotfiles\" at the root of your home folder."
-#    echo
-#   exit 0
-# fi
-#
 #
 # Ask to enter a key to continue
 # read -s -k $'?Press any key to continue. Hit Control-C to abort now.\n'
+#
 #
 # Handle parameters from the command line - e.g. "update"
 # if [ "$1" = "install" ]; then
