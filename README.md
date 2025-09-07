@@ -1,6 +1,6 @@
 # Dotfiles for Tim Triemstra
 
-On Mac, first install Xcode or the command line tools. Then run `./setup.sh` from within the local `dotfiles` folder to install. Quit and re-launch the terminal. e.g.:
+On Mac, first install Xcode or the command line tools. Then run `./setup.sh` from within the local `dotfiles` directory to install. Quit and re-launch the terminal. e.g.:
 
 ```shell
 
@@ -19,14 +19,14 @@ Documentation is visible as a [work in progress.](https://timtr.github.io/dotfil
 
 This is my personal collection of setup scripts for macOS and Linux (WIP). It includes settings for `zsh`, macOS Terminal, Xcode, Swift, and other tools and apps. This set will also install Homebrew and a recent version of Ruby.
 
-The setup will assume your settings are configured directly within the `dotfiles` folder where you cloned this repo. It will also add `~/Bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support.
+The setup will assume your settings are configured directly within the `dotfiles` directory where you cloned this repo. It will also add `~/Bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support.
 
 Amost the most important pieces is the `dotfiles/Config/dot-gitignore` file that installs into `~/.gitignore` since that filters out build and other temporary files.
 
 
 ## Work-specific Git configuration
 
-The `Config` folder includes a `dot-gitconfig-work` file that is installed to control the Git behavior for respositories in the `~/Work` folder. In this case, it is setting up to do code signing at commit time, and changing the username and email for those commits. This general approach can work for any sub-folder custom configuration, especially for custom email addresses depending on the folder they are stored in on disk. Feel free to edit to match your workflow and configuration.
+The `Config` directory includes a `dot-gitconfig-work` file that is installed to control the Git behavior for respositories in the `~/Work` directory. In this case, it is setting up to do code signing at commit time, and changing the username and email for those commits. This general approach can work for any sub-directory custom configuration, especially for custom email addresses depending on the directory they are stored in on disk. Feel free to edit to match your workflow and configuration.
 
 
 ## Features
@@ -53,7 +53,7 @@ You can also open the `Dotfiles/Demos/demo-safari-cycle.html` file to launch Saf
 
 ## Useful reference links
 
-Documentation (or the start of docs) can be [found here](https://timtr.github.io/Dotfiles/docs/). Note that the `docs` folder must be in lower-case for GitHub Pages support. Capital `Docs` will fail.
+Documentation (or the start of docs) can be [found here](https://timtr.github.io/Dotfiles/docs/). Note that the `docs` directory must be in lower-case for GitHub Pages support. Capital `Docs` will fail.
 
 Which `zsh` files contain which settings: [CodeSpaces and Dotfiles](https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout)
 
