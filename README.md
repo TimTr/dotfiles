@@ -1,18 +1,18 @@
 # Dotfiles for Tim Triemstra
 
-To setup on Mac or Linux:
+On Mac, first install Xcode or the command line tools. Then run `./setup.sh` from within the local `dotfiles` folder to install. Quit and re-launch the terminal. e.g.:
 
 ```shell
-    git clone https://github.com/timtr/dotfiles.git
-    cd dotfiles
-    ./setup.sh
+
+  git clone https://github.com/timtr/dotfiles.git
+  cd dotfiles
+  ./setup.sh
+
 ```
 
-On Mac, first install Xcode or the command line tools. Then run `./setup.sh` from within the local `dotfiles` folder to install. Quit and re-launch the terminal. 
+Once installed, you can run `dotfiles.sh` from the PATH at any time to reset your config. For instance, if you want to reset the `~/local.sh` file to default config, first delete it then run `dotfiles.sh`. You can also run `help.sh` to see additional functionality.
 
-Once installed, run `dotfiles.sh` from the PATH to reset your config. For instance, if you want to reset the `~/local.sh` file to default config, simply delete it, then run `dotfiles.sh`. You can also run `help.sh` for additional help.
-
-Documentation is a [work in progress.](https://timtr.github.io/dotfiles/)
+Documentation is visible as a [work in progress.](https://timtr.github.io/dotfiles/)
 
 
 ## Overview
