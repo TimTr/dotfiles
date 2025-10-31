@@ -76,13 +76,13 @@ else
 fi
 
 # ==============================================================================
-# Create a ~/Work folder if it doesn't exist already
+# Create a ~/Documents folder if it doesn't exist already
 #
-if [[ -d "$HOME/Work/" ]]; then
-  bullet "~/Work exists. Use this folder for work repositories"
+if [[ -d "$HOME/Documents/" ]]; then
+  bullet "~/Documents exists. Use this folder for work repositories"
 else
-  mkdir ~/Work
-  bullet "✅ Created ~/Work - New folder for work repositories"
+  mkdir ~/Documents
+  bullet "✅ Created ~/Documents - New folder for work repositories"
 fi
 
 # ==============================================================================
@@ -105,34 +105,35 @@ if [[ -f "$HOME/local.sh" ]]; then
   bullet "~/local.sh file exists. Delete the file and re-run to install from template"
 else
   bullet "✅ Installing ~/local.sh - Creating new from ./Dotfiles/Mac/local-template.sh"
-  cp $DOTFILES_ROOT/Mac/local-template.sh $HOME/local.sh
+  cp $DOTFILES_ROOT/Mac/Config/local-template.sh $HOME/local.sh
 fi
 
 
 # ==============================================================================
-message "✅ Setup root dotfiles" "Overwriting existing files at $HOME"
-cp $DOTFILES_ROOT/Mac/dot-zshrc.sh $HOME/.zshrc
-cp $DOTFILES_ROOT/Mac/dot-zshenv.sh $HOME/.zshenv
-cp $DOTFILES_ROOT/Mac/dot-aliases.sh $HOME/.aliases
-cp $DOTFILES_ROOT/Mac/dot-functions.sh $HOME/.functions
-echo "Empty file to silence new shell messages" >> $HOME/.hushlogin
+message "✅ Setup root dot-files" "Overwriting existing files at $HOME"
+cp $DOTFILES_ROOT/Mac/Root/dot-zshrc.sh $HOME/.zshrc
+cp $DOTFILES_ROOT/Mac/Root/dot-zshenv.sh $HOME/.zshenv
+cp $DOTFILES_ROOT/Mac/Root/dot-aliases.sh $HOME/.aliases
+cp $DOTFILES_ROOT/Mac/Root/dot-functions.sh $HOME/.functions
+cp $DOTFILES_ROOT/Mac/Root/dot-vimrc $HOME/.vimrc
 
-# Copy Git and other config files
-cp $DOTFILES_ROOT/Config/dot-gitconfig $HOME/.gitconfig
-cp $DOTFILES_ROOT/Config/dot-gitconfig-work $HOME/Documents/.gitconfig-work
-cp $DOTFILES_ROOT/Config/dot-gitignore $HOME/.gitignore
-cp $DOTFILES_ROOT/Config/dot-vimrc $HOME/.vimrc
+# Copy Git configuration dot-files (using ./Documents for work repos)
+cp $DOTFILES_ROOT/Mac/Root/dot-gitconfig $HOME/.gitconfig
+cp $DOTFILES_ROOT/Mac/Root/dot-gitconfig-work $HOME/Documents/.gitconfig-work
+cp $DOTFILES_ROOT/Mac/Root/dot-gitignore $HOME/.gitignore
+
+echo "This dummy file silences new shell messages" >> $HOME/.hushlogin
 
 # Register gitignore and other git stuff
 git config --global core.excludesfile ~/.gitignore
 
 message "✅ Setup app preferences" "Overwriting Terminal, Xcode, and other settings"
 # Copy app settings
-cp $DOTFILES_ROOT/Config/Preferences/* $HOME/Library/Preferences/
+cp $DOTFILES_ROOT/Mac/Config/Preferences/* $HOME/Library/Preferences/
 
 # Copy Xcode preferences
 mkdir -p $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes
-cp -R $DOTFILES_ROOT/Config/Xcode/* $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/
+cp -R $DOTFILES_ROOT/Mac/Config/Xcode/* $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/
 
 
 # ==============================================================================

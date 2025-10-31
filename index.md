@@ -2,7 +2,7 @@
 
 This is the `index.md` file at root. **Updated April 22, 2025.**
 
-This forms the root of the GitHub Pages documentation generated for this repository. It will link over to files within the `./Docs` folder of this repo for the actual documentation.
+This forms the root of the GitHub Pages documentation generated for this repository. It links to files within the `./Docs` folder of this repo for the actual documentation.
 
 * Documentation (work in progress) [table of contents](Docs/index.html).
 * Tasks and accomplishments in the [TODO.md file](Docs/todo.html) via relative path.

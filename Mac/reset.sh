@@ -6,7 +6,7 @@
 
 # Import the default functions used in these scripts
 source ${HOME}/.functions
-message "clean.sh" "Reset caches and preferences"
+message "reset.sh" "Reset caches and preferences"
 # ==============================================================================
 
 
