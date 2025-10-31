@@ -1,0 +1,15 @@
+# .gitconfig-work : Sign commits for work-related projects with ac-sign
+#
+# Good way to check if it is working is to run `git config user.email`
+# this should report the work email below.
+
+[user]
+        name = Tim Triemstra
+        email = timt@apple.com
+[commit]
+        gpgsign = true
+[gpg]
+        format = x509
+[gpg "x509"]
+        program = /usr/local/bin/ac-sign
+
