@@ -12,7 +12,7 @@ Once installed, you can run `dotfiles.sh` from the PATH at any time to reset you
 
 NOTE: macOS requires that you first install Xcode or the command line tools. 
 
-[Documentation is available](https://timtr.github.io/dotfiles/) as a work in progress.
+[Documentation is available](https://timtr.github.io/dotfiles/Docs/) as a work in progress.
 
 
 ## Overview
