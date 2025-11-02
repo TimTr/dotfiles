@@ -1,4 +1,4 @@
-# Dotfiles for Tim Triemstra
+# Dotfiles README.md
 
 Run `./setup.sh` from within the local `dotfiles` directory to install. Quit and re-launch the terminal. e.g.:
 
@@ -8,16 +8,14 @@ Run `./setup.sh` from within the local `dotfiles` directory to install. Quit and
   ./setup.sh
 ```
 
-Once installed, you can run `dotfiles.sh` from the PATH at any time to reset your config. For instance, if you want to restore the `~/local.sh` file to default config, first delete it then run `dotfiles.sh`. You can also run `help.sh` to see additional functionality.
+If the above fails on macOS, ensure you have Xcode installed. Once run, you can type `dotfiles.sh` from at any time via the PATH to reset your config. For instance, if you want to restore the `~/local.sh` file to default config, first delete it then run `dotfiles.sh`. You can also run `help.sh` to see additional functionality.
 
-NOTE: macOS requires that you first install Xcode or the command line tools. 
-
-[Documentation is available](https://timtr.github.io/dotfiles/Docs/) as a work in progress.
+More detailed [documentation is available](https://timtr.github.io/dotfiles/Docs/) as a work in progress.
 
 
 ## Overview
 
-This is my personal collection of setup scripts for macOS and Linux (WIP). It includes settings for `zsh`, macOS Terminal, Xcode, Swift, and other tools and apps. This set will also install Homebrew and a recent version of Ruby.
+This is the personal collection of setup scripts for macOS and Linux (WIP). It includes settings for `zsh`, macOS Terminal, Xcode, Swift, and other tools and apps. This set will also install Homebrew and a recent version of Ruby.
 
 The setup will assume your settings are configured directly within the `dotfiles` directory where you cloned this repo. It will also add `~/Bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support.
 
