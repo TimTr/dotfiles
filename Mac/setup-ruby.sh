@@ -19,7 +19,7 @@ sudo gem update
 
 
 
-# TODO: the below may require Terminal is restarted one before it succeeds?
+# TODO: below may require Terminal is restarted once before it succeeds?
 
 # ==============================================================================
 # Install some gems (Jekyll and Bundler to start)

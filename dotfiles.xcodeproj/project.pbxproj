@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		BAD0E0152E5395CD00274CAF /* index.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = index.md; sourceTree = "<group>"; };
 		BAD0E0162E5395CD00274CAF /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		BAD0E0172E5395CD00274CAF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BAD0E0182E5395CD00274CAF /* setup.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = setup.sh; sourceTree = "<group>"; };
@@ -51,7 +50,6 @@
 				BAD0DFFE2E5395B200274CAF /* DotRunner */,
 				BAD0E0082E5395B200274CAF /* Linux */,
 				BAD0E0142E5395B200274CAF /* Mac */,
-				BAD0E0152E5395CD00274CAF /* index.md */,
 				BAD0E0162E5395CD00274CAF /* license.txt */,
 				BAD0E0182E5395CD00274CAF /* setup.sh */,
 			);

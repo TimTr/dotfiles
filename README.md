@@ -1,6 +1,6 @@
 # Dotfiles README.md
 
-Run `./setup.sh` from within the local `dotfiles` directory to install. Quit and re-launch the terminal. e.g.:
+To install, run `./setup.sh` from within the local `dotfiles` directory. Quit and re-launch the terminal.
 
 ```shell
   git clone https://github.com/timtr/dotfiles.git
@@ -8,7 +8,7 @@ Run `./setup.sh` from within the local `dotfiles` directory to install. Quit and
   ./setup.sh
 ```
 
-If the above fails on macOS, ensure you have Xcode installed. Once run, you can type `dotfiles.sh` from at any time via the PATH to reset your config. For instance, if you want to restore the `~/local.sh` file to default config, first delete it then run `dotfiles.sh`. You can also run `help.sh` to see additional functionality.
+Once installed, you can always run `dotfiles.sh` from the PATH to reset your config. For instance, simply delete the `~/local.sh` file and then run `dotfiles.sh` to restore it to the default config. You can also run `help.sh` to see additional functionality. If the above install fails on macOS ensure you have Xcode installed. 
 
 More detailed [documentation is available](https://timtr.github.io/dotfiles/Docs/) as a work in progress.
 
