@@ -2,7 +2,7 @@
 #
 # setup-macos.sh - the macOS version
 echo
-source "$DOTFILES_ROOT/Mac/dot-functions.sh"
+source "$DOTFILES_ROOT/Mac/Root/dot-functions.sh"
 
 message "🔔 Environment:" "Locations being used for this install of Dotfiles"
 bullet "DOTFILES_ROOT = $DOTFILES_ROOT"

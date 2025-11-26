@@ -3,7 +3,7 @@
 # dotfiles.sh - the Linux version
 
 # TODO: abort if git, cc, or other needed tools are not available
-source "$DOTFILES_ROOT/Linux/dot-functions.sh"
+source "$DOTFILES_ROOT/Linux/Root/dot-functions.sh"
 message "dotfiles.sh -- clean BASH setup for Linux via ${DOTFILES_ROOT}"
 
 chown -R $USER ${DOTFILES_ROOT}/*  2> /dev/null
@@ -11,10 +11,10 @@ chmod -R 777 ${DOTFILES_ROOT}/*    2> /dev/null
 
 # ==============================================================================
 message "Installing root dotfiles" "Overwriting existing versions of these files"
-cp $DOTFILES_ROOT/Linux/dot-bashrc.sh $HOME/.bashrc
-cp $DOTFILES_ROOT/Linux/dot-bashprofile.sh $HOME/.profile
-cp $DOTFILES_ROOT/Linux/dot-aliases.sh $HOME/.aliases
-cp $DOTFILES_ROOT/Linux/dot-functions.sh $HOME/.functions
+cp $DOTFILES_ROOT/Linux/Root/dot-bashrc.sh $HOME/.bashrc
+cp $DOTFILES_ROOT/Linux/Root/dot-bashprofile.sh $HOME/.profile
+cp $DOTFILES_ROOT/Linux/Root/dot-aliases.sh $HOME/.aliases
+cp $DOTFILES_ROOT/Linux/Root/dot-functions.sh $HOME/.functions
 
 # Copy over tool and app settings
 cp $DOTFILES_ROOT/Linux/Config/dot-gitconfig $HOME/.gitconfig
