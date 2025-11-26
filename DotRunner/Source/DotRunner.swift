@@ -1,16 +1,20 @@
 // DotRunner.swift
 
-@main
-struct FizzBuzz {
+
+/** This is a header doc section of comments
+    this is a test
+    only a test
+ */
+@main struct FizzBuzz {
     static func main() {
         print("\n >>>> Calling fizzBuzzSimple: \n")
         for count in 1...100 {
-            print ("\(fizzBuzzSimple(count))")
+            print("\(fizzBuzzSimple(count))")
         }
 
         print( "\n\n >>>> Calling fizzBuzzSwitch: \n")
         for count in 1...100 {
-            print ("\(fizzBuzzSwitch(count))")
+            print("\(fizzBuzzSwitch(count))")
         }
         
         print("\n >>>> Finished FizzBuzz.swift via SwiftPM \n");

@@ -105,7 +105,7 @@ if [[ -f "$HOME/local.sh" ]]; then
   bullet "~/local.sh file exists. Delete the file and re-run to install from template"
 else
   bullet "✅ Installing ~/local.sh - Creating new from ./Dotfiles/Mac/local-template.sh"
-  cp $DOTFILES_ROOT/Mac/Config/local-template.sh $HOME/local.sh
+  cp $DOTFILES_ROOT/Mac/Root/local-template.sh $HOME/local.sh
 fi
 
 

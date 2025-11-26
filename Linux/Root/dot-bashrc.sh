@@ -6,6 +6,8 @@
 # For those global (no shell visible) cases, use the `.zshenv` file.
 # -------------------------------------------------------------
 
+## TODO: This was not yet customized to work for BASH
+
 source $HOME/.aliases
 source $HOME/.functions
 source $HOME/.zshenv

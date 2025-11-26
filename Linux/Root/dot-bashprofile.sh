@@ -1,10 +1,11 @@
-# .zshenv - Loaded in every session, even if not interactive
+# .bashenv - Loaded in every session, even if not interactive
 #
 # No need to import command prompt, graphics, or other things
 # that only apply to interactive shells. Those won't have any
 # impact and can just slow down some tools that load this.
 # -------------------------------------------------------------
 
+## TODO: This was not yet customized to work for BASH
 ## TODO: Not yet supporting Homebrew on Linux, commenting out
 
 # Adding the Dotfiles/Mac folder to PATH, as well as Homebrew
