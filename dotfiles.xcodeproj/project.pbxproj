@@ -8,7 +8,7 @@
 
 /* Begin PBXFileReference section */
 		BAD0E0162E5395CD00274CAF /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
-		BAD0E0172E5395CD00274CAF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BAD0E0172E5395CD00274CAF /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		BAD0E0182E5395CD00274CAF /* setup.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = setup.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,7 +39,7 @@
 		BAD0DFDD2E53946700274CAF = {
 			isa = PBXGroup;
 			children = (
-				BAD0E0172E5395CD00274CAF /* README.md */,
+				BAD0E0172E5395CD00274CAF /* readme.md */,
 				BAD0DFF92E5395B200274CAF /* Docs */,
 				BAD0DFFE2E5395B200274CAF /* DotRunner */,
 				BAD0E0082E5395B200274CAF /* Linux */,
