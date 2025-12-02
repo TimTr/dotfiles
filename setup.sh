@@ -9,17 +9,9 @@ export DOTFILES_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # This script runs either Linux or macOS installer (do not "source" the scripts)
 if [[ $OSTYPE == darwin* ]]; then
-
-  echo
-  echo " Setting up macOS:  $DOTFILES_ROOT/Mac/dotfiles.sh"
   $DOTFILES_ROOT/Mac/dotfiles.sh
-
 else
-
-  echo
-  echo " Setting up Linux:  $DOTFILES_ROOT/Linux/dotfiles.sh"
   $DOTFILES_ROOT/Linux/dotfiles.sh
-
 fi
 
 exit 0

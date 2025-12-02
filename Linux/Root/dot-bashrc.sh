@@ -16,6 +16,11 @@ source $HOME/.functions
 TIMENOW=$(date +%d-%m-%Y" "%H:%M:%S)
 message ".bashrc" "Launched $SHELL' at ${TIMENOW}."
 
+
+# Fixes sort order with capital letters first in Linux
+export LC_COLLATE="C"
+
+# Handle some color rules (not sure this is tuned for Linux)
 export CLICOLOR=1
 export LSCOLORS=gxFxCxDxbxExBxAxaxaxex
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=37:cd=34:su=36:sg=36;40:tw=36:ow=36"
