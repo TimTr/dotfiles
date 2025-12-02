@@ -1,4 +1,4 @@
-#!/bin/bash
+# source this file into .bashrc
 #
 # Linux version
 
@@ -8,7 +8,7 @@ LOADED_FUNCTIONS=true
 
 # NOTE: some characters will not work within printf functions, e.g. "!"
 # error() should report major failures, often ejecting from the script
-error ()   { printf "\r\033[01;31m [ERROR]\033[00;31m $1 \033[0m \n"}
+function error()   { printf "\r\033[01;31m [ERROR]\033[00;31m $1 \033[0m \n" }
 
 # alert() is extra bright to get attention, but not an error (two parameters)
 alert ()  { printf "\r\033[00;35m $1\033[0m $2\n" }
@@ -34,10 +34,5 @@ md() {
     mkdir -p "$@" && cd "$@"
 }
 
-# Delete Xcode derived data
-xcode-clean() {
-    echo "Deleting all Xcode derived data..."
-    rm -rdf ~/Library/Developer/Xcode/DerivedData/*
-}
 
 

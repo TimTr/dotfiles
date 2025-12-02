@@ -12,7 +12,6 @@ chmod -R 777 ${DOTFILES_ROOT}/*    2> /dev/null
 # ==============================================================================
 message "Installing root dotfiles" "Overwriting existing versions of these files"
 cp $DOTFILES_ROOT/Linux/Root/dot-bashrc.sh $HOME/.bashrc
-cp $DOTFILES_ROOT/Linux/Root/dot-bashprofile.sh $HOME/.profile
 cp $DOTFILES_ROOT/Linux/Root/dot-aliases.sh $HOME/.aliases
 cp $DOTFILES_ROOT/Linux/Root/dot-functions.sh $HOME/.functions
 

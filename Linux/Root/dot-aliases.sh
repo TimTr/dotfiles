@@ -1,5 +1,5 @@
-#!/bin/bash
-#
+# source this file into .bashrc
+
 # Linux version
 
 if [[ -v LOADED_ALIAS ]]; then return; fi

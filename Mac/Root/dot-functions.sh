@@ -1,4 +1,4 @@
-#!/bin/zsh
+# source this file into .zshrc
 
 if [[ -v LOADED_FUNCTIONS ]]; then return; fi
 LOADED_FUNCTIONS=true
