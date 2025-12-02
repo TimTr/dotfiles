@@ -161,7 +161,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool TRUE
 message "✅ git config --global user.name" "= $(git config --get user.name)"
 message "✅ git config --global user.email" "= $(git config --get user.email)"
 echo
-message "🎉 Success!" "Restart Terminal and run ${txtbold}setup-brew.sh${txtnormal} and ${txtbold}setup-ruby.sh${txtnormal}"
+message "🎉 Success!" "Restart Terminal and run setup-brew.sh and setup-ruby.sh"
 
 echo
 exit 0

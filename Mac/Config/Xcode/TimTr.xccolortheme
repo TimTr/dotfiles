@@ -109,7 +109,7 @@
 		<key>xcode.syntax.comment.doc.keyword</key>
 		<string>0.277458 0.277458 0.277458 1</string>
 		<key>xcode.syntax.declaration.other</key>
-		<string>0.773184 0.264222 0.0500823 1</string>
+		<string>0.987517 0.322992 0.0290003 1</string>
 		<key>xcode.syntax.declaration.type</key>
 		<string>0.987517 0.322992 0.0290003 1</string>
 		<key>xcode.syntax.identifier.class</key>
@@ -159,7 +159,7 @@
 		<key>xcode.syntax.regex.other</key>
 		<string>0.174161 0.385937 0.430921 1</string>
 		<key>xcode.syntax.string</key>
-		<string>0.986252 0.00723597 0.027423 1</string>
+		<string>0.984288 0.111031 0.152288 1</string>
 		<key>xcode.syntax.url</key>
 		<string>0.419458 0.565601 0.990365 1</string>
 	</dict>
@@ -176,7 +176,7 @@
 		<key>xcode.syntax.comment.doc.keyword</key>
 		<string>SFMono-Semibold - 16.0</string>
 		<key>xcode.syntax.declaration.other</key>
-		<string>SFMono-Medium - 16.0</string>
+		<string>SFMono-LightItalic - 16.0</string>
 		<key>xcode.syntax.declaration.type</key>
 		<string>SFMono-Semibold - 16.0</string>
 		<key>xcode.syntax.identifier.class</key>
@@ -226,7 +226,7 @@
 		<key>xcode.syntax.regex.other</key>
 		<string>SFMono-Light - 16.0</string>
 		<key>xcode.syntax.string</key>
-		<string>SFMono-SemiboldItalic - 16.0</string>
+		<string>SFMono-LightItalic - 16.0</string>
 		<key>xcode.syntax.url</key>
 		<string>SFMono-MediumItalic - 16.0</string>
 	</dict>
