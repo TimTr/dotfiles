@@ -1,26 +1,43 @@
-#!/bin/zsh
+#!/bin/bash
+#
+# Linux version
 
 if [[ -v LOADED_FUNCTIONS ]]; then return; fi
 LOADED_FUNCTIONS=true
 
 
-# Functions to make output attractive when running the script
-# NOTE: some characters in parameters will not work, e.g. "!"
+# NOTE: some characters will not work within printf functions, e.g. "!"
+# error() should report major failures, often ejecting from the script
+error ()   { printf "\r\033[01;31m [ERROR]\033[00;31m $1 \033[0m \n"}
 
-# `message` and `error` take two string parameters
-message () { printf "\r [\033[00;32m $1\033[0m ] $2\n" }
-error ()   { printf "\r\033[00;31m ** $1\033[0m - \033[00;31m$2 \033[0m \n" }
-alert ()  { printf "\r\033[00;35m >> $1\033[0m  $2\n" }
-bullet ()  { printf "\r\033[00;36m   ==\033[0m $1  $2\n" }
+# alert() is extra bright to get attention, but not an error (two parameters)
+alert ()  { printf "\r\033[00;35m $1\033[0m $2\n" }
+
+# message() as a bright message, and less-bright detail message (two parameters)
+message () { printf "\r\033[00;32m $1\033[0m $2\n" }
+
+# bullet() is sub-items from messages, if warranting more lines of text
+bullet ()  { printf "\r\033[00;36m   ==\033[0m $1 \n" }
+
+# echo "this is ${txtbold}bold${txtnormal} but this isn't"
+txtbold=$(tput bold)
+txtnormal=$(tput sgr0)
+
 
 # ... Find all files recursively under current folder
 findall () {
-    find ./ -name $1 -print 2> /dev/null
+    find . -name "$1" -print 2> /dev/null
 }
 
 # ... Create a new directory and enter it
 md() {
     mkdir -p "$@" && cd "$@"
+}
+
+# Delete Xcode derived data
+xcode-clean() {
+    echo "Deleting all Xcode derived data..."
+    rm -rdf ~/Library/Developer/Xcode/DerivedData/*
 }
 
 

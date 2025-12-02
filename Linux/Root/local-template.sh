@@ -1,6 +1,6 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 #
-# LINUX VERSION
+# Linux version
 #
 # Modify this file at your root folder to customize the local machine
 #

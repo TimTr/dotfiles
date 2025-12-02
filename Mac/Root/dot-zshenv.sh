@@ -1,4 +1,4 @@
-# .zshenv - Loaded in every session, even if not interactive. Great for PATH.
+# .zshenv - Mac version - Loaded in every session, great for PATH.
 
 # Adding the $HOME/bin and dotfiles/Mac folders to PATH, as well as Homebrew
 export PATH="$HOME/Bin:$DOTFILES_ROOT/Mac:/opt/homebrew/bin"

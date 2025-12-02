@@ -1,4 +1,4 @@
-# .zshrc - Loaded only in interactive shell sessions - macOS version
+# .zshrc - Mac version - Loaded only in interactive shell sessions
 #
 # Because this file is only loaded in interactive shell (Terminal) sessions,
 # It is perfect for setting up things like colors, etc. However, it isn't

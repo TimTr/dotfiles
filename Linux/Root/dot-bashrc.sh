@@ -1,45 +1,32 @@
-# .zshrc - Loaded only in interactive shell sessions - Linux version
+# .bashrc - Linux - Both interactive and "headless" shell sessions
 #
-# Because this file is only loaded in interactive shell (Terminal) sessions,
-# It is perfect for setting up things like colors, etc. However, it isn't
-# the right place to setup PATH and other variables that tools may want.
-# For those global (no shell visible) cases, use the `.zshenv` file.
-# -------------------------------------------------------------
+# Adding the $HOME/bin and dotfiles/Linux folders to PATH. Homebrew not setup yet
+export PATH="$HOME/Bin:$DOTFILES_ROOT/Linux"
+
+# Add default system PATHs at end of the chain
+export PATH="$PATH:/usr/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin"
+
 
 ## TODO: This was not yet customized to work for BASH
 
 source $HOME/.aliases
 source $HOME/.functions
-source $HOME/.zshenv
 
-# Report tha .zshrc is loading and at what time
+# Report tha .bashrc is loading and at what time
 TIMENOW=$(date +%d-%m-%Y" "%H:%M:%S)
-message ".zshrc" "Launched $SHELL' at ${TIMENOW}."
+message ".bashrc" "Launched $SHELL' at ${TIMENOW}."
 
 
-# ==============================================================================
-# Python3 - Augument the default PATH for Python3 use
-export PY_PYTHON=3
-
+## TODO: Fix the coloring for bash (was different for zsh)
 # Colors -- usable everywhere now that they are in the .zshrc
 autoload colors; colors;
 
-# Syntax coloring for ZSH is a bit different than bash
 export CLICOLOR=1
 export LSCOLORS=gxFxCxDxbxExBxAxaxaxex
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=37:cd=34:su=36:sg=36;40:tw=36:ow=36"
 
-
-## Parse git branch to put into the prompt
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-# Enable substitutions within the prompt
-setopt PROMPT_SUBST
-
 # Set the actual prompt
-NEWLINE=$'\n'
-PROMPT='${NEWLINE}%F{white}% → %F{red}% %9c% %F{grey}% $(parse_git_branch) %F{white}% ${NEWLINE}↪ %f'
+PS1="[\[\033[32m\]\w]\[\033[0m\]<strong>\n</strong>\[\033[1;36m\]\u\[\033[1;33m\]-> \[\033[0m\]"
 
 
 ## end of file.
