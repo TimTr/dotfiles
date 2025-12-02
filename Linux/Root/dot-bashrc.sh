@@ -16,17 +16,12 @@ source $HOME/.functions
 TIMENOW=$(date +%d-%m-%Y" "%H:%M:%S)
 message ".bashrc" "Launched $SHELL' at ${TIMENOW}."
 
-
-## TODO: Fix the coloring for bash (was different for zsh)
-# Colors -- usable everywhere now that they are in the .zshrc
-autoload colors; colors;
-
 export CLICOLOR=1
 export LSCOLORS=gxFxCxDxbxExBxAxaxaxex
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=37:cd=34:su=36:sg=36;40:tw=36:ow=36"
 
 # Set the actual prompt
-PS1="[\[\033[32m\]\w]\[\033[0m\]<strong>\n</strong>\[\033[1;36m\]\u\[\033[1;33m\]-> \[\033[0m\]"
+PS1="[\[\033[32m\]\w]\[\033[0m\] \[\033[1;36m\]\u\[\033[1;33m\] > \[\033[0m\]"
 
 
 ## end of file.

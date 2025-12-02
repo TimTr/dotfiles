@@ -16,9 +16,9 @@ cp $DOTFILES_ROOT/Linux/Root/dot-aliases.sh $HOME/.aliases
 cp $DOTFILES_ROOT/Linux/Root/dot-functions.sh $HOME/.functions
 
 # Copy over tool and app settings
-cp $DOTFILES_ROOT/Linux/Config/dot-gitconfig $HOME/.gitconfig
-cp $DOTFILES_ROOT/Linux/Config/dot-gitignore $HOME/.gitignore
-cp $DOTFILES_ROOT/Linux/Config/dot-vimrc $HOME/.vimrc
+cp $DOTFILES_ROOT/Linux/Root/dot-gitconfig $HOME/.gitconfig
+cp $DOTFILES_ROOT/Linux/Root/dot-gitignore $HOME/.gitignore
+cp $DOTFILES_ROOT/Linux/Root/dot-vimrc $HOME/.vimrc
 
 echo "Empty file to silence new shell messages" >> $HOME/.hushlogin
 
@@ -39,8 +39,8 @@ fi
 message "Restart the terminal" "After restart, you can run the following commands:"
 bullet "git config --global user.name \"Your Name\""
 bullet "git config --global user.email \"youremail@yourdomain.com\""
-bullet "setup-brew.sh  <-- install or update Homebrew"
-bullet "setup-ruby.sh  <-- setup a newer version (or update) of Ruby via Homebrew"
+bullet "setup-brew.sh  <-- install or update Homebrew (EXPERIMENTAL)"
+bullet "setup-ruby.sh  <-- setup a newer version of Ruby via Homebrew (EXPERIMENTAL)"
 echo
 
 exit 0
