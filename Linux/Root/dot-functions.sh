@@ -2,10 +2,11 @@
 #
 # Linux version
 
-if [[ -v LOADED_FUNCTIONS ]];
-  then return;
-fi;
-LOADED_FUNCTIONS=true
+
+# if [[ -v LOADED_FUNCTIONS ]];
+#  then return;
+# fi;
+# LOADED_FUNCTIONS=true
 
 
 # NOTE: some characters will not work within printf functions, e.g. "!"
@@ -21,11 +22,6 @@ function message() { printf "\r\033[00;32m $1\033[0m $2\n" }
 # bullet() is sub-items from messages, if warranting more lines of text
 function bullet()  { printf "\r\033[00;36m   ==\033[0m $1 \n" }
 
-# echo "this is ${txtbold}bold${txtnormal} but this isn't"
-# txtbold=$(tput bold)
-# txtnormal=$(tput sgr0)
-
-
 # ... Find all files recursively under current folder
 function findall() {
     find . -name "$1" -print 2> /dev/null
@@ -36,5 +32,4 @@ function md() {
     mkdir -p "$@" && cd "$@"
 }
 
-
-
+## end of file.
