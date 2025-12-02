@@ -4,7 +4,7 @@
 export PATH="$HOME/Bin:$DOTFILES_ROOT/Linux"
 
 # Add default system PATHs at end of the chain
-export PATH="$PATH:/usr/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin"
+export PATH="$PATH:/usr/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin:/snap/bin"
 
 
 ## TODO: This was not yet customized to work for BASH
