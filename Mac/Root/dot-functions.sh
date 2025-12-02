@@ -19,25 +19,20 @@ function message() { printf "\r\033[00;32m $1\033[0m $2\n" }
 # bullet() is sub-items from messages, if warranting more lines of text
 function bullet()  { printf "\r\033[00;36m   ==\033[0m $1 \n" }
 
+# ... Find all files recursively under current folder
+function findall() { find . -name "$1" -print 2> /dev/null; }
+
+# ... Create a new directory and enter it
+function md() { mkdir -p "$@" && cd "$@"; }
+
+# Delete Xcode derived data
+function xcode-clean() {
+    echo "Deleting all Xcode derived data...";
+    rm -rdf ~/Library/Developer/Xcode/DerivedData/*;
+}
+
 # echo "this is ${txtbold}bold${txtnormal} but this isn't"
 txtbold=$(tput bold)
 txtnormal=$(tput sgr0)
 
-
-# ... Find all files recursively under current folder
-function findall() {
-    find . -name "$1" -print 2> /dev/null
-}
-
-# ... Create a new directory and enter it
-function md() {
-    mkdir -p "$@" && cd "$@"
-}
-
-
-# Delete Xcode derived data
-function xcode-clean() {
-    echo "Deleting all Xcode derived data..."
-    rm -rdf ~/Library/Developer/Xcode/DerivedData/*
-}
-
+# end of file.
