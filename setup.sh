@@ -1,10 +1,17 @@
 #!/bin/bash
 #
 #  'setup.sh' is used by GitHub and other VMs at startup
+#
+#  This script is setup to launch using the bash shell since it is
+#  common across supported platforms. It doesn't do anything very complex
+#  so the code should work even on very old versions of bash.
+#
+#  The subsequent scripts in this repo may use more advanced features
+#  so they may specify zsh or bash as needed, with Linux using primarily
+#  bash. On macOS zsh is now the default shell and bash is quite old.
 
 
 # Set Dotfiles home to be the folder in which `setup.sh` was run (requires ZSH)
-# export DOTFILES_ROOT=${0:a:h}
 export DOTFILES_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # This script runs either Linux or macOS installer (do not "source" the scripts)
