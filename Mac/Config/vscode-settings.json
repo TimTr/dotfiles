@@ -2142,7 +2142,7 @@
         "inputOption.activeForeground": "#ffffff",
         "input.placeholderForeground": "#a6a6a6",       
         "textLink.foreground": "#3794ff",
-        "editor.background": "#0d1116",
+        "editor.background": "#101519",
         "editor.foreground": "#d4d4d4",
         "editorLineNumber.foreground": "#858585",
         "editorCursor.foreground": "#aeafad",
@@ -2380,7 +2380,7 @@
                 "scope": "heading.2.markdown entity.name.section.markdown, heading.2.markdown punctuation.definition.heading.markdown",
                 "settings": {
                     "foreground": "#ff6a00",
-                    "fontStyle": "italic",
+                    "fontStyle": "bold",
                 }
             },
             {
@@ -2475,5 +2475,5 @@
     "workbench.iconTheme": "dobri-theme-icons",
     "github.copilot.nextEditSuggestions.enabled": true,
     "editor.lineNumbers": "off",
-    "workbench.colorTheme": "Aura Dark"
+    "security.workspace.trust.untrustedFiles": "open"
 }
