@@ -20,7 +20,9 @@ cp $DOTFILES_ROOT/Linux/Root/dot-functions.sh $HOME/.functions
 # Copy over tool and app settings
 cp $DOTFILES_ROOT/Linux/Root/dot-gitconfig $HOME/.gitconfig
 cp $DOTFILES_ROOT/Linux/Root/dot-gitignore $HOME/.gitignore
-cp $DOTFILES_ROOT/Linux/Root/dot-vimrc $HOME/.vimrc
+
+# Copy common files used across platforms (keeps them in sync)
+cp $DOTFILES_ROOT/Common/Config/dot-vimrc $HOME/.vimrc
 
 echo "Empty file to silence new shell messages" >> $HOME/.hushlogin
 

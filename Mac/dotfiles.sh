@@ -115,12 +115,15 @@ cp $DOTFILES_ROOT/Mac/Root/dot-zshrc.sh $HOME/.zshrc
 cp $DOTFILES_ROOT/Mac/Root/dot-zshenv.sh $HOME/.zshenv
 cp $DOTFILES_ROOT/Mac/Root/dot-aliases.sh $HOME/.aliases
 cp $DOTFILES_ROOT/Mac/Root/dot-functions.sh $HOME/.functions
-cp $DOTFILES_ROOT/Mac/Root/dot-vimrc $HOME/.vimrc
 
-# Copy Git configuration dot-files (using ./Documents for work repos)
+#  Mac-specific Git configuration dot-files (using ./Documents for work repos)
 cp $DOTFILES_ROOT/Mac/Root/dot-gitconfig $HOME/.gitconfig
 cp $DOTFILES_ROOT/Mac/Root/dot-gitconfig-work $HOME/Documents/.gitconfig-work
-cp $DOTFILES_ROOT/Mac/Root/dot-gitignore $HOME/.gitignore
+
+# Common settings across platforms
+cp $DOTFILES_ROOT/Common/Root/dot-gitignore $HOME/.gitignore
+cp $DOTFILES_ROOT/Common/Root/dot-vimrc $HOME/.vimrc
+
 
 echo "This dummy file silences new shell messages" >> $HOME/.hushlogin
 

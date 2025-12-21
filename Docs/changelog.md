@@ -1,12 +1,6 @@
 # TODO items for dotfiles project
 
-- Add basic support for Linux
-- Move Config files to platform-specific folders (e.g. Xcode setting in ./Mac folder)
-- Report current ruby, swift, python, and Homebrew versions on setup    
-- Function to delete `./DS_Store` files recursively down a folder structure 
 
-
-## Done
 
 - Git tool to use `~/Documents` instead of the `~/Work` for custom code signing
 - Verify that re-running `dotfiles.sh` from anywhere resets the setup

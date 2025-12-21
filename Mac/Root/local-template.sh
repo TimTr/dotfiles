@@ -15,6 +15,13 @@ if [[ -v LOADED_LOCAL ]]; then return; fi
 export LOADED_LOCAL=true
 message "Loading ~/local.sh" "Sets local Swift toolchain, tokens, keys, and passwords"
 
+# Alias commands to login to servers
+# ALERT: Edit these locally and do not commit these to GitHub!
+alias ssh-example="ssh example@example -p password"
+
+
+
+
 # To enable latest Swift.org toolchain in /Library/Developer/Toolchains/"
 #  export TOOLCHAINS=swift ("swift" = use Swift.org tools, empty = use Xcode)
 export TOOLCHAINS=
