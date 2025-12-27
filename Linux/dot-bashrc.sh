@@ -1,11 +1,10 @@
 # .bashrc - Linux - Both interactive and "headless" shell sessions
 #
-# Adding the $HOME/bin and dotfiles/Linux folders to PATH. Homebrew not setup yet
-export PATH="$HOME/Bin:$DOTFILES_ROOT/Linux"
+# Adding the /usr/local/bin/$USER to the PATH. Homebrew not setup yet
+export PATH="usr/local/bin/$USER"
 
 # Add default system PATHs at end of the chain
 export PATH="$PATH:/usr/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin:/snap/bin"
-
 
 ## TODO: This was not yet customized to work for BASH
 

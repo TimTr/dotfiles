@@ -8,21 +8,26 @@ message "🔔 Environment:" "Locations being used for this install of Dotfiles"
 bullet "DOTFILES_ROOT = $DOTFILES_ROOT"
 bullet "Run location = ${0:a:h}"
 
+
+# ==============================================================================
+# Require that Xcode is installed and selected before proceeding
 if xcode-select -p &> /dev/null
 then
   bullet "xcode-select -p = $(xcode-select -p)"
 else
-  error "❌ Install Xcode, then re-run setup.sh"
+  error "❌ Install Xcode, run xcode-select -p, and then re-run setup.sh"
   exit 0
 fi
 
+
 # ==============================================================================
-# Require `zsh` as the default, and set the default shell if needed
+# Require `zsh` as the default on macOS, and set the default shell if needed
 if [ $SHELL != "/bin/zsh" ]; then
   chsh -s /bin/zsh
-  echo "❌ Set default shell to /bin/zsh and re-run setup.sh"
+  echo "❌ Set default shell to ZSH and re-run setup.sh:  chsh -s /usr/bin/zsh"
   exit 0
 fi
+
 
 # ==============================================================================
 message "🔐 SUDO required" "Creating folders, aliases, and setting file permissions"
@@ -37,11 +42,29 @@ find $DOTFILES_ROOT -type f -print0 | xargs -0 chmod 644
 # Make all .sh files (-type f) also executable
 find $DOTFILES_ROOT -name "*.sh" -type f -print0 | xargs -0 chmod 755
 
-# Get rid of teh quarantine bit (which occasionally gets set for some reason)
+# Get rid of the quarantine bit (which occasionally gets set via downloads)
 xattr -d com.apple.quarantine $DOTFILES_ROOT/* 2> /dev/null
 
-# /opt/homebrew on M1+ CPUs, /usr/local is Mac Intel, and /opt/bin on Linux
-# Create these directories "just in case"
+
+# ==============================================================================
+# Create /usr/local/bin/$USER folder in which to put local code repositorities
+if [[ -d "/usr/local/bin/$USER" ]]; then
+
+  bullet "/usr/local/bin/$USER exists. Also added to the PATH for user content"
+  
+else
+
+  mkdir -p /usr/local/bin/$USER
+  sudo chown -R "$USER":admin /usr/local/bin/$USER
+  sudo chmod 744 /usr/local/bin/$USER
+  message "✅ Created /usr/local/bin/$USER and put it in the PATH for your code"
+
+fi
+
+
+# ==============================================================================
+# Homebrew uses /opt/homebrew on ARM and /usr/local on Intel, and /opt/bin on Linux
+# Create these directories "just in case" on macOS
 sudo mkdir -p /opt/homebrew/bin
 sudo mkdir -p /usr/local/bin
 
@@ -55,24 +78,12 @@ sudo chmod 744 /usr/local/bin
 
 
 # ==============================================================================
-# Create ~/Bin folder in which to put local code repositorities
-if [[ -d "$HOME/Bin/" ]]; then
-  bullet "~/Bin exists. Put user scripts and code you want in the PATH here"
-else
-  mkdir ~/Bin
-  sudo chown -R "$USER":admin $HOME/Bin
-  sudo chmod 744 $HOME/Bin
-  bullet "✅ Created ~/Bin - New folder for user code and scripts in the PATH"
-fi
-
-
-# ==============================================================================
 # Create ~/Developer folder in which to put local code repositorities
 if [[ -d "$HOME/Developer/" ]]; then
   bullet "~/Developer exists. Use this folder for personal repositories"
 else
   mkdir ~/Developer
-  bullet "✅ Created ~/Developer - New folder for local developer work"
+  message "✅ Created ~/Developer - New folder for local developer work"
 fi
 
 # ==============================================================================
@@ -82,7 +93,7 @@ if [[ -d "$HOME/Documents/" ]]; then
   bullet "~/Documents exists. Use this folder for work repositories"
 else
   mkdir ~/Documents
-  bullet "✅ Created ~/Documents - New folder for work repositories"
+  message "✅ Created ~/Documents - New folder for work repositories"
 fi
 
 # ==============================================================================
@@ -104,7 +115,7 @@ fi
 if [[ -f "$HOME/local.sh" ]]; then
   bullet "~/local.sh file exists. Delete the file and re-run to install from template"
 else
-  bullet "✅ Installing ~/local.sh - Creating new from ./Dotfiles/Mac/local-template.sh"
+  message "✅ Installing ~/local.sh - Creating new from ./Dotfiles/Mac/local-template.sh"
   cp $DOTFILES_ROOT/Mac/Root/local-template.sh $HOME/local.sh
 fi
 
@@ -124,13 +135,14 @@ cp $DOTFILES_ROOT/Mac/Root/dot-gitconfig-work $HOME/Documents/.gitconfig-work
 cp $DOTFILES_ROOT/Common/Root/dot-gitignore $HOME/.gitignore
 cp $DOTFILES_ROOT/Common/Root/dot-vimrc $HOME/.vimrc
 
-
-echo "This dummy file silences new shell messages" >> $HOME/.hushlogin
+echo "This dummy file silences the [new shell] messages" >> $HOME/.hushlogin
 
 # Register gitignore and other git stuff
 git config --global core.excludesfile ~/.gitignore
 
+# ==============================================================================
 message "✅ Setup app preferences" "Overwriting Terminal, Xcode, and other settings"
+
 # Copy app settings
 cp $DOTFILES_ROOT/Mac/Config/Preferences/* $HOME/Library/Preferences/
 
@@ -165,8 +177,9 @@ message "✅ git config --global user.name" "= $(git config --get user.name)"
 message "✅ git config --global user.email" "= $(git config --get user.email)"
 echo
 message "🎉 Success!" "Restart Terminal and run setup-brew.sh and setup-ruby.sh"
-
 echo
+
+## End of file.
 exit 0
 
 
