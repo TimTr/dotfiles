@@ -14,11 +14,11 @@
 # Set Dotfiles home to be the folder in which `setup.sh` was run (requires ZSH)
 export DOTFILES_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# This script runs either Linux or macOS installer (do not "source" the scripts)
+# This script launches either Linux or macOS installer (do not "source" the scripts)
 if [[ $OSTYPE == darwin* ]]; then
-  $DOTFILES_ROOT/Mac/dotfiles.sh
+  $DOTFILES_ROOT/Mac/setup-mac.sh
 else
-  $DOTFILES_ROOT/Linux/dotfiles.sh
+  $DOTFILES_ROOT/Linux/setup-linux.sh
 fi
 
 exit 0

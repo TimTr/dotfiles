@@ -3,28 +3,41 @@
 # dotfiles.sh - the Linux version
 
 # TODO: abort if git, cc, or other needed tools are not available
-source "$DOTFILES_ROOT/Linux/Root/dot-functions.sh"
+source "$DOTFILES_ROOT/Linux/dot-functions.sh"
 message "dotfiles.sh -- clean BASH setup for Linux via ${DOTFILES_ROOT}"
 
+
+# ==============================================================================
+# Require `bash` as the default on Linux, and set the default shell if needed
+if [ $SHELL != "/bin/bash" ]; then
+  chsh -s /bin/bash
+  echo "❌ Script has set default shell to BASH, now re-run setup.sh"
+  exit 0
+fi
+
+# Claim ownership of all my dotfiles
+sudo chown -R $USER $DOTFILES_ROOT     2> /dev/null
+
+## Make sure all the dotfiles have proper ownership before starting
 chown -R $USER ${DOTFILES_ROOT}/*  2> /dev/null
 chmod -R 777 ${DOTFILES_ROOT}/*    2> /dev/null
 
+# Make all .sh files (-type f) also executable
+find $DOTFILES_ROOT -name "*.sh" -type f -print0 | xargs -0 chmod 755
 
 
 # ==============================================================================
 message "✅ Installing root dotfiles" "Overwriting existing versions of these files"
-cp $DOTFILES_ROOT/Linux/Root/dot-bashrc.sh $HOME/.bashrc
-cp $DOTFILES_ROOT/Linux/Root/dot-aliases.sh $HOME/.aliases
-cp $DOTFILES_ROOT/Linux/Root/dot-functions.sh $HOME/.functions
+cp $DOTFILES_ROOT/Linux/dot-bashrc.sh $HOME/.bashrc
+cp $DOTFILES_ROOT/Linux/dot-aliases.sh $HOME/.aliases
+cp $DOTFILES_ROOT/Linux/dot-functions.sh $HOME/.functions
 
 # Copy over tool and app settings
-cp $DOTFILES_ROOT/Linux/Root/dot-gitconfig $HOME/.gitconfig
-cp $DOTFILES_ROOT/Linux/Root/dot-gitignore $HOME/.gitignore
+cp $DOTFILES_ROOT/Linux/dot-gitconfig $HOME/.gitconfig
+cp $DOTFILES_ROOT/Linux/dot-gitignore $HOME/.gitignore
 
 # Copy common files used across platforms (keeps them in sync)
 cp $DOTFILES_ROOT/Common/Config/dot-vimrc $HOME/.vimrc
-
-echo "Empty file to silence new shell messages" >> $HOME/.hushlogin
 
 # Register gitignore and other git stuff
 git config --global core.excludesfile ~/.gitignore
@@ -43,7 +56,7 @@ if [[ -f "$HOME/local.sh" ]]; then
   message "~/local.sh exists" "Delete the file then re-run to install a template version"
 else
   message "Creating ~/local.sh" "Modify this file to add GitHub and SSH tokens"
-  cp $DOTFILES_ROOT/Linux/Root/local-template.sh $HOME/local.sh
+  cp $DOTFILES_ROOT/Linux/local-template.sh $HOME/local.sh
 fi
 
 message "✅ git config --global user.name" "= $(git config --get user.name)"

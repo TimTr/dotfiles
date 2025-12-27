@@ -24,7 +24,7 @@ fi
 # Require `zsh` as the default on macOS, and set the default shell if needed
 if [ $SHELL != "/bin/zsh" ]; then
   chsh -s /bin/zsh
-  echo "❌ Set default shell to ZSH and re-run setup.sh:  chsh -s /usr/bin/zsh"
+  echo "❌ Script has set default shell to ZSH, now re-run setup.sh"
   exit 0
 fi
 
@@ -47,22 +47,6 @@ xattr -d com.apple.quarantine $DOTFILES_ROOT/* 2> /dev/null
 
 
 # ==============================================================================
-# Create /usr/local/bin/$USER folder in which to put local code repositorities
-if [[ -d "/usr/local/bin/$USER" ]]; then
-
-  bullet "/usr/local/bin/$USER exists. Also added to the PATH for user content"
-  
-else
-
-  mkdir -p /usr/local/bin/$USER
-  sudo chown -R "$USER":admin /usr/local/bin/$USER
-  sudo chmod 744 /usr/local/bin/$USER
-  message "✅ Created /usr/local/bin/$USER and put it in the PATH for your code"
-
-fi
-
-
-# ==============================================================================
 # Homebrew uses /opt/homebrew on ARM and /usr/local on Intel, and /opt/bin on Linux
 # Create these directories "just in case" on macOS
 sudo mkdir -p /opt/homebrew/bin
@@ -78,12 +62,24 @@ sudo chmod 744 /usr/local/bin
 
 
 # ==============================================================================
+# Create /usr/local/bin/$USER folder in which to put local code repositorities
+if [[ -d "/usr/local/bin/$USER" ]]; then
+  bullet "/usr/local/bin/$USER exists. Added to the PATH for user content"
+else
+  mkdir -p /usr/local/bin/$USER
+  sudo chown -R "$USER":admin /usr/local/bin/$USER
+  sudo chmod 744 /usr/local/bin/$USER
+  message "✅ Created /usr/local/bin/$USER and added it to PATH for your code"
+fi
+
+
+# ==============================================================================
 # Create ~/Developer folder in which to put local code repositorities
 if [[ -d "$HOME/Developer/" ]]; then
   bullet "~/Developer exists. Use this folder for personal repositories"
 else
   mkdir ~/Developer
-  message "✅ Created ~/Developer - New folder for local developer work"
+  message "✅ Created ~/Developer - use this folder for personal developer work"
 fi
 
 # ==============================================================================
@@ -93,7 +89,7 @@ if [[ -d "$HOME/Documents/" ]]; then
   bullet "~/Documents exists. Use this folder for work repositories"
 else
   mkdir ~/Documents
-  message "✅ Created ~/Documents - New folder for work repositories"
+  message "✅ Created ~/Documents - use this folder for work repositories"
 fi
 
 # ==============================================================================
@@ -116,20 +112,20 @@ if [[ -f "$HOME/local.sh" ]]; then
   bullet "~/local.sh file exists. Delete the file and re-run to install from template"
 else
   message "✅ Installing ~/local.sh - Creating new from ./Dotfiles/Mac/local-template.sh"
-  cp $DOTFILES_ROOT/Mac/Root/local-template.sh $HOME/local.sh
+  cp $DOTFILES_ROOT/Mac/local-template.sh $HOME/local.sh
 fi
 
 
 # ==============================================================================
 message "✅ Setup root dot-files" "Overwriting existing files at $HOME"
-cp $DOTFILES_ROOT/Mac/Root/dot-zshrc.sh $HOME/.zshrc
-cp $DOTFILES_ROOT/Mac/Root/dot-zshenv.sh $HOME/.zshenv
-cp $DOTFILES_ROOT/Mac/Root/dot-aliases.sh $HOME/.aliases
-cp $DOTFILES_ROOT/Mac/Root/dot-functions.sh $HOME/.functions
+cp $DOTFILES_ROOT/Mac/dot-zshrc.sh $HOME/.zshrc
+cp $DOTFILES_ROOT/Mac/dot-zshenv.sh $HOME/.zshenv
+cp $DOTFILES_ROOT/Mac/dot-aliases.sh $HOME/.aliases
+cp $DOTFILES_ROOT/Mac/dot-functions.sh $HOME/.functions
 
 #  Mac-specific Git configuration dot-files (using ./Documents for work repos)
-cp $DOTFILES_ROOT/Mac/Root/dot-gitconfig $HOME/.gitconfig
-cp $DOTFILES_ROOT/Mac/Root/dot-gitconfig-work $HOME/Documents/.gitconfig-work
+cp $DOTFILES_ROOT/Mac/dot-gitconfig $HOME/.gitconfig
+cp $DOTFILES_ROOT/Mac/dot-gitconfig-work $HOME/Documents/.gitconfig-work
 
 # Common settings across platforms
 cp $DOTFILES_ROOT/Common/Root/dot-gitignore $HOME/.gitignore

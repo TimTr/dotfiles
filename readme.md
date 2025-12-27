@@ -22,16 +22,14 @@ More [documentation is available](https://timtr.github.io/dotfiles/Docs/), but i
 
 ## Overview
 
-This is the personal collection of setup scripts for macOS and Linux (WIP). It includes settings for `zsh`, macOS Terminal, Xcode, Swift, and other tools and apps. This set will also install Homebrew and a recent version of Ruby.
+This is the personal collection of setup scripts for macOS and Linux (WIP). It includes settings for macOS including `zsh` shell, `eza` for `ls` replacement, Terminal, Xcode, Swift, Homebrew, and Ruby. The Linux install is based on `bash` and still uses mostly default tools.
 
-The setup will assume your settings are configured directly within the `dotfiles` directory where you cloned this repo. It will also add `~/Bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support.
-
-Amost the most important pieces is the `dotfiles/Config/dot-gitignore` file that installs into `~/.gitignore` since that filters out build and other temporary files.
+The setup adds `/usr/local/bin/$USER` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support.
 
 
 ## Work-specific Git configuration
 
-The `./Mac/Config` directory includes a `dot-gitconfig-work` file that is installed to control the Git behavior for respositories in the `~/Documents` directory. It sets up code signing at commit time, and changes the username and email for those commits to work accounts. This general approach can work for any sub-directory custom configuration.
+The macOS install includes a `dot-gitconfig-work` file that is installed to control the Git behavior for respositories stored in the `~/Documents` directory. It sets up code signing at commit time, and changes the username and email for those commits to work accounts. This general approach can work for any sub-directory custom configuration.
 
 
 ## Setup SSH keys to easily login to remote servers
