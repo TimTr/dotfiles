@@ -1,4 +1,8 @@
 #!/bin/zsh
+#
+# backup.sh   -- macOS version: backs up critical files locally
+# ==============================================================================
+
 
 # Check if both parameters are provided
 if [ $# -ne 2 ]; then

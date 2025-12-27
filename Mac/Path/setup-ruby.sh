@@ -1,6 +1,8 @@
 #!/bin/zsh
 #
 # setup-ruby.sh   -- macOS version (simple version, installs latest)
+# ==============================================================================
+
 
 source ${HOME}/.functions
 message "setup-ruby.sh" "Running [brew install ruby] instead of [rbenv]"
