@@ -2,7 +2,7 @@
 #
 # setup-macos.sh - the macOS version
 echo
-source "$DOTFILES_ROOT/Mac/Root/dot-functions.sh"
+source "$DOTFILES_ROOT/Mac/dot-functions.sh"
 
 message "🔔 Environment:" "Locations being used for this install of Dotfiles"
 bullet "DOTFILES_ROOT = $DOTFILES_ROOT"
@@ -128,13 +128,19 @@ cp $DOTFILES_ROOT/Mac/dot-gitconfig $HOME/.gitconfig
 cp $DOTFILES_ROOT/Mac/dot-gitconfig-work $HOME/Documents/.gitconfig-work
 
 # Common settings across platforms
-cp $DOTFILES_ROOT/Common/Root/dot-gitignore $HOME/.gitignore
-cp $DOTFILES_ROOT/Common/Root/dot-vimrc $HOME/.vimrc
+cp $DOTFILES_ROOT/Common/dot-gitignore $HOME/.gitignore
+cp $DOTFILES_ROOT/Common/dot-vimrc $HOME/.vimrc
 
 echo "This dummy file silences the [new shell] messages" >> $HOME/.hushlogin
 
 # Register gitignore and other git stuff
 git config --global core.excludesfile ~/.gitignore
+
+
+# ==============================================================================
+message "✅ Copy scripts to PATH" "Using /usr/local/bin/$USER for user scripts"
+cp $DOTFILES_ROOT/Mac/Path/* /usr/local/bin/$USER
+
 
 # ==============================================================================
 message "✅ Setup app preferences" "Overwriting Terminal, Xcode, and other settings"

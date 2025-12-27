@@ -42,6 +42,11 @@ cp $DOTFILES_ROOT/Common/Config/dot-vimrc $HOME/.vimrc
 # Register gitignore and other git stuff
 git config --global core.excludesfile ~/.gitignore
 
+# ==============================================================================
+message "✅ Copy scripts to PATH" "Using /usr/local/bin/$USER for user scripts"
+cp $DOTFILES_ROOT/Mac/Path/* /usr/local/bin/$USER
+
+
 
 # ==============================================================================
 message "✅ Setup defaults" "Adding paths and variables to .bashrc"
