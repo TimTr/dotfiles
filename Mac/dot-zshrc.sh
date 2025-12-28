@@ -50,7 +50,7 @@ setopt PROMPT_SUBST
 # Set the actual prompt
 HOSTNAME=$(hostname -s)
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}%F{white}% [%F{red}% $USER %F{grey}% ${HOSTNAME}%F{white}%  %F{red}% %9c% %F{white}% ] %F{blue}% $(parse_git_branch) %F{white}% ${NEWLINE}[%F{grey}% %D %T%F{white}% ] ↪ %f'
+PROMPT='${NEWLINE}%F{white}% [%F{red}% $USER %F{grey}% ${HOSTNAME}%F{white}%  %F{red}% %9c% %F{white}% ] %F{blue}% $(parse_git_branch) %F{white}% ${NEWLINE}[%F{238} %D %T%F{white}% ] ↪ %f'
 
 
 # Previous version of the prompt (worked)
