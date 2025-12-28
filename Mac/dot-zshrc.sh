@@ -48,8 +48,15 @@ parse_git_branch() {
 setopt PROMPT_SUBST
 
 # Set the actual prompt
+HOSTNAME=$(hostname -s)
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}%F{white}% → %F{red}% %9c% %F{grey}% $(parse_git_branch) %F{white}% ${NEWLINE}↪ %f'
+PROMPT='${NEWLINE}%F{white}% [%F{red}% $USER %F{grey}% ${HOSTNAME}%F{white}%  %F{red}% %9c% %F{white}% ] %F{blue}% $(parse_git_branch) %F{white}% ${NEWLINE}[%F{grey}% %D %T%F{white}% ] ↪ %f'
+
+
+# Previous version of the prompt (worked)
+# NEWLINE=$'\n'
+# PROMPT='${NEWLINE}%F{white}% → %F{red}% %9c% %F{grey}% $(parse_git_branch) %F{white}% ${NEWLINE}↪ %f'
+
 
 
 # Load local custom settings (e.g. security keys that don't belong in Git)
