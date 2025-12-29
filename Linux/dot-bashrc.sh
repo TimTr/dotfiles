@@ -34,7 +34,7 @@ parse_git_branch() {
 # Set the actual prompt
 HOSTNAME=$(hostname -s)
 NEWLINE=$'\n'
-export PS1='${NEWLINE}[${USER} | ${HOSTNAME} | \w] $(parse_git_branch) ${NEWLINE}[\d \t] \033[1;33m\] ↪ \[\033[0m\]'
+export PS1='${NEWLINE}[\[\e[90m\]${USER} | ${HOSTNAME} |\[\e[91m\] \w\[\e[0m\]\[\e[0m\]] \[\e[34m\]$(parse_git_branch) \[\e[0m ${NEWLINE}[\d \t] \[\e[91m\] ↪ \[\e[0m\] '
 
 # Previous (working) prompt
 # PS1="\n[\[\033[32m\]\w]\[\033[0m\] \[\033[1;36m\]\u\[\033[1;33m\] > \[\033[0m\]"
