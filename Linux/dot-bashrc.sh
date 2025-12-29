@@ -13,8 +13,7 @@ source $HOME/.functions
 
 # Report tha .bashrc is loading and at what time
 TIMENOW=$(date +%d-%m-%Y" "%H:%M:%S)
-message ".bashrc" "Launched $SHELL' at ${TIMENOW}."
-
+message "\n .bashrc" "Launched $SHELL' at ${TIMENOW}."
 
 # Fixes sort order with capital letters first in Linux
 export LC_COLLATE="C"
