@@ -31,7 +31,7 @@ find $DOTFILES_ROOT -name "*.sh" -type f -print0 | xargs -0 chmod 755
 if [[ -d "/usr/local/bin/$USER" ]]; then
   bullet "/usr/local/bin/$USER exists. Added to the PATH for user content"
 else
-  mkdir -p /usr/local/bin/$USER
+  sudo mkdir -p /usr/local/bin/$USER
   sudo chown -R "$USER":admin /usr/local/bin/$USER
   sudo chmod 744 /usr/local/bin/$USER
   message "✅ Created /usr/local/bin/$USER and added it to PATH for your code"
@@ -70,7 +70,7 @@ echo "export DOTFILES_ROOT=$DOTFILES_ROOT" >> ~/.zshenv
 # ==============================================================================
 # Check if the "~/local.sh" file exists, and if not, copy  the stub version to user home
 if [[ -f "$HOME/local.sh" ]]; then
-  bullet "~/local.sh exists" "Delete the file then re-run to install a template version"
+  bullet "~/local.sh exists - delete then re-run to reset from the template"
 else
   message "✅ Creating ~/local.sh" "Modify this file to add GitHub and SSH tokens"
   cp $DOTFILES_ROOT/Linux/local-template.sh $HOME/local.sh

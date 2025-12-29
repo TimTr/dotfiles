@@ -66,7 +66,7 @@ sudo chmod 744 /usr/local/bin
 if [[ -d "/usr/local/bin/$USER" ]]; then
   bullet "/usr/local/bin/$USER exists. Added to the PATH for user content"
 else
-  mkdir -p /usr/local/bin/$USER
+  sudo mkdir -p /usr/local/bin/$USER
   sudo chown -R "$USER":admin /usr/local/bin/$USER
   sudo chmod 744 /usr/local/bin/$USER
   message "✅ Created /usr/local/bin/$USER and added it to PATH for your code"
