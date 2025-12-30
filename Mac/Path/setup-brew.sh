@@ -1,8 +1,8 @@
 #!/bin/zsh
 #
-# setup-brew.sh   -- Linux version
-#
+# setup-brew.sh   -- macOS version
 # ==============================================================================
+
 
 source ~/.functions
 

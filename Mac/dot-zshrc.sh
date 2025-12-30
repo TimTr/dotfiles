@@ -1,4 +1,4 @@
-# .zshrc - Loaded only in interactive shell sessions - macOS version
+# .zshrc - Mac version - Loaded only in interactive shell sessions
 #
 # Because this file is only loaded in interactive shell (Terminal) sessions,
 # It is perfect for setting up things like colors, etc. However, it isn't
@@ -48,8 +48,15 @@ parse_git_branch() {
 setopt PROMPT_SUBST
 
 # Set the actual prompt
+HOSTNAME=$(hostname -s)
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}%F{white}% → %F{red}% %9c% %F{grey}% $(parse_git_branch) %F{white}% ${NEWLINE}↪ %f'
+PROMPT='${NEWLINE}%F{white}% [%F{red}% $USER %F{grey}% ${HOSTNAME}%F{white}%  %F{red}% %9c% %F{white}% ] %F{blue}% $(parse_git_branch) %F{white}% ${NEWLINE}[%F{238} %D %T%F{white}% ] ↪ %f'
+
+
+# Previous version of the prompt (worked)
+# NEWLINE=$'\n'
+# PROMPT='${NEWLINE}%F{white}% → %F{red}% %9c% %F{grey}% $(parse_git_branch) %F{white}% ${NEWLINE}↪ %f'
+
 
 
 # Load local custom settings (e.g. security keys that don't belong in Git)

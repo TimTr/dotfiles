@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 #
 # help.sh   -- simple instructions on how to use these dotfiles
 #

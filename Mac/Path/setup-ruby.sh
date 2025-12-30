@@ -1,6 +1,8 @@
 #!/bin/zsh
 #
 # setup-ruby.sh   -- macOS version (simple version, installs latest)
+# ==============================================================================
+
 
 source ${HOME}/.functions
 message "setup-ruby.sh" "Running [brew install ruby] instead of [rbenv]"
@@ -19,7 +21,7 @@ sudo gem update
 
 
 
-# TODO: the below may require Terminal is restarted one before it succeeds?
+# TODO: below may require Terminal is restarted once before it succeeds?
 
 # ==============================================================================
 # Install some gems (Jekyll and Bundler to start)

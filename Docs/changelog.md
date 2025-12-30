@@ -1,13 +1,9 @@
 # TODO items for dotfiles project
 
-- Add basic support for Linux
+
+- [Almost done] Move PATH files to `/usr/local/bin/$USER` and don't put dotfiles themselves directly into the PATH anymore. This allows files to be created on-the-fly into the PATH, and not put into a folder that may be under source control.
+
 - Git tool to use `~/Documents` instead of the `~/Work` for custom code signing
-- Report current ruby, swift, python, and Homebrew versions on setup    
-- Function to delete `./DS_Store` files recursively down a folder structure 
-
-
-## Done
-
 - Verify that re-running `dotfiles.sh` from anywhere resets the setup
 - Put Dotfiles as the source for PATH - no extra copy in `~/Developer`
 - Move everything from the `./Mac/` subfolder to the root - Linux remains

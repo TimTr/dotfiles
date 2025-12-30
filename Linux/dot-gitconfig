@@ -10,11 +10,7 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = xed
+        editor = vim
 [push]
         default = simple
-[credential]
-	helper = osxkeychain
-[includeIf "gitdir:~/Work/"]
-	path = ~/Work/.gitconfig-work
 

@@ -1,16 +1,24 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 #
-#  'setup.sh' is  understood as a startup by GitHub Codespaces and other VMs
+#  'setup.sh' is used by GitHub and other VMs at startup
+#
+#  This script is setup to launch using the bash shell since it is
+#  common across supported platforms. It doesn't do anything very complex
+#  so the code should work even on very old versions of bash.
+#
+#  The subsequent scripts in this repo may use more advanced features
+#  so they may specify zsh or bash as needed, with Linux using primarily
+#  bash. On macOS zsh is now the default shell and bash is quite old.
 
 
 # Set Dotfiles home to be the folder in which `setup.sh` was run (requires ZSH)
-export DOTFILES_ROOT=${0:a:h}
+export DOTFILES_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# This script will run either the Linux or macOS installer
+# This script launches either Linux or macOS installer (do not "source" the scripts)
 if [[ $OSTYPE == darwin* ]]; then
-  source $DOTFILES_ROOT/Mac/dotfiles.sh
+  $DOTFILES_ROOT/Mac/setup-mac.sh
 else
-  source $DOTFILES_ROOT/Linux/dotfiles.sh
+  $DOTFILES_ROOT/Linux/setup-linux.sh
 fi
 
 exit 0
@@ -24,8 +32,12 @@ exit 0
 #### Saved script tidbits may want later
 
 
-# This is the name of the actual file that was run (don't need it)
+# -- This is the name of the actual file that was run (don't need it)
 # DOTFILES_SETUP_FILE=${0:a}
+
+# -- This was how to get the containing folder via zsh
+# export DOTFILES_ROOT=${0:a:h}
+
 
 
 
