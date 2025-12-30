@@ -43,6 +43,8 @@ message "✅ Installing root dotfiles" "Overwriting existing versions of these f
 cp $DOTFILES_ROOT/Linux/dot-bashrc.sh $HOME/.bashrc
 cp $DOTFILES_ROOT/Linux/dot-aliases.sh $HOME/.aliases
 cp $DOTFILES_ROOT/Linux/dot-functions.sh $HOME/.functions
+rm $HOME/.bash_profile
+rm $HOEM/.profile
 
 # Copy over tool and app settings
 cp $DOTFILES_ROOT/Linux/dot-gitconfig $HOME/.gitconfig
@@ -63,8 +65,8 @@ cp $DOTFILES_ROOT/Linux/Path/* $HOME/bin
 # ==============================================================================
 message "✅ Setup defaults" "Adding paths and variables to .bashrc"
 echo " " >> ~/.bashrc
-echo "# Add global DOTFILES_ROOT pointing Dotfiles install folder" >> ~/.zshenv
-echo "export DOTFILES_ROOT=$DOTFILES_ROOT" >> ~/.zshenv
+echo "# Add global DOTFILES_ROOT pointing Dotfiles install folder" >> ~/.bashrc
+echo "export DOTFILES_ROOT=$DOTFILES_ROOT" >> ~/.bashrc
 
 
 # ==============================================================================

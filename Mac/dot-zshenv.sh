@@ -1,7 +1,7 @@
 # .zshenv - Mac version - Loaded in every session, great for PATH.
 
-# Clean new path with starting with:  usr/local/bin/$USER
-export PATH="/usr/local/bin/$USER"
+# Clean new path with starting with:  $HOME/Bin
+export PATH="$HOME/Bin"
 
 # Setting for Apple silicon version of Ruby. Pre-pend it and Gems to the PATH
 export PATH=$PATH:/opt/homebrew/bin:/opt/homebrew/opt/ruby/bin

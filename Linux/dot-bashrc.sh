@@ -1,12 +1,10 @@
 # .bashrc - Linux - Both interactive and "headless" shell sessions
 #
-# Adding the /usr/local/bin/$USER to the PATH. Homebrew not setup yet
-export PATH="usr/local/bin/$USER"
+# Adding the $HOME/bin directory to the PATH
+export PATH="$HOME/bin"
 
 # Add default system PATHs at end of the chain
 export PATH="$PATH:/usr/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/sbin:/sbin:/snap/bin"
-
-## TODO: This was not yet customized to work for BASH
 
 source $HOME/.aliases
 source $HOME/.functions
