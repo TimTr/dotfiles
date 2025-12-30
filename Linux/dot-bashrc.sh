@@ -1,4 +1,4 @@
-# .profile - Linux - loaded first by bash
+# .bashrc - Linux - loaded first by bash
 #
 # Adding the $HOME/bin directory to the PATH
 export PATH="$HOME/bin"
@@ -11,7 +11,7 @@ source $HOME/.functions
 
 # Report tha .bashrc is loading and at what time
 TIMENOW=$(date +%d-%m-%Y" "%H:%M:%S)
-message "\n .profile" "Launched $SHELL' at ${TIMENOW}."
+message "\n .bashrc (or .profile)" "Launched $SHELL' at ${TIMENOW}."
 
 # Fixes sort order with capital letters first in Linux
 export LC_COLLATE="C"
