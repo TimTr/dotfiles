@@ -30,10 +30,10 @@ fi
 
 
 # ==============================================================================
-message "🔐 SUDO required" "Creating folders, aliases, and setting file permissions"
+message "📂 Creating directories" "Creating and/or setting file permissions"
 
 # Claim ownership of all my dotfiles
-sudo chown -R $USER $DOTFILES_ROOT     2> /dev/null
+chown -R $USER $DOTFILES_ROOT     2> /dev/null
 
 # Make all directories (-type d) 755 executable, files (-type f) as 644
 find $DOTFILES_ROOT -type d -print0 | xargs -0 chmod 755
@@ -47,71 +47,39 @@ xattr -d com.apple.quarantine $DOTFILES_ROOT/* 2> /dev/null
 
 
 # ==============================================================================
-# Homebrew uses /opt/homebrew on ARM and /usr/local on Intel, and /opt/bin on Linux
-# Create these directories "just in case" on macOS
-sudo mkdir -p /opt/homebrew/bin
-sudo mkdir -p /usr/local/bin
-
-# Reset ownership, note the directory name does not end in / or /*
-sudo chown -R "$USER":admin /opt/homebrew
-sudo chown -R "$USER":admin /usr/local/bin
-
-# Set the permissions for the folders (read for all, write for just me)
-sudo chmod 744 /opt/homebrew/bin
-sudo chmod 744 /usr/local/bin
-
-
-# ==============================================================================
-# Create /usr/local/bin/$USER folder in which to put local code repositorities
-if [[ -d "/usr/local/bin/$USER" ]]; then
-  bullet "/usr/local/bin/$USER exists. Added to the PATH for user content"
+# Create $HOME/Bin folder in which to put local code repositorities
+if [[ -d "$HOME/Bin" ]]; then
+  bullet "$HOME/Bin exists. Added to the PATH for user content"
 else
-  sudo mkdir -p /usr/local/bin/$USER
-  sudo chown -R "$USER":admin /usr/local/bin/$USER
-  sudo chmod 744 /usr/local/bin/$USER
-  message "✅ Created /usr/local/bin/$USER and added it to PATH for your code"
+  mkdir -p $HOME/Bin
+  chown -R "$USER":admin $HOME/Bin
+  chmod 744 $HOME/Bin
+  message "✅ Created $HOME/Bin and added it to PATH for your code"
 fi
 
-
-# ==============================================================================
 # Create ~/Developer folder in which to put local code repositorities
 if [[ -d "$HOME/Developer/" ]]; then
-  bullet "~/Developer exists. Use this folder for personal repositories"
+  bullet "$HOME/Developer exists. Use this folder for personal repositories"
 else
   mkdir ~/Developer
-  message "✅ Created ~/Developer - use this folder for personal developer work"
+  message "✅ Created $HOME/Developer - use this folder for personal developer work"
 fi
 
-# ==============================================================================
 # Create a ~/Documents folder if it doesn't exist already
-#
 if [[ -d "$HOME/Documents/" ]]; then
-  bullet "~/Documents exists. Use this folder for work repositories"
+  bullet "$HOME/Documents exists. Use this folder for work repositories"
 else
   mkdir ~/Documents
-  message "✅ Created ~/Documents - use this folder for work repositories"
+  message "✅ Created $HOME/Documents - use this folder for work repositories"
 fi
 
-# ==============================================================================
-# Create a symlink to Dropbox's location in CloudStore if valid
-#
-#if [[ -d "$HOME/Dropbox/" ]]; then
-#  bullet "~/Dropbox alias exists. Delete symlink if broken, then re-run"
-#else
-#  if [[ -d "$HOME/Library/CloudStorage/Dropbox/" ]]; then
-#    bullet "✅ Setup ~/Dropbox - Symlink to ~/Library/CloudStorage/Dropbox/"
-#    ln -s $HOME/Library/CloudStorage/Dropbox $HOME/Dropbox
-#  else
-#    alert "Dropbox not installed" "Missing folder: ~/Library/CloudStorage/Dropbox/"
-#  fi
-#sfi
 
 # ==============================================================================
 # Check if the ~/local.sh file exists, if not then copy the template to $HOME
 if [[ -f "$HOME/local.sh" ]]; then
-  bullet "~/local.sh file exists. Delete the file and re-run to install from template"
+  bullet "$HOME/local.sh file exists. Delete the file and re-run to install from template"
 else
-  message "✅ Installing ~/local.sh - Creating new from ./Dotfiles/Mac/local-template.sh"
+  message "✅ Installing $HOME/local.sh - Creating new from ./Dotfiles/Mac/local-template.sh"
   cp $DOTFILES_ROOT/Mac/local-template.sh $HOME/local.sh
 fi
 
@@ -138,8 +106,8 @@ git config --global core.excludesfile ~/.gitignore
 
 
 # ==============================================================================
-message "✅ Copy scripts to PATH" "Using /usr/local/bin/$USER for user scripts"
-cp $DOTFILES_ROOT/Mac/Path/* /usr/local/bin/$USER
+message "✅ Copy scripts to PATH" "Using $HOME/Bin for user scripts"
+cp $DOTFILES_ROOT/Mac/Path/* $HOME/Bin
 
 
 # ==============================================================================
@@ -189,6 +157,35 @@ exit 0
 
 
 
+# ==============================================================================
+# TODO: removing the creation of Homebrew folders - let Homebrew install do that
+# Homebrew uses /opt/homebrew on ARM and /usr/local on Intel, and /opt/bin on Linux
+# Create these directories "just in case" on macOS
+# sudo mkdir -p /opt/homebrew/bin
+# sudo mkdir -p /usr/local/bin
+
+# Reset ownership, note the directory name does not end in / or /*
+# sudo chown -R "$USER":admin /opt/homebrew
+# sudo chown -R "$USER":admin /usr/local/bin
+
+# Set the permissions for the folders (read for all, write for just me)
+# sudo chmod 744 /opt/homebrew/bin
+# sudo chmod 744 /usr/local/bin
+
+
+# ==============================================================================
+# Create a symlink to Dropbox's location in CloudStore if valid
+#
+#if [[ -d "$HOME/Dropbox/" ]]; then
+#  bullet "~/Dropbox alias exists. Delete symlink if broken, then re-run"
+#else
+#  if [[ -d "$HOME/Library/CloudStorage/Dropbox/" ]]; then
+#    bullet "✅ Setup ~/Dropbox - Symlink to ~/Library/CloudStorage/Dropbox/"
+#    ln -s $HOME/Library/CloudStorage/Dropbox $HOME/Dropbox
+#  else
+#    alert "Dropbox not installed" "Missing folder: ~/Library/CloudStorage/Dropbox/"
+#  fi
+#sfi
 
 
 # ==============================================================================

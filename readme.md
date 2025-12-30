@@ -8,7 +8,7 @@ To install, run `./setup.sh` from within the local `dotfiles` directory. Quit an
   ./setup.sh
 ```
 
-This will install files into `/usr/local/bin/$USER` and put that directory in your PATH. Run `help.sh` to see additional functionality. On macOS, Xcode must first be installed. Linux is tested on recent Ubuntu releases. Re-run `setup.sh` from the `dotfiles` folder to reset to original files.
+This will install files into `~/Bin` (or `~/bin` on Linux) and add that directory to your PATH. Run `help.sh` to see additional functionality. On macOS, Xcode must first be installed. Linux is tested on recent Ubuntu releases. Re-run `./setup.sh` from the `dotfiles` folder to reset to original files.
 
 More [documentation is available](https://timtr.github.io/dotfiles/Docs/), but is a work in progress.
 
@@ -24,7 +24,7 @@ More [documentation is available](https://timtr.github.io/dotfiles/Docs/), but i
 
 This is the personal collection of setup scripts for macOS and Linux (WIP). It includes settings for macOS including `zsh` shell, `eza` for `ls` replacement, Terminal, Xcode, Swift, Homebrew, and Ruby. The Linux install is based on `bash` and still uses mostly default tools.
 
-The setup adds `/usr/local/bin/$USER` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support.
+The setup adds `$HOME/Bin` (or `~/bin` on Linux) and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support.
 
 
 ## Work-specific Git configuration

@@ -5,7 +5,7 @@
 # TODO: abort if git, cc, or other needed tools are not available
 source "$DOTFILES_ROOT/Linux/dot-functions.sh"
 message "dotfiles.sh -- clean BASH setup for Linux via ${DOTFILES_ROOT}"
-
+bullet "Cannot use SUDO in the Linux version of this script"
 
 # ==============================================================================
 # Require `bash` as the default on Linux, and set the default shell if needed
@@ -16,7 +16,7 @@ if [ $SHELL != "/bin/bash" ]; then
 fi
 
 # Claim ownership of all my dotfiles
-sudo chown -R $USER $DOTFILES_ROOT     2> /dev/null
+chown -R $USER $DOTFILES_ROOT     2> /dev/null
 
 ## Make sure all the dotfiles have proper ownership before starting
 chown -R $USER ${DOTFILES_ROOT}/*  2> /dev/null
@@ -27,14 +27,14 @@ find $DOTFILES_ROOT -name "*.sh" -type f -print0 | xargs -0 chmod 755
 
 
 # ==============================================================================
-# Create /usr/local/bin/$USER folder in which to put local code repositorities
-if [[ -d "/usr/local/bin/$USER" ]]; then
-  bullet "/usr/local/bin/$USER exists. Added to the PATH for user content"
+# Create $HOME/Bin folder in which to put local code repositorities
+if [[ -d "$HOME/bin" ]]; then
+  bullet "$HOME/bin exists. Added to the PATH for user content"
 else
-  sudo mkdir -p /usr/local/bin/$USER
-  sudo chown -R $USER /usr/local/bin/$USER
-  sudo chmod 744 /usr/local/bin/$USER
-  message "✅ Created /usr/local/bin/$USER and added it to PATH for your code"
+  mkdir -p $HOME/bin
+  chown -R $USER $HOME/bin
+  chmod 744 $HOME/bin
+  message "✅ Created $HOME/bin and added it to PATH for your code"
 fi
 
 
@@ -55,8 +55,8 @@ cp $DOTFILES_ROOT/Common/dot-gitignore $HOME/.gitignore
 git config --global core.excludesfile ~/.gitignore
 
 # ==============================================================================
-message "✅ Copy scripts to PATH" "Using /usr/local/bin/$USER for user scripts"
-cp $DOTFILES_ROOT/Mac/Path/* /usr/local/bin/$USER
+message "✅ Copy scripts to PATH" "Using $HOME/bin for user scripts"
+cp $DOTFILES_ROOT/Linux/Path/* $HOME/bin
 
 
 
