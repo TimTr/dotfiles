@@ -40,7 +40,7 @@ fi
 
 # ==============================================================================
 message "✅ Installing root dotfiles" "Overwriting existing versions of these files"
-cp $DOTFILES_ROOT/Linux/dot-bashrc.sh $HOME/.bashrc
+cp $DOTFILES_ROOT/Linux/dot-profile.sh $HOME/.profile
 cp $DOTFILES_ROOT/Linux/dot-aliases.sh $HOME/.aliases
 cp $DOTFILES_ROOT/Linux/dot-functions.sh $HOME/.functions
 rm $HOME/.bash_profile
@@ -63,10 +63,10 @@ cp $DOTFILES_ROOT/Linux/Path/* $HOME/bin
 
 
 # ==============================================================================
-message "✅ Setup defaults" "Adding paths and variables to .bashrc"
-echo " " >> ~/.bashrc
-echo "# Add global DOTFILES_ROOT pointing Dotfiles install folder" >> ~/.bashrc
-echo "export DOTFILES_ROOT=$DOTFILES_ROOT" >> ~/.bashrc
+message "✅ Setup defaults" "Adding paths and variables to .profile for bash"
+echo " " >> ~/.profile
+echo "# Add global DOTFILES_ROOT pointing Dotfiles install folder" >> ~/.profile
+echo "export DOTFILES_ROOT=$DOTFILES_ROOT" >> ~/.profile
 
 
 # ==============================================================================
