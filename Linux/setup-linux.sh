@@ -43,8 +43,7 @@ message "✅ Installing root dotfiles" "Overwriting existing versions of these f
 cp $DOTFILES_ROOT/Linux/dot-profile.sh $HOME/.profile
 cp $DOTFILES_ROOT/Linux/dot-aliases.sh $HOME/.aliases
 cp $DOTFILES_ROOT/Linux/dot-functions.sh $HOME/.functions
-rm $HOME/.bash_profile
-rm $HOEM/.profile
+rm $HOME/.bash_profile 2> /dev/null
 
 # Copy over tool and app settings
 cp $DOTFILES_ROOT/Linux/dot-gitconfig $HOME/.gitconfig
@@ -59,7 +58,6 @@ git config --global core.excludesfile ~/.gitignore
 # ==============================================================================
 message "✅ Copy scripts to PATH" "Using $HOME/bin for user scripts"
 cp $DOTFILES_ROOT/Linux/Path/* $HOME/bin
-
 
 
 # ==============================================================================
