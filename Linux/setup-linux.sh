@@ -1,11 +1,21 @@
 #!/bin/bash
 #
-# dotfiles.sh - the Linux version
+# dotfiles.sh - the Linux version uses BASH
+#
+# NOTE:  Cannot use SUDO in the Linux version of this script
+
+echo
+source "$DOTFILES_ROOT/Linux/dot-functions.sh"
+
+message "🔔 Environment:" "Locations being used for this install of Dotfiles"
+bullet "DOTFILES_ROOT = $DOTFILES_ROOT"
+bullet "Run location = ${0:a:h}"
+bullet "git config --global user.name = \"$(git config --get user.name)\""
+bullet "git config --global user.email = \"$(git config --get user.email)\""
+
 
 # TODO: abort if git, cc, or other needed tools are not available
-source "$DOTFILES_ROOT/Linux/dot-functions.sh"
-message "dotfiles.sh -- clean BASH setup for Linux via ${DOTFILES_ROOT}"
-bullet "Cannot use SUDO in the Linux version of this script"
+
 
 # ==============================================================================
 # Require `bash` as the default on Linux, and set the default shell if needed
@@ -34,7 +44,7 @@ else
   mkdir -p $HOME/bin
   chown -R $USER $HOME/bin
   chmod 744 $HOME/bin
-  message "✅ Created $HOME/bin and added it to PATH for your code"
+  message "📂 Created $HOME/bin and added it to PATH for your code"
 fi
 
 
@@ -79,13 +89,10 @@ else
   cp $DOTFILES_ROOT/Linux/local-template.sh $HOME/local.sh
 fi
 
-message "✅ git config --global user.name" "= $(git config --get user.name)"
-message "✅ git config --global user.email" "= $(git config --get user.email)"
+# ==============================================================================
 echo
 message "🎉 Success!" "Restart Terminal and run setup-brew.sh and setup-ruby.sh"
-
 echo
 
-exit 0
-
 ## end of file.
+exit 0

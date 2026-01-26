@@ -7,6 +7,8 @@ source "$DOTFILES_ROOT/Mac/dot-functions.sh"
 message "🔔 Environment:" "Locations being used for this install of Dotfiles"
 bullet "DOTFILES_ROOT = $DOTFILES_ROOT"
 bullet "Run location = ${0:a:h}"
+bullet "git config --global user.name = \"$(git config --get user.name)\""
+bullet "git config --global user.email = \"$(git config --get user.email)\""
 
 
 # ==============================================================================
@@ -18,6 +20,7 @@ else
   error "❌ Install Xcode, run xcode-select -p, and then re-run setup.sh"
   exit 0
 fi
+
 
 
 # ==============================================================================
@@ -143,8 +146,6 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool TRUE
 
 
 # ==============================================================================
-message "✅ git config --global user.name" "= $(git config --get user.name)"
-message "✅ git config --global user.email" "= $(git config --get user.email)"
 echo
 message "🎉 Success!" "Restart Terminal and run setup-brew.sh and setup-ruby.sh"
 echo

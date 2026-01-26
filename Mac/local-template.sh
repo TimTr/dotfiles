@@ -17,9 +17,7 @@ message "Loading ~/local.sh" "Sets local Swift toolchain, tokens, keys, and pass
 
 # Alias commands to login to servers
 # ALERT: Edit these locally and do not commit these to GitHub!
-alias ssh-example="ssh example@example -p password"
-
-
+alias ssh-example="ssh username@example.server.com"
 
 
 # To enable latest Swift.org toolchain in /Library/Developer/Toolchains/"
