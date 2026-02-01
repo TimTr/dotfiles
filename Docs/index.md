@@ -8,12 +8,12 @@ NOTE: This is presently for testing purposes as the GitHub Pages documentation i
 
 ## Table of Contents
 
-- [Overview](./overview.html)
-- [Commands](./commands.html)
-- [Change Log](./changelog.html)
-- [Container](./container.html)
-- [Mac(./mac.html)
-- [Linux](./linux.html)
+[Overview](./overview.html)
+[Commands](./commands.html)
+[Change Log](./changelog.html)
+[Container](./container.html)
+[Mac](./mac.html)
+[Linux](./linux.html)
 
 
 ### Credits
