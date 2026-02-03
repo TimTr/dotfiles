@@ -13,7 +13,7 @@ NOTE: This is presently for testing purposes as the GitHub Pages documentation i
 [Change Log](./changelog.html) \
 [Container](./container.html) \
 [Mac](./mac.html) \
-[Linux](./linux.html) \
+[Linux](./linux.html)    <!-- don't use a trailing backslash if empty next line -->
 
 
 ## Credits
