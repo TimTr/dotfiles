@@ -1,8 +1,17 @@
-# TODO items for dotfiles project
+# Change log and future to-do items
 
 
-- [Almost done] Move PATH files to `/usr/local/bin/$USER` and don't put dotfiles themselves directly into the PATH anymore. This allows files to be created on-the-fly into the PATH, and not put into a folder that may be under source control.
+## ToDo
 
+
+
+## Changes
+
+The list shows the latest changes at the top. Sorry, no dates being tracked.
+
+
+- Ugh, differences in Linux and Mac setups rolled back the `/usr/local/bin/$USER` solution. Back to creating a `$USER/Bin` folder and adding it to the PATH.
+- Move PATH files to `/usr/local/bin/$USER` and don't put dotfiles themselves directly into the PATH anymore. This allows files to be created on-the-fly into the PATH, and not put into a folder that may be under source control.
 - Git tool to use `~/Documents` instead of the `~/Work` for custom code signing
 - Verify that re-running `dotfiles.sh` from anywhere resets the setup
 - Put Dotfiles as the source for PATH - no extra copy in `~/Developer`
