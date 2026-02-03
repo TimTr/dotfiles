@@ -23,11 +23,6 @@
 			path = Docs;
 			sourceTree = "<group>";
 		};
-		BAD0DFFE2E5395B200274CAF /* DotRunner */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = DotRunner;
-			sourceTree = "<group>";
-		};
 		BAD0E0082E5395B200274CAF /* Linux */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Linux;
@@ -46,7 +41,6 @@
 			children = (
 				BAD0E0172E5395CD00274CAF /* readme.md */,
 				BAD0DFF92E5395B200274CAF /* Docs */,
-				BAD0DFFE2E5395B200274CAF /* DotRunner */,
 				BA1096052EF509B400392276 /* Common */,
 				BAD0E0082E5395B200274CAF /* Linux */,
 				BAD0E0142E5395B200274CAF /* Mac */,

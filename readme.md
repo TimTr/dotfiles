@@ -10,7 +10,7 @@ To install, run `./setup.sh` from within the local `dotfiles` directory. Quit an
 
 This will install files into `~/Bin` (or `~/bin` on Linux) and add that directory to your PATH. Run `help.sh` to see additional functionality. On macOS, Xcode must first be installed. Linux is tested on recent Ubuntu releases. Re-run `./setup.sh` from the `dotfiles` folder to reset to original files.
 
-More [documentation is available](https://timtr.github.io/dotfiles/Docs/), but is a work in progress.
+### [Documentation is available in GitHub Pages for this repo.](https://timtr.github.io/dotfiles/Docs/)
 
 
 # TODO
