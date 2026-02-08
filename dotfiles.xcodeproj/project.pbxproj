@@ -6,7 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		BA9EB74F2F39205A007C8012 /* DocsSource.docc in Sources */ = {isa = PBXBuildFile; fileRef = BA9EB74E2F39205A007C8012 /* DocsSource.docc */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		BA2E38BE2F3919B9006F5F1C /* dotfiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dotfiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA9EB74E2F39205A007C8012 /* DocsSource.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DocsSource.docc; sourceTree = "<group>"; };
 		BAD0E0162E5395CD00274CAF /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		BAD0E0172E5395CD00274CAF /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		BAD0E0182E5395CD00274CAF /* setup.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = setup.sh; sourceTree = "<group>"; };
@@ -35,28 +41,76 @@
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		BA2E38BB2F3919B9006F5F1C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
+		BA2E38BF2F3919B9006F5F1C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA2E38BE2F3919B9006F5F1C /* dotfiles.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BAD0DFDD2E53946700274CAF = {
 			isa = PBXGroup;
 			children = (
 				BAD0E0172E5395CD00274CAF /* readme.md */,
+				BA9EB74E2F39205A007C8012 /* DocsSource.docc */,
 				BAD0DFF92E5395B200274CAF /* Docs */,
 				BA1096052EF509B400392276 /* Common */,
 				BAD0E0082E5395B200274CAF /* Linux */,
 				BAD0E0142E5395B200274CAF /* Mac */,
 				BAD0E0162E5395CD00274CAF /* license.txt */,
 				BAD0E0182E5395CD00274CAF /* setup.sh */,
+				BA2E38BF2F3919B9006F5F1C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA2E38BD2F3919B9006F5F1C /* dotfiles */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA2E38C72F3919BA006F5F1C /* Build configuration list for PBXNativeTarget "dotfiles" */;
+			buildPhases = (
+				BA2E38BA2F3919B9006F5F1C /* Sources */,
+				BA2E38BB2F3919B9006F5F1C /* Frameworks */,
+				BA2E38BC2F3919B9006F5F1C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dotfiles;
+			packageProductDependencies = (
+			);
+			productName = dotfiles;
+			productReference = BA2E38BE2F3919B9006F5F1C /* dotfiles.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		BAD0DFDE2E53946700274CAF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					BA2E38BD2F3919B9006F5F1C = {
+						CreatedOnToolsVersion = 26.2;
+					};
+				};
 			};
 			buildConfigurationList = BAD0DFE12E53946700274CAF /* Build configuration list for PBXProject "dotfiles" */;
 			developmentRegion = en;
@@ -68,14 +122,153 @@
 			mainGroup = BAD0DFDD2E53946700274CAF;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
+			productRefGroup = BA2E38BF2F3919B9006F5F1C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				BA2E38BD2F3919B9006F5F1C /* dotfiles */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		BA2E38BC2F3919B9006F5F1C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA2E38BA2F3919B9006F5F1C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA9EB74F2F39205A007C8012 /* DocsSource.docc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
 /* Begin XCBuildConfiguration section */
+		BA2E38C82F3919BA006F5F1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 66X3R83UUV;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.timtr.dotfiles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BA2E38C92F3919BA006F5F1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 66X3R83UUV;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.timtr.dotfiles;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		BAD0DFE22E53946700274CAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -153,6 +346,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BA2E38C72F3919BA006F5F1C /* Build configuration list for PBXNativeTarget "dotfiles" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA2E38C82F3919BA006F5F1C /* Debug */,
+				BA2E38C92F3919BA006F5F1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BAD0DFE12E53946700274CAF /* Build configuration list for PBXProject "dotfiles" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
