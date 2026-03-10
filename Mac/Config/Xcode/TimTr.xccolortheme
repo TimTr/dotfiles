@@ -103,7 +103,7 @@
 		<key>xcode.syntax.character</key>
 		<string>0.128704 0.816519 0.860961 1</string>
 		<key>xcode.syntax.comment</key>
-		<string>0.351899 0.336315 0.65753 1</string>
+		<string>0.351833 0.336274 0.65748 1</string>
 		<key>xcode.syntax.comment.doc</key>
 		<string>0.211507 0.279567 0.393124 1</string>
 		<key>xcode.syntax.comment.doc.keyword</key>
@@ -161,74 +161,74 @@
 		<key>xcode.syntax.string</key>
 		<string>0.082441 1 0 1</string>
 		<key>xcode.syntax.url</key>
-		<string>0.419458 0.565601 0.990365 1</string>
+		<string>0.997152 0.733631 0.4184 1</string>
 	</dict>
 	<key>DVTSourceTextSyntaxFonts</key>
 	<dict>
 		<key>xcode.syntax.attribute</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Light - 15.0</string>
 		<key>xcode.syntax.character</key>
-		<string>SFMono-SemiboldItalic - 14.0</string>
+		<string>SFMono-SemiboldItalic - 15.0</string>
 		<key>xcode.syntax.comment</key>
-		<string>SFMono-LightItalic - 14.0</string>
+		<string>SFMono-LightItalic - 15.0</string>
 		<key>xcode.syntax.comment.doc</key>
-		<string>SFMono-LightItalic - 14.0</string>
+		<string>SFMono-LightItalic - 15.0</string>
 		<key>xcode.syntax.comment.doc.keyword</key>
-		<string>SFMono-Semibold - 14.0</string>
+		<string>SFMono-Semibold - 15.0</string>
 		<key>xcode.syntax.declaration.other</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Light - 15.0</string>
 		<key>xcode.syntax.declaration.type</key>
-		<string>SFMono-Semibold - 14.0</string>
+		<string>SFMono-Semibold - 15.0</string>
 		<key>xcode.syntax.identifier.class</key>
-		<string>SFMono-Semibold - 14.0</string>
+		<string>SFMono-Semibold - 15.0</string>
 		<key>xcode.syntax.identifier.class.system</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Semibold - 15.0</string>
 		<key>xcode.syntax.identifier.constant</key>
-		<string>SFMono-SemiboldItalic - 14.0</string>
+		<string>SFMono-SemiboldItalic - 15.0</string>
 		<key>xcode.syntax.identifier.constant.system</key>
-		<string>SFMono-SemiboldItalic - 14.0</string>
+		<string>SFMono-Semibold - 15.0</string>
 		<key>xcode.syntax.identifier.function</key>
-		<string>SFMono-Semibold - 14.0</string>
+		<string>SFMono-Semibold - 15.0</string>
 		<key>xcode.syntax.identifier.function.system</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Semibold - 15.0</string>
 		<key>xcode.syntax.identifier.macro</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Semibold - 15.0</string>
 		<key>xcode.syntax.identifier.macro.system</key>
-		<string>SFMono-Semibold - 14.0</string>
+		<string>SFMono-Semibold - 15.0</string>
 		<key>xcode.syntax.identifier.type</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Semibold - 15.0</string>
 		<key>xcode.syntax.identifier.type.system</key>
-		<string>SFMono-Medium - 14.0</string>
+		<string>SFMono-MediumItalic - 15.0</string>
 		<key>xcode.syntax.identifier.variable</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Semibold - 15.0</string>
 		<key>xcode.syntax.identifier.variable.system</key>
-		<string>SFMono-Semibold - 14.0</string>
+		<string>SFMono-Semibold - 15.0</string>
 		<key>xcode.syntax.keyword</key>
-		<string>SFMono-Semibold - 14.0</string>
+		<string>SFMono-Semibold - 15.0</string>
 		<key>xcode.syntax.mark</key>
-		<string>SFMono-SemiboldItalic - 14.0</string>
+		<string>SFMono-SemiboldItalic - 15.0</string>
 		<key>xcode.syntax.markup.code</key>
 		<string>SFMono-Bold - 24.0</string>
 		<key>xcode.syntax.number</key>
-		<string>SFMono-SemiboldItalic - 14.0</string>
+		<string>SFMono-SemiboldItalic - 15.0</string>
 		<key>xcode.syntax.plain</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Light - 15.0</string>
 		<key>xcode.syntax.preprocessor</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Light - 15.0</string>
 		<key>xcode.syntax.regex</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Light - 15.0</string>
 		<key>xcode.syntax.regex.capturename</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Light - 15.0</string>
 		<key>xcode.syntax.regex.charname</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Light - 15.0</string>
 		<key>xcode.syntax.regex.number</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Light - 15.0</string>
 		<key>xcode.syntax.regex.other</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Light - 15.0</string>
 		<key>xcode.syntax.string</key>
-		<string>SFMono-Light - 14.0</string>
+		<string>SFMono-Light - 15.0</string>
 		<key>xcode.syntax.url</key>
-		<string>SFMono-MediumItalic - 14.0</string>
+		<string>SFMono-MediumItalic - 15.0</string>
 	</dict>
 </dict>
 </plist>

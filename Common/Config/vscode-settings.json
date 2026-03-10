@@ -2325,7 +2325,7 @@
         "debugExceptionWidget.border": "#474747"                      
     },
     "editor.tokenColorCustomizations": {
-        "comments": "#777575",
+        "comments": "#455a78",
         "strings": "#ff791b",
         "keywords": "#17b3f8",
         "functions": "#93ec7f",
@@ -2340,7 +2340,7 @@
                     "entity.name.tag.html"
                 ],
                 "settings": {
-                    "foreground": "#92c061"
+                    "foreground": "#00f900"
                 }              
             },
             {
@@ -2472,8 +2472,8 @@
     "terminal.integrated.lineHeight": 1.1,
     "terminal.integrated.smoothScrolling": true,
     "editor.fontWeight": "normal",
-    "workbench.iconTheme": "dobri-theme-icons",
     "github.copilot.nextEditSuggestions.enabled": true,
     "editor.lineNumbers": "off",
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "claudeCode.preferredLocation": "panel"
 }

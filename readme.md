@@ -1,4 +1,4 @@
-# README.md
+# Dotfiles for Tim Triemstra
 
 To install, run `./setup.sh` from within the local `dotfiles` directory. Quit and re-launch the terminal. Re-run to reset at any time.
 
