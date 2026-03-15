@@ -2096,7 +2096,6 @@
     "__comment": "Below this line are manual customizations ***********",
     "workbench.colorCustomizations": 
     {
-     
         "foreground": "#bbc9d5",
         "focusBorder": "#32373b",
         "sideBar.background": "#000000",
@@ -2209,7 +2208,7 @@
         "terminal.border": "#1e1f1e59",
         "terminal.ansiBlack": "#000000",
         "terminal.ansiBlue": "#2472c8",
-        "terminal.ansiBrightBlack": "#666666",
+        "terminal.ansiBrightBlack": "#444444",
         "terminal.ansiBrightBlue": "#3b8eea",
         "terminal.ansiBrightCyan": "#29b8db",
         "terminal.ansiBrightGreen": "#23d18b",
