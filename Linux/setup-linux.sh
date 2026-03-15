@@ -5,7 +5,7 @@
 # NOTE:  Cannot use SUDO in the Linux version of this script
 
 echo
-source "$DOTFILES_ROOT/Linux/dot-functions.sh"
+source "$DOTFILES_ROOT/Linux/Root/dot-functions.sh"
 
 message "🔔 Environment:" "Locations being used for this install of Dotfiles"
 bullet "DOTFILES_ROOT = $DOTFILES_ROOT"
