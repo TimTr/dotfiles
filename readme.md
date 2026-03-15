@@ -1,14 +1,16 @@
 # Dotfiles for Tim Triemstra
 
-To install, run `./setup.sh` from within the local `dotfiles` directory. Quit and re-launch the terminal. Re-run to reset at any time.
+To install, clone the repo and then run `./setup.sh` from within the local `dotfiles` directory:
 
 ```shell
+
   git clone https://github.com/timtr/dotfiles.git
   cd dotfiles
   ./setup.sh
+  
 ```
 
-This will install files into `~/Bin` (or `~/bin` on Linux) and add that directory to your PATH. Run `help.sh` to see additional functionality. On macOS, Xcode must first be installed. Linux is tested on recent Ubuntu releases. Re-run `./setup.sh` from the `dotfiles` folder to reset to original files.
+Quit and re-launch the terminal. Re-run to reset at any time.  This will install files into `~/Bin` (or `~/bin` on Linux) and add that directory to your PATH. Run `help.sh` to see additional functionality. On macOS, Xcode must first be installed. Linux is tested on recent Ubuntu releases. Re-run `./setup.sh` from the `dotfiles` folder to reset to original files.
 
 ### [Documentation](./Docs/)
 
@@ -64,6 +66,9 @@ Documentation (or the start of docs) can be [found here](https://timtr.github.io
 Which `zsh` files contain which settings: [CodeSpaces and Dotfiles](https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout)
 
 Docs on using `setup.sh` with [GitHub CodeSpaces and Dotfiles](https://docs.github.com/en/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account)
+
+EZA themes are found in `~/Library/Application Support/eza` - for more info see: https://github.com/eza-community/eza-themes/blob/main/README.md or do manual overrides using information here: https://github.com/ogham/exa/blob/master/man/exa_colors.5.mde
+
 
 ### ZSH order of loading
 

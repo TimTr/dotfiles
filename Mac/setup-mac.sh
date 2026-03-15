@@ -2,7 +2,7 @@
 #
 # setup-macos.sh - the macOS version
 echo
-source "$DOTFILES_ROOT/Mac/dot-functions.sh"
+source "$DOTFILES_ROOT/Mac/Root/dot-functions.sh"
 
 message "🔔 Environment:" "Locations being used for this install of Dotfiles"
 bullet "DOTFILES_ROOT = $DOTFILES_ROOT"
@@ -83,45 +83,49 @@ if [[ -f "$HOME/local.sh" ]]; then
   bullet "$HOME/local.sh file exists. Delete the file and re-run to install from template"
 else
   message "✅ Installing $HOME/local.sh - Creating new from ./Dotfiles/Mac/local-template.sh"
-  cp $DOTFILES_ROOT/Mac/local-template.sh $HOME/local.sh
+  cp $DOTFILES_ROOT/Mac/Root/local.sh $HOME/local.sh
 fi
 
 
 # ==============================================================================
 message "✅ Setup root dot-files" "Overwriting existing files at $HOME"
-cp $DOTFILES_ROOT/Mac/dot-zshrc.sh $HOME/.zshrc
-cp $DOTFILES_ROOT/Mac/dot-zshenv.sh $HOME/.zshenv
-cp $DOTFILES_ROOT/Mac/dot-aliases.sh $HOME/.aliases
-cp $DOTFILES_ROOT/Mac/dot-functions.sh $HOME/.functions
+cp $DOTFILES_ROOT/Mac/Root/dot-zshrc.sh $HOME/.zshrc
+cp $DOTFILES_ROOT/Mac/Root/dot-zshenv.sh $HOME/.zshenv
+cp $DOTFILES_ROOT/Mac/Root/dot-aliases.sh $HOME/.aliases
+cp $DOTFILES_ROOT/Mac/Root/dot-functions.sh $HOME/.functions
 
-#  Mac-specific Git configuration dot-files (using ./Documents for work repos)
-cp $DOTFILES_ROOT/Mac/dot-gitconfig $HOME/.gitconfig
-cp $DOTFILES_ROOT/Mac/dot-gitconfig-work $HOME/Documents/.gitconfig-work
+#  Mac-specific Git configuration files (assumes ./Documents for work repos)
+cp $DOTFILES_ROOT/Mac/Root/dot-gitconfig $HOME/.gitconfig
+cp $DOTFILES_ROOT/Mac/Root/dot-gitconfig-work $HOME/Documents/.gitconfig-work
 
-# Common settings across platforms
-cp $DOTFILES_ROOT/Common/dot-gitignore $HOME/.gitignore
-cp $DOTFILES_ROOT/Common/dot-vimrc $HOME/.vimrc
-
-echo "This dummy file silences the [new shell] messages" >> $HOME/.hushlogin
-
-# Register gitignore and other git stuff
+# Common Git settings across platforms, and register those settings
+cp $DOTFILES_ROOT/Common/Root/dot-gitignore $HOME/.gitignore
 git config --global core.excludesfile ~/.gitignore
+
+# Common app settings across platforms
+cp $DOTFILES_ROOT/Common/Root/dot-vimrc $HOME/.vimrc
+
+echo "This dummy file silences the [new shell] messages\n" >> $HOME/.hushlogin
 
 
 # ==============================================================================
 message "✅ Copy scripts to PATH" "Using $HOME/Bin for user scripts"
-cp $DOTFILES_ROOT/Mac/Path/* $HOME/Bin
+cp $DOTFILES_ROOT/Mac/Bin/* $HOME/Bin
 
 
 # ==============================================================================
 message "✅ Setup app preferences" "Overwriting Terminal, Xcode, and other settings"
 
 # Copy app settings
-cp $DOTFILES_ROOT/Mac/Config/Preferences/* $HOME/Library/Preferences/
+cp $DOTFILES_ROOT/Mac/Preferences/* $HOME/Library/Preferences/
 
-# Copy Xcode preferences
-mkdir -p $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes
-cp -R $DOTFILES_ROOT/Mac/Config/Xcode/* $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/
+# Copy Xcode preferences (fails silently if no Xcode installed)
+cp -R $DOTFILES_ROOT/Mac/Xcode/* $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/ 2> /dev/null
+
+# ==============================================================================
+# on MacOS, eza will look for the theme file in ~/Library/Application Support/eza
+# by default. That directory can be overridden by setting EZA_CONFIG_DIR.
+# TODO: set this up on macOS
 
 
 # ==============================================================================

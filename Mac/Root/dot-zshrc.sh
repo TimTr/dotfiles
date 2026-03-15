@@ -17,7 +17,7 @@ source $HOME/.zshenv
 # Warn about installing Homebrew if it is not yet present
 which -s brew &> /dev/null
 if [[ $? != 0 ]] ; then
-  error "Missing Homebrew" "Run setup-brew.sh"
+  error "Missing Homebrew. Run setup-brew.sh"
 else
   message "Found Homebrew" "Installed brew tools supercede system tools (e.g. Ruby)"
 fi
@@ -31,7 +31,9 @@ export LSCOLORS=gxFxCxDxdxExBxAxaxaxex
 ## type "man eza_colors" for a list and instructions
 ## 256 color codes:  https://en.wikipedia.org/wiki/ANSI_escape_code
 ## Notice how "di=38;5;nnn" - replace the "nnn" with a color code from ANSI 256
-export EZA_COLORS="*.md=92:fi=0:ex=96:di=38;5;75:da=1;30:mp=31:lp=33:ln=31:uu=0:gu=0:sn=0:sb=0:xx=0"
+## EZA themes are found in `~/Library/Application Support/eza` - for more info see: https://github.com/eza-community/eza-themes/blob/main/README.md or do manual overrides using information here: https://github.com/ogham/exa/blob/master/man/exa_colors.5.mde
+
+export EZA_COLORS="*.md=92:fi=0:ex=96:di=38;5;75:da= 30:mp=31:lp=33:ln=31:uu=0:gu=0:sn=0:sb=0:xx=0"
 
 ## Prior good colors
 # export EZA_COLORS="*.md=92:fi=0:ex=96:di=34:da=2:mp=31:lp=33:ln=31:uu=0:gu=0:sn=0:sb=0:xx=0"

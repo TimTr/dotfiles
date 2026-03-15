@@ -21,6 +21,9 @@ function bullet()  { printf "\r\033[00;36m   ==\033[0m $1 \n"; }
 # ... Find all files recursively under current folder
 function findall() { find . -name "$1" -print 2> /dev/null; }
 
+# ... grep for a string in the root and recursively downward
+function findstring() { grep -rinl --color "$1" . }
+
 # ... Create a new directory and enter it
 function md() { mkdir -p "$@" && cd "$@"; }
 

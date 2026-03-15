@@ -80,6 +80,12 @@ rm $HOME/.bash_profile 2> /dev/null
 cp $HOME/.bashrc $HOME/.bash_profile
 cp $HOME/.bashrc $HOME/.profile
 
+
+# ==============================================================================
+# On Linux copy the ./Common/Eza/* theme to ~/.config/eza/theme.yml
+# TODO: set this up on Linux
+
+
 # ==============================================================================
 # Check if the "~/local.sh" file exists, and if not, copy  the stub version to user home
 if [[ -f "$HOME/local.sh" ]]; then
