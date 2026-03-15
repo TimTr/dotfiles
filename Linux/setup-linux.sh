@@ -38,35 +38,35 @@ find $DOTFILES_ROOT -name "*.sh" -type f -print0 | xargs -0 chmod 755
 
 # ==============================================================================
 # Create $HOME/Bin folder in which to put local code repositorities
-if [[ -d "$HOME/bin" ]]; then
-  bullet "$HOME/bin exists. Added to the PATH for user content"
+if [[ -d "$HOME/Bin" ]]; then
+  bullet "$HOME/Bin exists. Added to the PATH for user content"
 else
-  mkdir -p $HOME/bin
-  chown -R $USER $HOME/bin
-  chmod 744 $HOME/bin
-  message "📂 Created $HOME/bin and added it to PATH for your code"
+  mkdir -p $HOME/Bin
+  chown -R $USER $HOME/Bin
+  chmod 744 $HOME/Bin
+  message "📂 Created $HOME/Bin and added it to PATH for your code"
 fi
 
 
 # ==============================================================================
 message "✅ Installing root dotfiles" "Overwriting existing versions of these files"
-cp $DOTFILES_ROOT/Linux/dot-bashrc.sh $HOME/.bashrc
-cp $DOTFILES_ROOT/Linux/dot-aliases.sh $HOME/.aliases
-cp $DOTFILES_ROOT/Linux/dot-functions.sh $HOME/.functions
+cp $DOTFILES_ROOT/Linux/Root/dot-bashrc.sh $HOME/.bashrc
+cp $DOTFILES_ROOT/Linux/Root/dot-aliases.sh $HOME/.aliases
+cp $DOTFILES_ROOT/Linux/Root/dot-functions.sh $HOME/.functions
 
 # Copy over tool and app settings
-cp $DOTFILES_ROOT/Linux/dot-gitconfig $HOME/.gitconfig
+cp $DOTFILES_ROOT/Linux/Root/dot-gitconfig $HOME/.gitconfig
 
 # Copy common files used across platforms (keeps them in sync)
-cp $DOTFILES_ROOT/Common/dot-vimrc $HOME/.vimrc
-cp $DOTFILES_ROOT/Common/dot-gitignore $HOME/.gitignore
+cp $DOTFILES_ROOT/Common/Root/dot-vimrc $HOME/.vimrc
+cp $DOTFILES_ROOT/Common/Root/dot-gitignore $HOME/.gitignore
 
 # Register gitignore and other git stuff
 git config --global core.excludesfile ~/.gitignore
 
 # ==============================================================================
-message "✅ Copy scripts to PATH" "Using $HOME/bin for user scripts"
-cp $DOTFILES_ROOT/Linux/Path/* $HOME/bin
+message "✅ Copy scripts to PATH" "Using $HOME/Bin for user scripts"
+cp $DOTFILES_ROOT/Linux/Bin/* $HOME/Bin
 
 
 # ==============================================================================
@@ -92,7 +92,7 @@ if [[ -f "$HOME/local.sh" ]]; then
   bullet "~/local.sh exists - delete then re-run to reset from the template"
 else
   message "✅ Creating ~/local.sh" "Modify this file to add GitHub and SSH tokens"
-  cp $DOTFILES_ROOT/Linux/local-template.sh $HOME/local.sh
+  cp $DOTFILES_ROOT/Linux/Root/local.sh $HOME/local.sh
 fi
 
 # ==============================================================================
