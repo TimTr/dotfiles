@@ -27,6 +27,25 @@ autoload colors; colors;
 export CLICOLOR=1
 export LSCOLORS=gxFxCxDxdxExBxAxaxaxex
 
+## Parse git branch to put into the prompt
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ 🌱 \1/'
+}
+# Enable substitutions within the prompt
+setopt PROMPT_SUBST
+
+# Set the actual prompt
+HOSTNAME=$(hostname -s)
+NEWLINE=$'\n'
+PROMPT='${NEWLINE}%F{white}% %F{red}% $USER %F{grey}% ${HOSTNAME}%F{white}%  %F{red}% %9c% %F{white}% %F{white}% ${NEWLINE}%F{blue}%$(parse_git_branch) ↪ %f'
+
+# Previous version of the prompt, with date
+# PROMPT='${NEWLINE}%F{white}% > %F{red}% $USER %F{grey}% ${HOSTNAME}%F{white}%  %F{red}% %9c% %F{white}%  %F{blue}% $(parse_git_branch) %F{white}% ${NEWLINE}[%F{238} %D %T%F{white}% ] ↪ %f'
+#
+# Another previous version
+#     NEWLINE=$'\n'
+#     PROMPT='${NEWLINE}%F{white}% → %F{red}% %9c% %F{grey}% $(parse_git_branch) %F{white}% ${NEWLINE}↪ %f'
+
 ## EZA color setup reference: https://the.exa.website/docs/colour-themes
 ## type "man eza_colors" for a list and instructions
 ## 256 color codes:  https://en.wikipedia.org/wiki/ANSI_escape_code
@@ -40,24 +59,6 @@ export EZA_COLORS="*.md=92:fi=0:ex=96:di=38;5;75:da= 30:mp=31:lp=33:ln=31:uu=0:g
 
 ## Testing colors
 # export EZA_COLORS="*.md=92:fi=0:ex=96:di=38;5;75:da=1;30:mp=31:lp=33:ln=31:uu=0:gu=0:sn=0:sb=0:xx=0"
-
-
-## Parse git branch to put into the prompt
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ 🌱 \1/'
-}
-# Enable substitutions within the prompt
-setopt PROMPT_SUBST
-
-# Set the actual prompt
-HOSTNAME=$(hostname -s)
-NEWLINE=$'\n'
-PROMPT='${NEWLINE}%F{white}% [%F{red}% $USER %F{grey}% ${HOSTNAME}%F{white}%  %F{red}% %9c% %F{white}% ] %F{blue}% $(parse_git_branch) %F{white}% ${NEWLINE}[%F{238} %D %T%F{white}% ] ↪ %f'
-
-
-# Previous version of the prompt (worked)
-# NEWLINE=$'\n'
-# PROMPT='${NEWLINE}%F{white}% → %F{red}% %9c% %F{grey}% $(parse_git_branch) %F{white}% ${NEWLINE}↪ %f'
 
 
 

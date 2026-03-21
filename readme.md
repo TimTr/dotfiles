@@ -10,6 +10,8 @@ To install, clone the repo and then run `./setup.sh` from within the local `dotf
   
 ```
 
+TODO:  https://wiki.archlinux.org/title/XDG_Base_Directory
+
 Quit and re-launch the terminal. Re-run to reset at any time.  This will install files into `~/Bin` (or `~/bin` on Linux) and add that directory to your PATH. Run `help.sh` to see additional functionality. On macOS, Xcode must first be installed. Linux is tested on recent Ubuntu releases. Re-run `./setup.sh` from the `dotfiles` folder to reset to original files.
 
 ### [Documentation](./Docs/)

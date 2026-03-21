@@ -12,22 +12,19 @@ which -s brew &> /dev/null
 if [[ $? != 0 ]] ; then
   error "Missing Homebrew" "Installing for the first time..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  
+  message "Homebrew installed" "Re-run setup-brew.sh in a fresh terminal window"
+
 else
   message "Found Homebrew" "Updating, upgrading, installing Jekyll and others"
 
   brew update
   brew upgrade
-  brew install automake bison openssl readline libyaml gdbm libffi wget
-  brew install eza
-
-  # Install ruby gems, specifically Jekyll for blogs
-  gem update
-  gem install jekyll
+  brew install automake bison openssl readline libyaml gdbm libffi wget eza
   
-  message "Homebrew update complete" "Reporting current versions:"
+  message "Homebrew update complete" "Reporting current tool versions:"
   python3 --version
-  ruby --version
-  jekyll --version
+  brew --version
 fi
 
 
