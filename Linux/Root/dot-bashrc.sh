@@ -20,6 +20,7 @@ export LC_COLLATE="C"
 export CLICOLOR=1
 export LSCOLORS=gxFxCxDxbxExBxAxaxaxex
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=37:cd=34:su=36:sg=36;40:tw=36:ow=36"
+export EZA_COLORS="*.md=92:fi=0:ex=96:di=38;5;75:da= 30:mp=31:lp=33:ln=31:uu=0:gu=0:sn=0:sb=0:xx=0"
 
 ## Parse git branch to put into the prompt
 parse_git_branch() {
