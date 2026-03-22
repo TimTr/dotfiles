@@ -1,18 +1,19 @@
 # Dotfiles for Tim Triemstra
 
-To install, clone the repo and then run `./setup.sh` from within the local `dotfiles` directory:
+To install, clone the repo and run `./setup.sh` as follows:
 
 ```shell
 
   git clone https://github.com/timtr/dotfiles.git
   cd dotfiles
   ./setup.sh
-  
+
+  # Quit and re-launch terminal for changes to take effect
 ```
 
-Quit and re-launch the terminal. Re-run to reset at any time. On macOS, Xcode must first be installed. Linux is tested on recent Ubuntu releases. 
+On macOS, Xcode must first be installed. Linux is tested on recent Ubuntu releases. 
 
-The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. The `local.sh` file is installed in `~/.local/share` to customize beyond what is installed by this **dotfiles** setup. Path binaries and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. Defaults such as `~/.local/bin` are used, leaving the `$XDG_DATA_HOME` and related variables empty for now.
+The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. The `local.sh` file is installed in `~/.local/share` to further customize the local environment. Scripts, binaries, and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. 
 
 
 ### [Documentation](./Docs/)
@@ -24,7 +25,7 @@ Documentation is generated within [GitHub Pages](https://timtr.github.io/dotfile
 
 This is the personal collection of setup scripts for macOS and Linux (WIP). It includes settings for macOS using `zsh` shell, `eza` for `ls` replacement, Terminal, Xcode, Swift, Homebrew, and Ruby. The Linux install is based on `bash` and still uses mostly default tools.
 
-
+Defaults such as `~/.local/bin` are used, leaving the `$XDG_DATA_HOME` and related variables empty for now. You may want to update the `local.sh` file to augment some default behavior, while continuing to use these dotfiles otherwise unchanged. You can also use the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) specification for how you may want to augment the configuration. 
 
 
 ## Work-specific Git configuration
@@ -41,8 +42,6 @@ TODO:
 
 **local.sh** - A file called `~/local.sh` is installed (if doesn't exist) that you can customize with settings that do not belong checked into GitHub, for instance set certain keys, or environment variables. This is also the file to add things like feature flags during development, define a Swift toolchain, or to enable secret build settings. Re-running `dotfiles.sh` will never override this file, so if you want to restart from scratch, just delete the file and the re-install dotfiles to get a fresh setup.
 
-**dotfiles.sh** - run this at any time to reset all settings (it is in $PATH).
-
 **ZSH dotfiles** - set up the prompt, `$PATH`, and other basic settings. The `.zshenv` file sets up `$PATH` so it works even when there is no interactive terminal session, and `.zshrc` will source this file as well.
 
 **Dropbox** - Optional symlink in `$HOME` points to `~/Library/CloudStorage/Dropbox` if Dropbox is installed on the computer. This is often commented out.
@@ -54,6 +53,9 @@ TODO:
 
 You can download new Swift toolchains from [Swift.org](https://swift.org/download/#snapshots) and set them to be used by default.  The `~/local.sh` file is perfect to place to configure these settings per-machine, rather than configure in the main Dotfiles repo.
 
+## XDG directory and configuration structure
+
+You can also read the [XDG base directory specification](https://specifications.freedesktop.org/basedir/latest/) for how you may want to augment the configuration. 
 
 ## Demos
 
