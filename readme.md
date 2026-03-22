@@ -10,11 +10,9 @@ To install, clone the repo and then run `./setup.sh` from within the local `dotf
   
 ```
 
-Quit and re-launch the terminal. Re-run to reset at any time.  This will install files into `~/Bin` (or `~/bin` on Linux) and add that directory to your PATH. Run `help.sh` to see additional functionality. On macOS, Xcode must first be installed. Linux is tested on recent Ubuntu releases. Re-run `./setup.sh` from the `dotfiles` folder to reset to original files.
+Quit and re-launch the terminal. Re-run to reset at any time. On macOS, Xcode must first be installed. Linux is tested on recent Ubuntu releases. 
 
-Path binaries and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. Defaults such as `~/.local/bin` are used, leaving the `$XDG_DATA_HOME` and related variables empty for now.
-
-The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. The `local.sh` file is installed in `~/.local/share` to customize beyond what is installed by this **dotfiles** setup.
+The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. The `local.sh` file is installed in `~/.local/share` to customize beyond what is installed by this **dotfiles** setup. Path binaries and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. Defaults such as `~/.local/bin` are used, leaving the `$XDG_DATA_HOME` and related variables empty for now.
 
 
 ### [Documentation](./Docs/)
