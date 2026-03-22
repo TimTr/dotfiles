@@ -2,10 +2,10 @@
 #
 # setup-macos.sh - the macOS version
 echo
-source "$DOTFILES_ROOT/Mac/Root/dot-functions.sh"
+source "$DOTFILES/Mac/Root/dot-functions.sh"
 
 message "🔔 Environment:" "Locations being used for this install of Dotfiles"
-bullet "DOTFILES_ROOT = $DOTFILES_ROOT"
+bullet "DOTFILES = $DOTFILES"
 bullet "Run location = ${0:a:h}"
 bullet "git config --global user.name = \"$(git config --get user.name)\""
 bullet "git config --global user.email = \"$(git config --get user.email)\""
@@ -36,17 +36,17 @@ fi
 message "📂 Creating directories" "Creating and/or setting file permissions"
 
 # Claim ownership of all my dotfiles
-chown -R $USER $DOTFILES_ROOT     2> /dev/null
+chown -R $USER $DOTFILES     2> /dev/null
 
 # Make all directories (-type d) 755 executable, files (-type f) as 644
-find $DOTFILES_ROOT -type d -print0 | xargs -0 chmod 755
-find $DOTFILES_ROOT -type f -print0 | xargs -0 chmod 644
+find $DOTFILES -type d -print0 | xargs -0 chmod 755
+find $DOTFILES -type f -print0 | xargs -0 chmod 644
 
 # Make all .sh files (-type f) also executable
-find $DOTFILES_ROOT -name "*.sh" -type f -print0 | xargs -0 chmod 755
+find $DOTFILES -name "*.sh" -type f -print0 | xargs -0 chmod 755
 
 # Get rid of the quarantine bit (which occasionally gets set via downloads)
-xattr -d com.apple.quarantine $DOTFILES_ROOT/* 2> /dev/null
+xattr -d com.apple.quarantine $DOTFILES/* 2> /dev/null
 
 
 # ==============================================================================
@@ -83,44 +83,44 @@ if [[ -f "$HOME/local.sh" ]]; then
   bullet "$HOME/local.sh file exists. Delete the file and re-run to install from template"
 else
   message "✅ Installing $HOME/local.sh - Creating new from ./Dotfiles/Mac/local-template.sh"
-  cp $DOTFILES_ROOT/Mac/Root/local.sh $HOME/local.sh
+  cp $DOTFILES/Mac/Root/local.sh $HOME/local.sh
 fi
 
 
 # ==============================================================================
 message "✅ Setup root dot-files" "Overwriting existing files at $HOME"
-cp $DOTFILES_ROOT/Mac/Root/dot-zshrc.sh $HOME/.zshrc
-cp $DOTFILES_ROOT/Mac/Root/dot-zshenv.sh $HOME/.zshenv
-cp $DOTFILES_ROOT/Mac/Root/dot-aliases.sh $HOME/.aliases
-cp $DOTFILES_ROOT/Mac/Root/dot-functions.sh $HOME/.functions
+cp $DOTFILES/Mac/Root/dot-zshrc.sh $HOME/.zshrc
+cp $DOTFILES/Mac/Root/dot-zshenv.sh $HOME/.zshenv
+cp $DOTFILES/Mac/Root/dot-aliases.sh $HOME/.aliases
+cp $DOTFILES/Mac/Root/dot-functions.sh $HOME/.functions
 
 #  Mac-specific Git configuration files (assumes ./Documents for work repos)
-cp $DOTFILES_ROOT/Mac/Root/dot-gitconfig $HOME/.gitconfig
-cp $DOTFILES_ROOT/Mac/Root/dot-gitconfig-work $HOME/Documents/.gitconfig-work
+cp $DOTFILES/Mac/Root/dot-gitconfig $HOME/.gitconfig
+cp $DOTFILES/Mac/Root/dot-gitconfig-work $HOME/Documents/.gitconfig-work
 
 # Common Git settings across platforms, and register those settings
-cp $DOTFILES_ROOT/Common/Root/dot-gitignore $HOME/.gitignore
+cp $DOTFILES/Common/Root/dot-gitignore $HOME/.gitignore
 git config --global core.excludesfile ~/.gitignore
 
 # Common app settings across platforms
-cp $DOTFILES_ROOT/Common/Root/dot-vimrc $HOME/.vimrc
+cp $DOTFILES/Common/Root/dot-vimrc $HOME/.vimrc
 
 echo "This dummy file silences the [new shell] messages\n" >> $HOME/.hushlogin
 
 
 # ==============================================================================
 message "✅ Copy scripts to PATH" "Using $HOME/Bin for user scripts"
-cp $DOTFILES_ROOT/Mac/Bin/* $HOME/Bin
+cp $DOTFILES/Mac/Bin/* $HOME/Bin
 
 
 # ==============================================================================
 message "✅ Setup app preferences" "Overwriting Terminal, Xcode, and other settings"
 
 # Copy app settings
-cp $DOTFILES_ROOT/Mac/Preferences/* $HOME/Library/Preferences/
+cp $DOTFILES/Mac/Preferences/* $HOME/Library/Preferences/
 
 # Copy Xcode preferences (fails silently if no Xcode installed)
-cp -R $DOTFILES_ROOT/Mac/Xcode/* $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/ 2> /dev/null
+cp -R $DOTFILES/Mac/Xcode/* $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/ 2> /dev/null
 
 # ==============================================================================
 # on MacOS, eza will look for the theme file in ~/Library/Application Support/eza
@@ -131,8 +131,8 @@ cp -R $DOTFILES_ROOT/Mac/Xcode/* $HOME/Library/Developer/Xcode/UserData/FontAndC
 # ==============================================================================
 message "✅ Setup defaults" "Adding paths and variables to .zshenv"
 echo " " >> ~/.zshenv
-echo "# Add global DOTFILES_ROOT pointing Dotfiles install folder" >> ~/.zshenv
-echo "export DOTFILES_ROOT=$DOTFILES_ROOT" >> ~/.zshenv
+echo "# Add global DOTFILES pointing Dotfiles install folder" >> ~/.zshenv
+echo "export DOTFILES=$DOTFILES" >> ~/.zshenv
 
 # Example Xcode defaults:  https://github.com/ctreffs/xcode-defaults
 # Xcode always opens with the "Welcome to Xcode" window, not last project

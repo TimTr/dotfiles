@@ -11,13 +11,13 @@
 
 
 # Set Dotfiles home to be the folder in which `setup.sh` was run (requires ZSH)
-export DOTFILES_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # This script launches either Linux or macOS installer (do not "source" the scripts)
 if [[ $OSTYPE == darwin* ]]; then
-  $DOTFILES_ROOT/Mac/setup-mac.sh
+  $DOTFILES/Mac/setup-mac.sh
 else
-  $DOTFILES_ROOT/Linux/setup-linux.sh
+  $DOTFILES/Linux/setup-linux.sh
 fi
 
 exit 0
@@ -38,7 +38,7 @@ exit 0
 # DOTFILES_SETUP_FILE=${0:a}
 
 # -- This was how to get the containing folder via zsh
-# export DOTFILES_ROOT=${0:a:h}
+# export DOTFILES=${0:a:h}
 
 
 # This piece of script would require that you launch the setup while

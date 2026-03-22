@@ -5,10 +5,10 @@
 # NOTE:  Cannot use SUDO in the Linux version of this script
 
 echo
-source "$DOTFILES_ROOT/Linux/Root/dot-functions.sh"
+source "$DOTFILES/Linux/Root/dot-functions.sh"
 
 message "🔔 Environment:" "Locations being used for this install of Dotfiles"
-bullet "DOTFILES_ROOT = $DOTFILES_ROOT"
+bullet "DOTFILES = $DOTFILES"
 bullet "Run location = ${0:a:h}"
 bullet "git config --global user.name = \"$(git config --get user.name)\""
 bullet "git config --global user.email = \"$(git config --get user.email)\""
@@ -26,14 +26,14 @@ if [ $SHELL != "/bin/bash" ]; then
 fi
 
 # Claim ownership of all my dotfiles
-chown -R $USER $DOTFILES_ROOT     2> /dev/null
+chown -R $USER $DOTFILES     2> /dev/null
 
 ## Make sure all the dotfiles have proper ownership before starting
-chown -R $USER ${DOTFILES_ROOT}/*  2> /dev/null
-chmod -R 777 ${DOTFILES_ROOT}/*    2> /dev/null
+chown -R $USER ${DOTFILES}/*  2> /dev/null
+chmod -R 777 ${DOTFILES}/*    2> /dev/null
 
 # Make all .sh files (-type f) also executable
-find $DOTFILES_ROOT -name "*.sh" -type f -print0 | xargs -0 chmod 755
+find $DOTFILES -name "*.sh" -type f -print0 | xargs -0 chmod 755
 
 
 # ==============================================================================
@@ -50,30 +50,30 @@ fi
 
 # ==============================================================================
 message "✅ Installing root dotfiles" "Overwriting existing versions of these files"
-cp $DOTFILES_ROOT/Linux/Root/dot-bashrc.sh $HOME/.bashrc
-cp $DOTFILES_ROOT/Linux/Root/dot-aliases.sh $HOME/.aliases
-cp $DOTFILES_ROOT/Linux/Root/dot-functions.sh $HOME/.functions
+cp $DOTFILES/Linux/Root/dot-bashrc.sh $HOME/.bashrc
+cp $DOTFILES/Linux/Root/dot-aliases.sh $HOME/.aliases
+cp $DOTFILES/Linux/Root/dot-functions.sh $HOME/.functions
 
 # Copy over tool and app settings
-cp $DOTFILES_ROOT/Linux/Root/dot-gitconfig $HOME/.gitconfig
+cp $DOTFILES/Linux/Root/dot-gitconfig $HOME/.gitconfig
 
 # Copy common files used across platforms (keeps them in sync)
-cp $DOTFILES_ROOT/Common/Root/dot-vimrc $HOME/.vimrc
-cp $DOTFILES_ROOT/Common/Root/dot-gitignore $HOME/.gitignore
+cp $DOTFILES/Common/Root/dot-vimrc $HOME/.vimrc
+cp $DOTFILES/Common/Root/dot-gitignore $HOME/.gitignore
 
 # Register gitignore and other git stuff
 git config --global core.excludesfile ~/.gitignore
 
 # ==============================================================================
 message "✅ Copy scripts to PATH" "Using $HOME/Bin for user scripts"
-cp $DOTFILES_ROOT/Linux/Bin/* $HOME/Bin
+cp $DOTFILES/Linux/Bin/* $HOME/Bin
 
 
 # ==============================================================================
 message "✅ Setup defaults" "Adding paths and variables to .bashrc for bash"
 echo " " >> ~/.bashrc
-echo "# Add global DOTFILES_ROOT pointing Dotfiles install folder" >> ~/.bashrc
-echo "export DOTFILES_ROOT=$DOTFILES_ROOT" >> ~/.bashrc
+echo "# Add global DOTFILES pointing Dotfiles install folder" >> ~/.bashrc
+echo "export DOTFILES=$DOTFILES" >> ~/.bashrc
 
 # copy .bashrc to .profile to support some different SSH sessions
 rm $HOME/.bash_profile 2> /dev/null
@@ -92,7 +92,7 @@ if [[ -f "$HOME/local.sh" ]]; then
   bullet "~/local.sh exists - delete then re-run to reset from the template"
 else
   message "✅ Creating ~/local.sh" "Modify this file to add GitHub and SSH tokens"
-  cp $DOTFILES_ROOT/Linux/Root/local.sh $HOME/local.sh
+  cp $DOTFILES/Linux/Root/local.sh $HOME/local.sh
 fi
 
 # ==============================================================================
