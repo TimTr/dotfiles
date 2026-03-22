@@ -18,14 +18,14 @@ The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local 
 
 ### [Documentation](./Docs/)
 
-Documentation is generated within [GitHub Pages](https://timtr.github.io/dotfiles/Docs/) for this repository. It is a work-in-progress, presently.
+Documentation is generated within [GitHub Pages](https://timtr.github.io/dotfiles/Docs/) for this repository. It is a work-in-progress, presently. Moving to a local setup of documentation using [Swift-DocC](https://www.swift.org/documentation/docc/) but not yet implemented.
 
 
 ## Overview
 
 This is the personal collection of setup scripts for macOS and Linux (WIP). It includes settings for macOS using `zsh` shell, `eza` for `ls` replacement, Terminal, Xcode, Swift, Homebrew, and Ruby. The Linux install is based on `bash` and still uses mostly default tools.
 
-Defaults such as `~/.local/bin` are used, leaving the `$XDG_DATA_HOME` and related variables empty for now. You may want to update the `local.sh` file to augment some default behavior, while continuing to use these dotfiles otherwise unchanged. You can also use the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) specification for how you may want to augment the configuration. 
+Defaults such as `~/.local/bin` are used, leaving the `$XDG_DATA_HOME` and related variables empty for now. You may want to update the `local.sh` file to augment local behavior that you don't want to see in a shared repository.
 
 
 ## Work-specific Git configuration
