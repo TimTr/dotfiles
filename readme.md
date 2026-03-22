@@ -10,9 +10,12 @@ To install, clone the repo and then run `./setup.sh` from within the local `dotf
   
 ```
 
-TODO:  https://wiki.archlinux.org/title/XDG_Base_Directory
-
 Quit and re-launch the terminal. Re-run to reset at any time.  This will install files into `~/Bin` (or `~/bin` on Linux) and add that directory to your PATH. Run `help.sh` to see additional functionality. On macOS, Xcode must first be installed. Linux is tested on recent Ubuntu releases. Re-run `./setup.sh` from the `dotfiles` folder to reset to original files.
+
+Path binaries and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. Defaults such as `~/.local/bin` are used, leaving the `$XDG_DATA_HOME` and related variables empty for now.
+
+The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. The `local.sh` file is installed in `~/.local/share` to customize beyond what is installed by this **dotfiles** setup.
+
 
 ### [Documentation](./Docs/)
 
@@ -21,9 +24,9 @@ Documentation is generated within [GitHub Pages](https://timtr.github.io/dotfile
 
 ## Overview
 
-This is the personal collection of setup scripts for macOS and Linux (WIP). It includes settings for macOS including `zsh` shell, `eza` for `ls` replacement, Terminal, Xcode, Swift, Homebrew, and Ruby. The Linux install is based on `bash` and still uses mostly default tools.
+This is the personal collection of setup scripts for macOS and Linux (WIP). It includes settings for macOS using `zsh` shell, `eza` for `ls` replacement, Terminal, Xcode, Swift, Homebrew, and Ruby. The Linux install is based on `bash` and still uses mostly default tools.
 
-The setup adds `$HOME/Bin` (or `~/bin` on Linux) and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support.
+
 
 
 ## Work-specific Git configuration
