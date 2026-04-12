@@ -15,14 +15,11 @@ source $HOME/.functions
 # Only load this file once per session
 if [[ -v LOADED_LOCAL ]]; then return; fi
 export LOADED_LOCAL=true
-message "Loading ~/local.sh" "Sets local Swift toolchain, tokens, keys, and passwords"
+message "$$XDG_CONFIG_HOME/local.sh" "Sets local Swift toolchain, tokens, keys, and passwords"
 
 # To enable latest Swift.org toolchain in /Library/Developer/Toolchains/"
 #  export TOOLCHAINS=swift ("swift" = use Swift.org tools, empty = use Xcode)
 export TOOLCHAINS=
-
-# Enable Snippets: type \"swift package learn\" within a package
-# export SWIFTPM_ENABLE_SNIPPETS=1
 
 # This must be edited ONLY in the local machine. Do not commit to a repo!
 export HOMEBREW_GITHUB_API_TOKEN=

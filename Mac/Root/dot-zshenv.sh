@@ -1,7 +1,18 @@
 # .zshenv - Mac version - Loaded in every session, great for PATH.
 
-# Special PATHs. Add  "$HOME/.local/bin" if using Claude Code
-export PATH="$HOME/Bin:$HOME/.local/bin"
+
+# ==============================================================================
+# Setup the XDG directories, and include .local/bin in the PATH
+# For reference: https://specifications.freedesktop.org/basedir/latest/
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CACHE_HOME=$HOME/.local/cache
+export XDG_BIN_HOME=$HOME/.local/bin
+
+
+# Using "$HOME/.local/bin" which is also used by other tools
+export PATH="$XDG_BIN_HOME"
 
 # Setting for Apple silicon version of Ruby. Pre-pend it and Gems to the PATH
 export PATH=/opt/homebrew/bin:/opt/homebrew/opt/ruby/bin:$PATH

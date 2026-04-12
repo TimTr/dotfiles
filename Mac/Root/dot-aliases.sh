@@ -58,7 +58,7 @@ then
   # alias ls='ls -FG'
 else
   ## Aliasing 'ls' commands to use 'eza'
-  alias ll='eza --long --sort=Name --git --git-repos -I "Icon?" --group-directories-first --no-quotes --no-permissions --no-user'
+  alias ll='eza --long --sort=Name --git --git-repos -I "Icon?" --group-directories-first --no-quotes --no-permissions --no-user --grid'
   alias lls='eza --sort=Name --git --git-repos -I "Icon?" --group-directories-first --no-quotes'
   alias lla='eza -a --long --sort=Name --git -I "Icon?" -I ".DS_Store" --group-directories-first'
   alias llx='eza -a --long --sort=Name --git -I "Icon?" -I ".DS_Store" --group-directories-first -@ -Z'

@@ -4,6 +4,7 @@
 echo
 source "$DOTFILES/Mac/Root/dot-functions.sh"
 
+
 message "🔔 Environment:" "Locations being used for this install of Dotfiles"
 bullet "DOTFILES = $DOTFILES"
 bullet "Run location = ${0:a:h}"
@@ -50,14 +51,24 @@ xattr -d com.apple.quarantine $DOTFILES/* 2> /dev/null
 
 
 # ==============================================================================
-# Create $HOME/Bin folder in which to put local code repositorities
-if [[ -d "$HOME/Bin" ]]; then
-  bullet "$HOME/Bin exists. Added to the PATH for user content"
+# Create XDG:  https://specifications.freedesktop.org/basedir/latest/
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CACHE_HOME=$HOME/.local/cache
+export XDG_BIN_HOME=$HOME/.local/bin
+
+# mkdir -m 700 -p folder
+
+
+
+if [[ -d "$HOME/.local/bin" ]]; then
+  bullet "$HOME/.local/bin exists. Added to the PATH for user content"
 else
-  mkdir -p $HOME/Bin
-  chown -R "$USER":admin $HOME/Bin
-  chmod 744 $HOME/Bin
-  message "✅ Created $HOME/Bin and added it to PATH for your code"
+  mkdir -p $HOME/.local/bin
+  chown -R "$USER":admin $HOME/.local/bin
+  chmod 0700 $HOME/.local/bin
+  message "✅ Created $HOME/local/bin and (will) add it to PATH"
 fi
 
 # Create ~/Developer folder in which to put local code repositorities
@@ -68,7 +79,7 @@ else
   message "✅ Created $HOME/Developer - use this folder for personal developer work"
 fi
 
-# Create a ~/Documents folder if it doesn't exist already
+# Create a ~/Documents folder if it doesn't exist already (on macOS likely does)
 if [[ -d "$HOME/Documents/" ]]; then
   bullet "$HOME/Documents exists. Use this folder for work repositories"
 else
@@ -77,13 +88,14 @@ else
 fi
 
 
+
 # ==============================================================================
 # Check if the ~/local.sh file exists, if not then copy the template to $HOME
-if [[ -f "$HOME/local.sh" ]]; then
-  bullet "$HOME/local.sh file exists. Delete the file and re-run to install from template"
+if [[ -f "$XDG_CONFIG_HOME/local.sh" ]]; then
+  bullet "$XDG_CONFIG_HOME/local.sh file exists. Delete the file and re-run to install from template"
 else
-  message "✅ Installing $HOME/local.sh - Creating new from ./Dotfiles/Mac/local-template.sh"
-  cp $DOTFILES/Mac/Root/local.sh $HOME/local.sh
+  message "✅ Installing $XDG_CONFIG_HOME/local.sh - Creating new from ./dotfiles/Mac/Root/local.sh"
+  cp $DOTFILES/Mac/Root/local.sh $XDG_CONFIG_HOME/local.sh
 fi
 
 
@@ -109,8 +121,8 @@ echo "This dummy file silences the [new shell] messages\n" >> $HOME/.hushlogin
 
 
 # ==============================================================================
-message "✅ Copy scripts to PATH" "Using $HOME/Bin for user scripts"
-cp $DOTFILES/Mac/Bin/* $HOME/Bin
+message "✅ Copy scripts to PATH" "Using $XDG_BIN_HOME for user scripts"
+cp $DOTFILES/Mac/Bin/* $XDG_BIN_HOME
 
 
 # ==============================================================================

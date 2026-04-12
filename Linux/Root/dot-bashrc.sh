@@ -1,5 +1,10 @@
 # .bashrc - Linux - loaded first by bash
 #
+
+# TODO: This should likely be turned into .profile instead of .bashrc
+# TODO: move to the XDG_BIN_HOME (and similar) model for installing
+
+
 # Adding the $HOME/bin directory to the PATH
 export PATH="$HOME/bin"
 
@@ -22,15 +27,14 @@ export LSCOLORS=gxFxCxDxbxExBxAxaxaxex
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=37:cd=34:su=36:sg=36;40:tw=36:ow=36"
 export EZA_COLORS="*.md=92:fi=0:ex=96:di=38;5;75:da= 30:mp=31:lp=33:ln=31:uu=0:gu=0:sn=0:sb=0:xx=0"
 
+# Enable substitutions within the prompt
+# setopt PROMPT_SUBST
+
 ## Parse git branch to put into the prompt
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/🌱 \1/ '
 }
 
-# Enable substitutions within the prompt
-# setopt PROMPT_SUBST
-
-# Set the actual prompt
 HOSTNAME=$(hostname -s)
 NEWLINE=$'\n'
 export PS1='${NEWLINE}\[\e[91m\]${USER} \[\e[90m\]${HOSTNAME}\[\e[91m\] \w\[\e[0m\]\[\e[0m\] \[\e[0m ${NEWLINE}\[\e[34m\]$(parse_git_branch) \[\e[91m\]↪ \[\e[0m\] '

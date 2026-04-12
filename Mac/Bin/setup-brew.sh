@@ -20,7 +20,7 @@ else
 
   brew update
   brew upgrade
-  brew install automake bison openssl readline libyaml gdbm libffi wget eza
+  brew install automake bison openssl readline libyaml gdbm libffi wget eza gh
   
   message "Homebrew update complete" "Reporting current tool versions:"
   python3 --version
