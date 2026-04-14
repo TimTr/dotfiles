@@ -52,23 +52,25 @@ xattr -d com.apple.quarantine $DOTFILES/* 2> /dev/null
 
 # ==============================================================================
 # Create XDG:  https://specifications.freedesktop.org/basedir/latest/
+export XDG_BIN_HOME=$HOME/.local/bin
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.local/cache
-export XDG_BIN_HOME=$HOME/.local/bin
-
-# mkdir -m 700 -p folder
-
 
 
 if [[ -d "$HOME/.local/bin" ]]; then
   bullet "$HOME/.local/bin exists. Added to the PATH for user content"
 else
-  mkdir -p $HOME/.local/bin
-  chown -R "$USER":admin $HOME/.local/bin
-  chmod 0700 $HOME/.local/bin
-  message "✅ Created $HOME/local/bin and (will) add it to PATH"
+  mkdir -p $XDG_BIN_HOME
+  mkdir -p $XDG_CONFIG_HOME
+  mkdir -p $DG_DATA_HOME
+  mkdir -p $DG_STATE_HOME
+  mkdir -p $DG_CACHE_HOME
+
+  chown -R "$USER":admin $XDG_BIN_HOME
+  chmod 0700 $XDG_BIN_HOME
+  message "✅ Created $HOME/.local/bin and (will) add it to PATH"
 fi
 
 # Create ~/Developer folder in which to put local code repositorities
@@ -94,7 +96,7 @@ fi
 if [[ -f "$XDG_CONFIG_HOME/local.sh" ]]; then
   bullet "$XDG_CONFIG_HOME/local.sh file exists. Delete the file and re-run to install from template"
 else
-  message "✅ Installing $XDG_CONFIG_HOME/local.sh - Creating new from ./dotfiles/Mac/Root/local.sh"
+  message "✅ Installing $XDG_CONFIG_HOME/local.sh" "Creating new from ./dotfiles/Mac/Root/local.sh"
   cp $DOTFILES/Mac/Root/local.sh $XDG_CONFIG_HOME/local.sh
 fi
 
