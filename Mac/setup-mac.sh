@@ -58,16 +58,15 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.local/cache
 
+mkdir -p $XDG_BIN_HOME    2> /dev/null
+mkdir -p $XDG_CONFIG_HOME 2> /dev/null
+mkdir -p $DG_DATA_HOME    2> /dev/null
+mkdir -p $DG_STATE_HOME   2> /dev/null
+mkdir -p $DG_CACHE_HOME   2> /dev/null
 
 if [[ -d "$HOME/.local/bin" ]]; then
   bullet "$HOME/.local/bin exists. Added to the PATH for user content"
 else
-  mkdir -p $XDG_BIN_HOME
-  mkdir -p $XDG_CONFIG_HOME
-  mkdir -p $DG_DATA_HOME
-  mkdir -p $DG_STATE_HOME
-  mkdir -p $DG_CACHE_HOME
-
   chown -R "$USER":admin $XDG_BIN_HOME
   chmod 0700 $XDG_BIN_HOME
   message "✅ Created $HOME/.local/bin and (will) add it to PATH"

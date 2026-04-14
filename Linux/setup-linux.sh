@@ -36,6 +36,7 @@ chmod -R 777 ${DOTFILES}/*    2> /dev/null
 find $DOTFILES -name "*.sh" -type f -print0 | xargs -0 chmod 755
 
 
+# TODO: replace this with the XDG setup now in Mac for #HOME/.local/...
 # ==============================================================================
 # Create $HOME/Bin folder in which to put local code repositorities
 if [[ -d "$HOME/Bin" ]]; then
