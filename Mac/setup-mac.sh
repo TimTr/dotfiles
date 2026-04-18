@@ -6,8 +6,6 @@ echo
 source "$DOTFILES/Mac/Root/dot-functions.sh"
 
 
-
-
 message "🔔 Environment:" "Locations being used for this install of Dotfiles"
 bullet "Locations = $DOTFILES"
 bullet "Run location = ${0:a:h}"
@@ -17,12 +15,12 @@ bullet "git config --global user.email = \"$(git config --get user.email)\""
 
 # ========================================================================
 # Require that Xcode is installed and selected before proceeding
-export XCODE=$(xcode-select -p)
-if $XCODE then
-  bullet "xcode-select -p = $XCODE"
-else
+XCODE=$(xcode-select -p)
+if ($XCODE) then
   error "First install Xcode for macOS, then re-run setup.sh"
   exit 0
+else
+  bullet "xcode-select -p = $XCODE"
 fi
 
 # if xcode-select -p &> /dev/null
@@ -172,10 +170,12 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 # Set macOS to not write .DS_Store files on USB drives
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool TRUE
 
+# Tell Xcode's bundled DocC to hide "No external resolver" DocC warnings
+defaults write -g DocCDisableInternalDomainDiagnostics -bool YES
 
 # =========================================================================
 echo
-message "🎉 Success!" "Restart Terminal and run setup-brew.sh and setup-ruby.sh"
+message "🎉 Success!" "Restart Terminal and run setup-brew.sh"
 echo
 
 ## End of file.

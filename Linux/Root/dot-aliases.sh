@@ -33,17 +33,17 @@ alias cp='cp -v'
 # Use the eza command by default, if installed (better ls)
 if ! command -v eza &> /dev/null
 then
-  echo "Tool \`eza\` not found. For a better \`ls\` run:  brew install eza"
+  echo "Tool \`eza\` not found. Install https://eza.rocks/ for a better \`ls\`"
   # Use 'll' to suppress the "show all" flag when listing files
-  alias ll='ls -oFG --color=auto'
+  alias ll='ls -oFG --color=auto --group-directories-first'
   # Use `lls` to do the short form version of ls
-  alias lls='ls -FG --color=auto'
+  alias lls='ls -FG --color=auto --group-directories-first'
   # Use 'lla' to enable "show all" for hidden files beginning with a period
-  alias lla='ls -oAFG --color=auto'
+  alias lla='ls -oAFG --color=auto --group-directories-first'
   # Use 'llx' to see the most info, including extended attributes
-  alias llx='ls -o@AFG --color=auto'
+  alias llx='ls -o@AFG --color=auto --group-directories-first'
   # Use 'llt' to see the files sorted by modification time
-  alias llt='ls -otAFG- -color=auto'
+  alias llt='ls -otAFG- -color=auto --group-directories-first'
   # Make standard 'ls' look prettier, with colors and sorting
   # alias ls='ls -FG'
 else
