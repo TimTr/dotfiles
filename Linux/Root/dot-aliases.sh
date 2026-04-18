@@ -36,7 +36,7 @@ then
   echo "Tool \`eza\` not found. For a better \`ls\` run:  brew install eza"
   # Use 'll' to suppress the "show all" flag when listing files
   alias ll='ls -oFG --color=auto'
-  # Use `lls` to do the short form version of `ls1
+  # Use `lls` to do the short form version of ls
   alias lls='ls -FG --color=auto'
   # Use 'lla' to enable "show all" for hidden files beginning with a period
   alias lla='ls -oAFG --color=auto'
@@ -47,8 +47,9 @@ then
   # Make standard 'ls' look prettier, with colors and sorting
   # alias ls='ls -FG'
 else
-  ## Aliasing 'ls' commands to use 'eza'
+  # Aliasing 'ls' commands to use 'eza' - default is in "grid" mode
   alias ll='eza --long --sort=Name --git --git-repos -I "Icon?" --group-directories-first --no-quotes --no-permissions --no-user --grid'
+  alias lll='eza --long --sort=Name --git --git-repos -I "Icon?" --group-directories-first --no-quotes --no-permissions --no-user'
   alias lls='eza --sort=Name --git --git-repos -I "Icon?" --group-directories-first --no-quotes'
   alias lla='eza -a --long --sort=Name --git -I "Icon?" -I ".DS_Store" --group-directories-first'
   alias llx='eza -a --long --sort=Name --git -I "Icon?" -I ".DS_Store" --group-directories-first -@ -Z'

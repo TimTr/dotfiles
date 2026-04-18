@@ -4,16 +4,16 @@
 # It is perfect for setting up things like colors, etc. However, it isn't
 # the right place to setup PATH and other variables that tools may want.
 # For those global (no shell visible) cases, use the `.zshenv` file.
-# -----------------------------------------------------------------------------
+# ========================================================================
 
 source $HOME/.aliases
 source $HOME/.functions
 source $HOME/.zshenv
 
-# -----------------------------------------------------------------------------
+# ========================================================================
 # TIMENOW=$(date +%d-%m-%Y" "%H:%M:%S)
 # message ".zshrc" "Launched $SHELL' at ${TIMENOW}."
-# -----------------------------------------------------------------------------
+# ========================================================================
 
 
 # Warn about installing Homebrew if it is not yet present
@@ -28,7 +28,7 @@ fi
 export EZA_COLORS="*.md=92:fi=0:ex=96:di=38;5;75:da= 30:mp=31:lp=33:ln=31:uu=0:gu=0:sn=0:sb=0:xx=0"
 
 
-# -----------------------------------------------------------------------------
+# ========================================================================
 # Setup the prompt
 ## Parse git branch to put into the prompt
 parse_git_branch() {
@@ -46,18 +46,18 @@ PROMPT='${NEWLINE}%F{white}% %F{red}% $USER %F{grey}% ${HOSTNAME}%F{white}%  %F{
 
 
 # Load local custom settings (e.g. security keys that don't belong in Git)
-source $XDG_CONFIG_HOME/local.sh
-
-
-
-
-
-
+source $XDG_BIN_HOME/local.sh
 
 
 # end of file
-# ==============================================================================
 
+
+
+
+
+
+
+# ========================================================================
 # Previous version of the prompt, with date
 # PROMPT='${NEWLINE}%F{white}% > %F{red}% $USER %F{grey}% ${HOSTNAME}%F{white}%  %F{red}% %9c% %F{white}%  %F{blue}% $(parse_git_branch) %F{white}% ${NEWLINE}[%F{238} %D %T%F{white}% ] ↪ %f'
 #

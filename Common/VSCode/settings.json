@@ -123,6 +123,7 @@
             "name": "Comment Markup Link",
             "scope": "comment markup.link",
             "settings": {
+                "fontStyle": "italic",
                 "foreground": "#76858d"
             }
         },
@@ -822,6 +823,7 @@
             "name": "Headings",
             "scope": "markup.heading punctuation.definition.heading, entity.name.section",
             "settings": {
+                "fontStyle": "italic",
                 "foreground": "#88f817"
             }
         },
@@ -850,6 +852,7 @@
             "name": "markup Italic",
             "scope": "markup.italic, punctuation.definition.italic,todo.emphasis",
             "settings": {
+                "fontStyle": "italic",
                 "foreground": "#17b3f8"
             }
         },
@@ -864,6 +867,7 @@
             "name": "[VSCODE-CUSTOM] Markdown headings",
             "scope": "entity.name.section.markdown",
             "settings": {
+                "fontStyle": "italic",
                 "foreground": "#ff9300"
             }
         },
@@ -940,6 +944,7 @@
             "name": "[VSCODE-CUSTOM] Markdown Punctuation Definition Link",
             "scope": "punctuation.definition.metadata.markdown",
             "settings": {
+                "fontStyle": "italic",
                 "foreground": "#ff9300"
             }
         },
@@ -947,6 +952,7 @@
             "name": "[VSCODE-CUSTOM] Markdown Underline Link/Image",
             "scope": "markup.underline.link.markdown,markup.underline.link.image.markdown",
             "settings": {
+                "fontStyle": "italic",
                 "foreground": "#17b3f8"
             }
         },
@@ -954,6 +960,7 @@
             "name": "[VSCODE-CUSTOM] Markdown Link Title/Description",
             "scope": "string.other.link.title.markdown,string.other.link.description.markdown",
             "settings": {
+                "fontStyle": "italic",
                 "foreground": "#88f817"
             }
         },
@@ -2324,13 +2331,13 @@
         "debugExceptionWidget.border": "#474747"                      
     },
     "editor.tokenColorCustomizations": {
-        "comments": "#455a78",
-        "strings": "#ff791b",
-        "keywords": "#17b3f8",
-        "functions": "#93ec7f",
+        "comments": "#4f5761",
+        "strings": "#00f900",
+        "keywords": "#ff6a00",
+        "functions": "#65b1cb",
         "numbers": "#2f00ff",
         "types": "#e3d74b",
-        "variables": "#00c3ff",
+        "variables": "#8c00ff",
 
         "textMateRules": [
             {
@@ -2372,31 +2379,36 @@
                 "scope": "heading.1.markdown entity.name.section.markdown, heading.1.markdown punctuation.definition.heading.markdown",
                 "settings": {
                     "foreground": "#ff6a00",
-                    "fontStyle": "bold",
+                    "fontStyle": "italic bold",
                 }
             },
             {
                 "scope": "heading.2.markdown entity.name.section.markdown, heading.2.markdown punctuation.definition.heading.markdown",
                 "settings": {
                     "foreground": "#ff6a00",
-                    "fontStyle": "bold",
+                    "fontStyle": "italic bold",
                 }
             },
             {
                 "scope": "heading.3.markdown entity.name.section.markdown, heading.3.markdown punctuation.definition.heading.markdown",
                 "settings": {
                     "foreground": "#ff6a00",
-                    "fontStyle": "bold",
+                    "fontStyle": "italic",
                 }
             },    
             {
                 "scope": "heading.4.markdown entity.name.section.markdown, heading.4.markdown punctuation.definition.heading.markdown",
                 "settings": {
                     "foreground": "#ff6a00",
-                    "fontStyle": "bold",
+                    "fontStyle": "italic",
                 }
             },
-            { "scope": "markup.underline.link.markdown", "settings": { "foreground": "#1bc4de", }
+            {
+                "scope": "markup.underline.link.markdown",
+                "settings": { 
+                    "fontStyle": "italic",
+                    "foreground": "#1bc4de",
+                }
             },
             { "scope": "punctuation.definition.list.begin.markdown", "settings": { "foreground": "#FFED9D", }
             },
@@ -2406,7 +2418,7 @@
                 "scope": "string.other.link.title.markdown", 
                 "settings": {
                     "foreground": "#d1dc53",
-                    "fontStyle": "italic bold",
+                    "fontStyle": "italic",
                 }
             },
             {
@@ -2474,5 +2486,8 @@
     "claudeCode.preferredLocation": "panel",
     "http.systemCertificatesNode": true,
     "geminicodeassist.agentDebugMode": true,
-    "geminicodeassist.outlines.automaticOutlineGeneration": true
+    "geminicodeassist.outlines.automaticOutlineGeneration": true,
+    "editor.lineNumbers": "off",
+    "editor.overviewRulerBorder": false,
+    "editor.hideCursorInOverviewRuler": true
 }

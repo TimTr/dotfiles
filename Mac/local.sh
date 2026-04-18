@@ -1,6 +1,4 @@
-#!/bin/bash
-#
-# Linux version
+#!/usr/bin/env zsh
 #
 # Modify this file at your root folder to customize the local machine
 #
@@ -13,6 +11,10 @@ source $HOME/.aliases
 source $HOME/.functions
 
 
+# Alias commands to login to servers
+# ALERT: Edit these locally and do not commit these to GitHub!
+alias ssh-example="ssh username@example.server.com"
+
 # To enable latest Swift.org toolchain in /Library/Developer/Toolchains/"
 #  export TOOLCHAINS=swift ("swift" = use Swift.org tools, empty = use Xcode)
 export TOOLCHAINS=
@@ -21,13 +23,12 @@ export TOOLCHAINS=
 export HOMEBREW_GITHUB_API_TOKEN=
 
 
-
-# =============================================================================
+# ========================================================================
 if [[ -v LOADED_LOCAL ]]; then return; fi
 export LOADED_LOCAL=true
 
 
-# =============================================================================
+# ========================================================================
 # Anything below this line will only be loaded when spawning a new session
 
 message "Running local.sh" "Add private settings from $XDG_BIN_HOME/local.sh"

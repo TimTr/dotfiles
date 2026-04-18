@@ -1,30 +1,40 @@
 #!/bin/zsh
 #
 # setup-macos.sh - the macOS version
+exec 2>$HOME/.error_log.txt
 echo
 source "$DOTFILES/Mac/Root/dot-functions.sh"
 
 
+
+
 message "🔔 Environment:" "Locations being used for this install of Dotfiles"
-bullet "DOTFILES = $DOTFILES"
+bullet "Locations = $DOTFILES"
 bullet "Run location = ${0:a:h}"
 bullet "git config --global user.name = \"$(git config --get user.name)\""
 bullet "git config --global user.email = \"$(git config --get user.email)\""
 
 
-# ==============================================================================
+# ========================================================================
 # Require that Xcode is installed and selected before proceeding
-if xcode-select -p &> /dev/null
-then
-  bullet "xcode-select -p = $(xcode-select -p)"
+export XCODE=$(xcode-select -p)
+if $XCODE then
+  bullet "xcode-select -p = $XCODE"
 else
-  error "❌ Install Xcode, run xcode-select -p, and then re-run setup.sh"
+  error "First install Xcode for macOS, then re-run setup.sh"
   exit 0
 fi
 
+# if xcode-select -p &> /dev/null
+# then
+#  bullet "xcode-select -p = $(xcode-select -p)"
+# else
+
+# fi
 
 
-# ==============================================================================
+
+# ========================================================================
 # Require `zsh` as the default on macOS, and set the default shell if needed
 if [ $SHELL != "/bin/zsh" ]; then
   chsh -s /bin/zsh
@@ -33,7 +43,7 @@ if [ $SHELL != "/bin/zsh" ]; then
 fi
 
 
-# ==============================================================================
+# ========================================================================
 message "📂 Creating directories" "Creating and/or setting file permissions"
 
 # Claim ownership of all my dotfiles
@@ -50,7 +60,7 @@ find $DOTFILES -name "*.sh" -type f -print0 | xargs -0 chmod 755
 xattr -d com.apple.quarantine $DOTFILES/* 2> /dev/null
 
 
-# ==============================================================================
+# ========================================================================
 # Create XDG:  https://specifications.freedesktop.org/basedir/latest/
 export XDG_BIN_HOME=$HOME/.local/bin
 export XDG_CONFIG_HOME=$HOME/.config
@@ -60,16 +70,17 @@ export XDG_CACHE_HOME=$HOME/.local/cache
 
 mkdir -p $XDG_BIN_HOME    2> /dev/null
 mkdir -p $XDG_CONFIG_HOME 2> /dev/null
-mkdir -p $DG_DATA_HOME    2> /dev/null
-mkdir -p $DG_STATE_HOME   2> /dev/null
-mkdir -p $DG_CACHE_HOME   2> /dev/null
+mkdir -p $XDG_DATA_HOME    2> /dev/null
+mkdir -p $XDG_STATE_HOME   2> /dev/null
+mkdir -p $XDG_CACHE_HOME   2> /dev/null
 
-if [[ -d "$HOME/.local/bin" ]]; then
-  bullet "$HOME/.local/bin exists. Added to the PATH for user content"
-else
+if [[ -d "$XDG_BIN_HOME" ]]; then
+  bullet "$XDG_BIN_HOME exists. Added to the PATH for user content"
   chown -R "$USER":admin $XDG_BIN_HOME
   chmod 0700 $XDG_BIN_HOME
-  message "✅ Created $HOME/.local/bin and (will) add it to PATH"
+else
+  error "Failed to create $XDG_BIN_HOME. Check permissions and re-run setup.sh"
+  exit 1
 fi
 
 # Create ~/Developer folder in which to put local code repositorities
@@ -90,17 +101,17 @@ fi
 
 
 
-# ==============================================================================
+# ========================================================================
 # Check if the ~/local.sh file exists, if not then copy the template to $HOME
 if [[ -f "$XDG_CONFIG_HOME/local.sh" ]]; then
   bullet "$XDG_CONFIG_HOME/local.sh file exists. Delete the file and re-run to install from template"
 else
-  message "✅ Installing $XDG_CONFIG_HOME/local.sh" "Creating new from ./dotfiles/Mac/Root/local.sh"
-  cp $DOTFILES/Mac/Root/local.sh $XDG_CONFIG_HOME/local.sh
+  message "✅ Installing $XDG_BIN_HOME/local.sh" "Creating new from $DOTFILES/Mac/local.sh"
+  cp $DOTFILES/Mac/local.sh $XDG_BIN_HOME/local.sh
 fi
 
 
-# ==============================================================================
+# ========================================================================
 message "✅ Setup root dot-files" "Overwriting existing files at $HOME"
 cp $DOTFILES/Mac/Root/dot-zshrc.sh $HOME/.zshrc
 cp $DOTFILES/Mac/Root/dot-zshenv.sh $HOME/.zshenv
@@ -121,12 +132,12 @@ cp $DOTFILES/Common/Root/dot-vimrc $HOME/.vimrc
 echo "This dummy file silences the [new shell] messages\n" >> $HOME/.hushlogin
 
 
-# ==============================================================================
+# ========================================================================
 message "✅ Copy scripts to PATH" "Using $XDG_BIN_HOME for user scripts"
 cp $DOTFILES/Mac/Bin/* $XDG_BIN_HOME
 
 
-# ==============================================================================
+# ========================================================================
 message "✅ Setup app preferences" "Overwriting Terminal, Xcode, and other settings"
 
 # Copy app settings
@@ -135,13 +146,13 @@ cp $DOTFILES/Mac/Preferences/* $HOME/Library/Preferences/
 # Copy Xcode preferences (fails silently if no Xcode installed)
 cp -R $DOTFILES/Mac/Xcode/* $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/ 2> /dev/null
 
-# ==============================================================================
+# ========================================================================
 # on MacOS, eza will look for the theme file in ~/Library/Application Support/eza
 # by default. That directory can be overridden by setting EZA_CONFIG_DIR.
 # TODO: set this up on macOS
 
 
-# ==============================================================================
+# ========================================================================
 message "✅ Setup defaults" "Adding paths and variables to .zshenv"
 echo " " >> ~/.zshenv
 echo "# Add global DOTFILES pointing Dotfiles install folder" >> ~/.zshenv
@@ -162,7 +173,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool TRUE
 
 
-# ==============================================================================
+# =========================================================================
 echo
 message "🎉 Success!" "Restart Terminal and run setup-brew.sh and setup-ruby.sh"
 echo
@@ -175,7 +186,7 @@ exit 0
 
 
 
-# ==============================================================================
+# ========================================================================
 # TODO: removing the creation of Homebrew folders - let Homebrew install do that
 # Homebrew uses /opt/homebrew on ARM and /usr/local on Intel, and /opt/bin on Linux
 # Create these directories "just in case" on macOS
@@ -191,7 +202,7 @@ exit 0
 # sudo chmod 744 /usr/local/bin
 
 
-# ==============================================================================
+# ========================================================================
 # Create a symlink to Dropbox's location in CloudStore if valid
 #
 #if [[ -d "$HOME/Dropbox/" ]]; then
@@ -206,7 +217,7 @@ exit 0
 #sfi
 
 
-# ==============================================================================
+# ========================================================================
 # NOTE: disabled the Dropbox alias setup
 #
 # Check if $HOME/Library/CloudStorage/Dropbox exists, and if so create symlinks
@@ -224,7 +235,7 @@ exit 0
 
 
 
-# ==============================================================================
+# ========================================================================
 # Other ideas for defaults settings
 
 # Save screenshots to the downloads folder
