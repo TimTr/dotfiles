@@ -2,23 +2,22 @@
 #
 #  'setup.sh' is used by GitHub and other VMs at startup
 #
-#  This script is setup to launch using the bash shell since it is
-#  common across supported platforms. It doesn't do anything very complex
-#  so the code should work even on very old versions of bash.
+#  This script is setup to launch using the BASH shell since it is
+#  common across supported platforms. Likely works in zsh as well.
 #
 #  The subsequent scripts in this repo may use more advanced features
-#  so they may specify zsh or bash as needed, with Linux using primarily
-#  bash. On macOS zsh is now the default shell and bash is quite old.
+#  so they may specify zsh or bash as needed. On macOS ZSH is now the
+#  default, while most Linux installs still default to BASH.
 
 
 # Set Dotfiles home to be the folder in which `setup.sh` was run (requires ZSH)
-export DOTFILES_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # This script launches either Linux or macOS installer (do not "source" the scripts)
 if [[ $OSTYPE == darwin* ]]; then
-  $DOTFILES_ROOT/Mac/setup-mac.sh
+  $DOTFILES/Mac/setup-mac.sh
 else
-  $DOTFILES_ROOT/Linux/setup-linux.sh
+  $DOTFILES/Linux/setup-linux.sh
 fi
 
 exit 0
@@ -28,17 +27,18 @@ exit 0
 
 
 
+
+
+
 # ==============================================================================
-#### Saved script tidbits may want later
+# Saved script tidbits may want later
+# ==============================================================================
 
-
-# -- This is the name of the actual file that was run (don't need it)
+# -- This is the name of the actual file that was run
 # DOTFILES_SETUP_FILE=${0:a}
 
 # -- This was how to get the containing folder via zsh
-# export DOTFILES_ROOT=${0:a:h}
-
-
+# export DOTFILES=${0:a:h}
 
 
 # This piece of script would require that you launch the setup while
@@ -50,16 +50,16 @@ exit 0
 # fi
 
 
-#
 # Ask to enter a key to continue
 # read -s -k $'?Press any key to continue. Hit Control-C to abort now.\n'
-#
-#
+
+
 # Handle parameters from the command line - e.g. "update"
 # if [ "$1" = "install" ]; then
 #   echo "\nDOT.SH:  Attempting initial install of the dotfiles..."
-#
-#
+
+
+
 # Diagnostic - delete later
 #   echo "$(basename "$PWD")"
 #   echo "$PWD"
