@@ -14,19 +14,19 @@ source "${DOTFILES}/Shell/functions.sh"
 # Set DOTFILES value to be the directory in which `./setup.sh` was run
 export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# For macOS `zsh` is required as the default
-if [[ $SHELL != "/bin/zsh" && $MACOS == 1 ]]; then
-  chsh -s /bin/zsh
-  echo -e "\n The default shell is been reset to ZSH, now re-run ./setup.sh \n"
-  exit 0
-fi
 
-# Require that Xcode is installed and selected before proceeding
-XCODE=$(xcode-select -p)  2> /dev/null
-if [[ $XCODE == "" && $MACOS == 1 ]]; then
-  echo "XCODE = $XCODE"
-  echo -e "\n First install Xcode for macOS, then re-run setup.sh \n"
-  exit 0
+# Verify macOS shell is zsh and that Xcode is installed
+if [[ $MACOS == 1 ]]; then
+  XCODE=$(xcode-select -p)  2> /dev/null
+  if [[ $XCODE == "" ]]; then
+    echo -e "\n First install Xcode for macOS, then re-run setup.sh \n"
+    exit 0
+  fi
+  if [[ $SHELL != "/bin/zsh" ]]; then
+    chsh -s /bin/zsh
+    echo -e "\n The default shell is been reset to ZSH, now re-run ./setup.sh \n"
+    exit 0
+  fi
 fi
 
 # For Linux `bash` is required as the default
@@ -59,7 +59,6 @@ mkdir -p $XDG_CACHE_HOME   2> /dev/null
 
 if [[ -d "$XDG_BIN_HOME" ]]; then
   bullet "$XDG_BIN_HOME exists. Added to the PATH for user content"
-  chown -R "$USER":admin $XDG_BIN_HOME
   chmod 0700 $XDG_BIN_HOME
 else
   error "Failed to create $XDG_BIN_HOME. Check permissions and re-run setup.sh"

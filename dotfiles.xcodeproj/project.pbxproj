@@ -20,6 +20,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		BA360DC42F9E650C00F81106 /* Agents */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Agents;
+			sourceTree = "<group>";
+		};
 		BA60ECE32F9424B900B86BDD /* Shell */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Shell;
@@ -101,6 +106,7 @@
 				BA60ECEF2F9425CD00B86BDD /* Bin */,
 				BA60ECE42F9424CF00B86BDD /* Git */,
 				BA60ECEA2F94255600B86BDD /* Terminal */,
+				BA360DC42F9E650C00F81106 /* Agents */,
 				BA60ECF22F94261C00B86BDD /* Xcode */,
 				BA60ECE52F9424E100B86BDD /* Vim */,
 				BA60ECE72F9424F400B86BDD /* VSCode */,
