@@ -131,12 +131,11 @@ cp $DOTFILES/Bin/* $XDG_BIN_HOME
 # =============================================================================
 # Copy the macOS-only files
 if [[ $MACOS == 1 ]]; then
-  message "🍎 macOS-specific" "\'setup-mac.sh\' and installing Mac files"
+  message "🍎 macOS extras" "Installing Mac-specific files"
   message "👩‍💻 App preferences" "Overwriting Terminal, Xcode, and other settings"
 
   #  Mac-specific Git configuration files (assumes ./Documents for work repos)
   cp $DOTFILES/Git/gitconfig-mac $HOME/.gitconfig
-
   # Copy app settings
   cp $DOTFILES/Terminal/* $HOME/Library/Preferences/
   # Copy Xcode preferences (fails silently if no Xcode installed)
@@ -149,13 +148,12 @@ fi
 # =============================================================================
 # Copy the Linux-only files
 if [[ $LINUX == 1 ]]; then
-  message "🐢 Linux-specific" "`setup-linux.sh` and installing Linux files"
+  message "🐢 Linux extras" "Installing Linux-specific files"
   
   #  Linux-specific Git configuration files (assumes ./Documents for work repos)
   cp $DOTFILES/Git/gitconfig-linux $HOME/.gitconfig
-
   # Remaining Linux-custom settings
-  source $DOTFILES/Mac/setup-linux.sh
+  source $DOTFILES/Linux/setup-linux.sh
 fi
 
 # =========================================================================
