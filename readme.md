@@ -11,9 +11,9 @@ To install, clone the repo and run `./setup.sh` as follows:
   # Quit and re-launch terminal for changes to take effect
 ```
 
-On macOS, Xcode must first be installed. Linux is tested on recent Ubuntu releases. 
+On macOS, first install Xcode. Linux is tested on recent Ubuntu releases. 
 
-The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. The `local.sh` file is installed in `~/.config` to further customize the local environment. Scripts, binaries, and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. 
+The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. The `./local.sh` file is installed in `~/.config` to further customize the local environment. Scripts, binaries, and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. 
 
 
 ### [Documentation](./Docs/)

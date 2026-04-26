@@ -11,8 +11,7 @@ message "reset.sh" "Reset caches and preferences"
 
 
 # Hide tfolders from being visible in Finder (they still show in Terminal)
-chflags hidden ${HOME}/Documents/Insta360/   &> /dev/null
-chflags hidden ${HOME}/Documents/Larian\ Studios
+# chflags hidden ${HOME}/Documents/Insta360/   &> /dev/null
 
 # Remove a bunch of common defaults -- re-run setup to add them back
 # Cleaning them exists to get back into a good state, just in case

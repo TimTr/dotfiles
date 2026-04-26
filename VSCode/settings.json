@@ -1038,7 +1038,7 @@
             "name": "Source Json Meta Structure Dictionary Json > String Quoted Json > Punctuation String",
             "scope": "source.json meta.structure.dictionary.json > string.quoted.json > punctuation.string",
             "settings": {
-                "foreground": "#ff9300"
+                "foreground": "#00f900"
             }
         },
         {
@@ -2337,16 +2337,24 @@
         "functions": "#65b1cb",
         "numbers": "#2f00ff",
         "types": "#e3d74b",
-        "variables": "#8c00ff",
+        "variables": "#8c00ff", 
 
         "textMateRules": [
+            {
+                "scope": "comment",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
             {
                 "scope": [
                     "support.type.property-name.json",
                     "entity.name.tag.html"
                 ],
                 "settings": {
-                    "foreground": "#00f900"
+                    "foreground": "#00f900",
+                    "fontStyle": "normal",
+
                 }              
             },
             {
@@ -2386,7 +2394,7 @@
                 "scope": "heading.2.markdown entity.name.section.markdown, heading.2.markdown punctuation.definition.heading.markdown",
                 "settings": {
                     "foreground": "#ff6a00",
-                    "fontStyle": "italic bold",
+                    "fontStyle": "bold",
                 }
             },
             {
@@ -2481,7 +2489,7 @@
     "terminal.integrated.lineHeight": 1.1,
     "terminal.integrated.smoothScrolling": true,
     "editor.fontWeight": "normal",
-    "github.copilot.nextEditSuggestions.enabled": true,
+    "github.copilot.nextEditSuggestions.enabled": false,
     "security.workspace.trust.untrustedFiles": "open",
     "claudeCode.preferredLocation": "panel",
     "http.systemCertificatesNode": true,
@@ -2489,5 +2497,9 @@
     "geminicodeassist.outlines.automaticOutlineGeneration": true,
     "editor.lineNumbers": "off",
     "editor.overviewRulerBorder": false,
-    "editor.hideCursorInOverviewRuler": true
+    "editor.hideCursorInOverviewRuler": true,
+    "claudeCode.useTerminal": true,
+    "editor.inlineSuggest.edits.showLongDistanceHint": false,
+    "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
+    "chat.disableAIFeatures": true
 }

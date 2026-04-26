@@ -10,7 +10,9 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = vim
+        editor = xed
 [push]
         default = simple
+[includeIf "gitdir:~/Documents/"]
+	path = ~/Documents/.gitconfig-work
 

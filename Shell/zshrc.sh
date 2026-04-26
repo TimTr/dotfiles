@@ -6,15 +6,9 @@
 # For those global (no shell visible) cases, use the `.zshenv` file.
 # ========================================================================
 
+source $HOME/.zshenv
 source $HOME/.aliases
 source $HOME/.functions
-source $HOME/.zshenv
-
-# ========================================================================
-# TIMENOW=$(date +%d-%m-%Y" "%H:%M:%S)
-# message ".zshrc" "Launched $SHELL' at ${TIMENOW}."
-# ========================================================================
-
 
 # Warn about installing Homebrew if it is not yet present
 which -s brew &> /dev/null
@@ -25,28 +19,24 @@ else
 fi
 
 
+# ==============================================================================
+# ls and eza  -- sets colors and sorting for file and directory listing
+autoload colors; colors;
+export CLICOLOR=1
+export LSCOLORS=gxFxCxDxdxExBxAxaxaxex
 export EZA_COLORS="*.md=92:fi=0:ex=96:di=38;5;75:da= 30:mp=31:lp=33:ln=31:uu=0:gu=0:sn=0:sb=0:xx=0"
 
 
 # ========================================================================
-# Setup the prompt
-## Parse git branch to put into the prompt
+# Setup the prompt with git branch info included (needs this function)
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ 🌱 \1/'
 }
-
-autoload colors; colors;
-export CLICOLOR=1
-export LSCOLORS=gxFxCxDxdxExBxAxaxaxex
 
 setopt PROMPT_SUBST
 HOSTNAME=$(hostname -s)
 NEWLINE=$'\n'
 PROMPT='${NEWLINE}%F{white}% %F{red}% $USER %F{grey}% ${HOSTNAME}%F{white}%  %F{red}% %9c% %F{white}% %F{white}% ${NEWLINE}%F{blue}%$(parse_git_branch) ↪ %f'
-
-
-# Load local custom settings (e.g. security keys that don't belong in Git)
-source $XDG_BIN_HOME/local.sh
 
 
 # end of file
