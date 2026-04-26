@@ -2501,5 +2501,6 @@
     "claudeCode.useTerminal": true,
     "editor.inlineSuggest.edits.showLongDistanceHint": false,
     "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
-    "chat.disableAIFeatures": true
+    "chat.disableAIFeatures": true,
+    "editor.fontSize": 14
 }
