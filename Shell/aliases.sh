@@ -45,21 +45,21 @@ if ! command -v eza &> /dev/null
 then
   echo "Tool \`eza\` not found. For a better \`ls\` run:  brew install eza"
   # Use 'll' to suppress the "show all" flag when listing files
-  alias ll='ls -oFGT'
+  alias ll='ls -ogF --color'
   # Use `lls` to do the short form version of `ls1
-  alias lls='ls -FG --color'  
+  alias lll='ls -FG --color'  
   # Use 'lla' to enable "show all" for hidden files beginning with a period
-  alias lla='ls -oAFGT'
-  # Use 'llx' to see the most info, including extended attributes
-  alias llx='ls -o@AFGT'
+  alias lla='ls -oAFG --color'
+  # Use 'llx' to see the most info, including extended attributes (macOS)
+  alias llx='ls -o@AFG'
   # Use 'llt' to see the files sorted by modification time
-  alias llt='ls -otAFGT'
+  alias llt='ls -otAFG'
   # Make standard 'ls' look prettier, with colors and sorting
   # alias ls='ls -FG'
 else
   # Aliasing 'ls' commands to use 'eza' - default is in "grid" mode
-  alias ll='eza --long --sort=Name --git --git-repos -I "Icon?" --group-directories-first --no-quotes --no-permissions --no-user --grid'
-  alias lll='eza --long --sort=Name --git --git-repos -I "Icon?" --group-directories-first --no-quotes --no-permissions --no-user'
+  alias ll='eza --long --sort=Name --git --git-repos -I "Icon?" --group-directories-first --no-quotes --no-permissions --no-user'
+  alias lll='eza --long --sort=Name --git --git-repos -I "Icon?" --group-directories-first --no-quotes --no-permissions --no-user  --grid'
   alias lls='eza --sort=Name --git --git-repos -I "Icon?" --group-directories-first --no-quotes'
   alias lla='eza -a --long --sort=Name --git -I "Icon?" -I ".DS_Store" --group-directories-first'
   alias llx='eza -a --long --sort=Name --git -I "Icon?" -I ".DS_Store" --group-directories-first -@ -Z'
