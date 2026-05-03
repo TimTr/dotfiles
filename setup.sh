@@ -108,6 +108,7 @@ fi
 # =============================================================================
 # Copy the global files that work on both macOS and Linux
 message "🔧 Dotfiles @ root" "Overwriting dot-config files (.bashrc, etc) at $HOME"
+cp $DOTFILES/Shell/profile.sh $HOME/.profile
 cp $DOTFILES/Shell/zshrc.sh $HOME/.zshrc
 cp $DOTFILES/Shell/zshenv.sh $HOME/.zshenv
 cp $DOTFILES/Shell/aliases.sh $HOME/.aliases

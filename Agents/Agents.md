@@ -30,6 +30,6 @@
 - Prefer the most readable shell over defensive parsing or micro-optimizations.
 - Make reasonable simplifying assumptions when they keep scripts obvious.
 - Temporary regression checks are fine while developing a fix.
-`
+
 
 // end of file.
