@@ -2,8 +2,47 @@
 #
 # setup-mac.sh - Mac-specific setings and config
 
-message "💻 Mac defaults" "Global settings for macOS and Xcode"
+message "🍎 ${PLATFORM} detected" "Additional setup for macOS"
 
+# That Xcode is installed (confirm we are indeed on macOS first)
+if [[ $MACOS == 1 ]]; then
+    XCODE=$(xcode-select -p)  2> /dev/null
+    if [[ $XCODE == "" ]]; then
+        echo
+        echo -e "\n !!! First install Xcode for macOS, then re-run setup.sh \n"
+        echo
+        exit 0
+    fi
+fi
+bullet "xcode-select -p = ${XCODE}"
+
+
+# Verify the ZSH shell is default -- changing to expect this in Linux too
+if [[ $SHELL == *zsh* ]]; then
+    bullet "ZSH is already the default shell" >> /dev/null
+else
+    alert "Setting ZSH as the default shell, chsh will prompt for your password:"
+    chsh -s /usr/local/zsh
+  
+    bullet "Quitting install. Completely logout for the change to take effect."
+    exit 0
+fi
+
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+    message "🎉 Success" "Restart Terminal." >> /dev/null
+else
+    message "🔔 TODO: Install Homebrew" "After Restart, run setup-brew.sh"
+fi
+
+
+
+# Copy app settings
+cp $DOTFILES/Terminals/* $HOME/Library/Preferences/
+  
+# Copy Xcode preferences (fails silently if no Xcode installed)
+# cp -R $DOTFILES/Xcode/* $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/ 2> /dev/null
+  
+  
 # Xcode always opens with the "Welcome to Xcode" window, not last project
 defaults write com.apple.dt.Xcode ApplePersistenceIgnoreState -bool YES
 
@@ -23,82 +62,3 @@ echo "This file silences the [new shell] messages on macOS\n" >> $HOME/.hushlogi
 
 ## End of file.
 
-
-
-
-
-
-
-
-# ========================================================================
-# TODO: removing the creation of Homebrew folders - let Homebrew install do that
-# Homebrew uses /opt/homebrew on ARM and /usr/local on Intel, and /opt/bin on Linux
-# Create these directories "just in case" on macOS
-# sudo mkdir -p /opt/homebrew/bin
-# sudo mkdir -p /usr/local/bin
-
-# Reset ownership, note the directory name does not end in / or /*
-# sudo chown -R "$USER":admin /opt/homebrew
-# sudo chown -R "$USER":admin /usr/local/bin
-
-# Set the permissions for the folders (read for all, write for just me)
-# sudo chmod 744 /opt/homebrew/bin
-# sudo chmod 744 /usr/local/bin
-
-
-# ========================================================================
-# Create a symlink to Dropbox's location in CloudStore if valid
-#
-#if [[ -d "$HOME/Dropbox/" ]]; then
-#  bullet "~/Dropbox alias exists. Delete symlink if broken, then re-run"
-#else
-#  if [[ -d "$HOME/Library/CloudStorage/Dropbox/" ]]; then
-#    bullet "✅ Setup ~/Dropbox - Symlink to ~/Library/CloudStorage/Dropbox/"
-#    ln -s $HOME/Library/CloudStorage/Dropbox $HOME/Dropbox
-#  else
-#    alert "Dropbox not installed" "Missing folder: ~/Library/CloudStorage/Dropbox/"
-#  fi
-#sfi
-
-
-# ========================================================================
-# NOTE: disabled the Dropbox alias setup
-#
-# Check if $HOME/Library/CloudStorage/Dropbox exists, and if so create symlinks
-#if [[ -d "$HOME/Dropbox/" ]]; then
-#  message "Setup ~/Dropbox (existed)" "If symlink is broken, manually delete and rerun"
-#else
-#  if [[ -d "$HOME/Library/CloudStorage/Dropbox/" ]]; then
-#    message "Setup ~/Dropbox and ~/Code" "Symlink to ~/Library/CloudStorage/Dropbox/"
-#    ln -s $HOME/Library/CloudStorage/Dropbox $HOME/Dropbox
-#    ln -s $HOME/Library/CloudStorage/Dropbox/Code $HOME/Code
-#  else
-#    message "Dropbox not installed" "Directory not found: ~/Library/CloudStorage/Dropbox/"
-#  fi
-#fi
-
-
-
-# ========================================================================
-# Other ideas for defaults settings
-
-# Save screenshots to the downloads folder
-# defaults write com.apple.screencapture location -string “$HOME/Downloads”
-
-# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
-# defaults write com.apple.screencapture type -string “png”
-
-# Stops Xcode IDE from saving the workspace layout (window size, etc)
-# defaults write com.apple.dt.Xcode IDEDisableStateRestoration -bool YES
-
-# Removes the delay in hide/show the Dock setting
-# defaults write com.apple.Dock autohide-delay -float 0 && killall Dock
-
-# Display full POSIX path as Finder window title
-# defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-
-# Finder: show hidden files by default
-# defaults write com.apple.finder AppleShowAllFiles -bool true
-
-# Automatically hide and show the Dock
-# defaults write com.apple.dock autohide -bool true

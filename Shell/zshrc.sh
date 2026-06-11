@@ -36,7 +36,10 @@ parse_git_branch() {
 setopt PROMPT_SUBST
 HOSTNAME=$(hostname -s)
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}%F{white}% %F{red}% $USER %F{grey}% ${HOSTNAME}%F{white}%  %F{red}% %9c% %F{white}% %F{white}% ${NEWLINE}%F{blue}%$(parse_git_branch) ↪ %f'
+PROMPT='${NEWLINE}🐡 %F{red}% %9c% %f   %F{blue}% $(parse_git_branch)${NEWLINE}%F{darkgrey}% $USER ${HOSTNAME}%F{white}%  〉'
+
+# Previous prompt (good one)
+# PROMPT='${NEWLINE}%F{white}% %F{red}% $USER %F{grey}% ${HOSTNAME}%F{white}%  %F{red}% %9c% %F{white}% %F{white}% ${NEWLINE}%F{blue}%$(parse_git_branch) ↪ %f'
 
 
 # end of file

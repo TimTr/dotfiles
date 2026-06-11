@@ -1,7 +1,6 @@
 # Dotfiles for Tim Triemstra
 
 To install, clone the repo and run `./setup.sh` as follows:
-
 ```shell
 
   git clone https://github.com/timtr/dotfiles.git
@@ -11,15 +10,12 @@ To install, clone the repo and run `./setup.sh` as follows:
   # Quit and re-launch terminal for changes to take effect
 ```
 
-On macOS, first install Xcode. Linux is tested on recent Ubuntu releases. 
-
+On macOS, install Xcode first. Linux requires `zsh` be installed and available.
 The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. The `./local.sh` file is installed in `~/.config` to further customize the local environment. Scripts, binaries, and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. 
-
 
 ### [Documentation](./Docs/)
 
 Documentation (work in progress) is generated within [GitHub Pages](https://timtr.github.io/dotfiles/Docs/). Moving to a local setup of documentation using [Swift-DocC](https://www.swift.org/documentation/docc/) but not yet implemented.
-
 
 ## Overview
 
@@ -27,25 +23,24 @@ This is the personal collection of setup scripts for macOS and Linux (WIP). It i
 
 Defaults such as `~/.local/bin` are used, leaving the `$XDG_DATA_HOME` and related variables empty for now. You may want to update the `~/.local/share/local.sh` file to augment local behavior that you don't want to see in a shared repository.
 
+[TODO: Rename "local.sh" to less conflicting with XDG folders](http://timtr.com)
 
-## Work-specific Git configuration
+## Work and home Git configuration
 
 The macOS install includes a `dot-gitconfig-work` file that is installed to control the Git behavior for respositories stored in the `~/Documents` directory. It sets up code signing at commit time, and changes the username and email for those commits to work accounts. This general approach can work for any sub-directory custom configuration.
 
 
 ## Setup SSH keys to easily login to remote servers
 
-TODO: 
-
+[TODO: Add scripts and docs for setting up SSH keys](http://timtr.com)
 
 ## Features
 
-**local.sh** - A file called `~/local.sh` is installed (if doesn't exist) that you can customize with settings that do not belong checked into GitHub, for instance set certain keys, or environment variables. This is also the file to add things like feature flags during development, define a Swift toolchain, or to enable secret build settings. Re-running `dotfiles.sh` will never override this file, so if you want to restart from scratch, just delete the file and the re-install dotfiles to get a fresh setup.
+**local.sh (RENAME)** - A file called `~/local.sh` is installed (if doesn't exist) that you can customize with settings that do not belong checked into GitHub, for instance set certain keys, or environment variables. This is also the file to add things like feature flags during development, define a Swift toolchain, or to enable secret build settings. Re-running `dotfiles.sh` will never override this file, so if you want to restart from scratch, just delete the file and the re-install dotfiles to get a fresh setup.
 
 **ZSH dotfiles** - set up the prompt, `$PATH`, and other basic settings. The `.zshenv` file sets up `$PATH` so it works even when there is no interactive terminal session, and `.zshrc` will source this file as well.
 
-**Dropbox** - Optional symlink in `$HOME` points to `~/Library/CloudStorage/Dropbox` if Dropbox is installed on the computer. This is often commented out.
-
+**Dropbox** - Optional symlink in `$HOME` points to `~/Library/CloudStorage/Dropbox` on macOS if Dropbox is installed on the computer. This is commented out by default.
 
 # Reference
 
@@ -63,7 +58,6 @@ Once installed, you can install Homebrew and run demos. For example, run `demo-h
 
 You can also open the `Dotfiles/Demos/demo-safari-cycle.html` file to launch Safari and begin cycling through many web pages, simulating an automated web test harness.
 
-
 ## Useful links
 
 Documentation (or the start of docs) can be [found here](https://timtr.github.io/Dotfiles/docs/). Note that the `docs` directory must be in lower-case for GitHub Pages support. Capital `Docs` will fail.
@@ -73,7 +67,6 @@ Which `zsh` files contain which settings: [CodeSpaces and Dotfiles](https://unix
 Docs on using `setup.sh` with [GitHub CodeSpaces and Dotfiles](https://docs.github.com/en/codespaces/customizing-your-codespace/personalizing-codespaces-for-your-account)
 
 EZA themes are found in `~/Library/Application Support/eza` - for more info see: https://github.com/eza-community/eza-themes/blob/main/README.md or do manual overrides using information here: https://github.com/ogham/exa/blob/master/man/exa_colors.5.mde
-
 
 ### ZSH order of loading
 

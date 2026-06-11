@@ -10,7 +10,7 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = xed
+        editor = vim
 [push]
         default = simple
 [includeIf "gitdir:~/Documents/"]

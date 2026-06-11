@@ -20,6 +20,8 @@ else
 
   brew update
   brew upgrade
+  
+  # eza (ls replacement), gh (github) are favorites
   brew install automake bison openssl readline libyaml gdbm libffi wget eza gh
   
   message "Homebrew update complete" "Reporting current tool versions:"

@@ -1,13 +1,14 @@
 #!/bin/bash
 #
 #  'setup.sh' is used by GitHub and other VMs at startup
-echo
+#
 #  This script is setup to launch using the BASH shell since it is
 #  common across supported platforms. Likely works in zsh as well.
 #  On macOS, `zsh` is the default. Most Linux systems default to `bash`.
 
 # =============================================================================
-# Shared common environment variables used for both macOS and Linux
+echo
+# This will setup common variables and define current OS
 source "${DOTFILES}/Shell/profile.sh"
 source "${DOTFILES}/Shell/functions.sh"
 
@@ -15,41 +16,14 @@ source "${DOTFILES}/Shell/functions.sh"
 export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 
-# Verify macOS shell is zsh and that Xcode is installed
-if [[ $MACOS == 1 ]]; then
-  XCODE=$(xcode-select -p)  2> /dev/null
-  if [[ $XCODE == "" ]]; then
-    echo -e "\n First install Xcode for macOS, then re-run setup.sh \n"
-    exit 0
-  fi
-  if [[ $SHELL != "/bin/zsh" ]]; then
-    chsh -s /bin/zsh
-    echo -e "\n The default shell is been reset to ZSH, now re-run ./setup.sh \n"
-    exit 0
-  fi
-fi
-
-# For Linux `bash` is required as the default
-if [[ $SHELL != "/bin/bash" && $LINUX == 1 ]]; then
-  chsh -s /bin/bash
-  echo -e "\n The default shell is been reset to BASH, now re-run ./setup.sh \n"
-  exit 0
-fi
-
 # =============================================================================
 # Running output (first the setup configuration)
-message "🔔 Environment:" "Settings being used for this install of dotfiles"
-bullet "OS ${PLATFORM} : MACOS=${MACOS} LINUX=${LINUX} WINDOWS=${WINDOWS}"
-bullet "DOTFILES = $DOTFILES"
-bullet "xcode-select -p = $XCODE"
-bullet "git config --global user.name = \"$(git config --get user.name)\""
-bullet "git config --global user.email = \"$(git config --get user.email)\""
-
+message "🟢 \$DOTFILES =" "${DOTFILES}"
 
 # =============================================================================
-# Create the folders to match the XDG configuration from .profile
-# Create XDG:  https://specifications.freedesktop.org/basedir/latest/
-message "📂 Directories" "Creating and configuring all key directories"
+# Create directories to match the XDG definitions in .profile
+# XDG reference:  https://specifications.freedesktop.org/basedir/latest/
+message "📂 Directories" "Creating and configuring XDG and other directories"
 
 mkdir -p $XDG_BIN_HOME    2> /dev/null
 mkdir -p $XDG_CONFIG_HOME 2> /dev/null
@@ -58,27 +32,27 @@ mkdir -p $XDG_STATE_HOME   2> /dev/null
 mkdir -p $XDG_CACHE_HOME   2> /dev/null
 
 if [[ -d "$XDG_BIN_HOME" ]]; then
-  bullet "$XDG_BIN_HOME exists. Added to the PATH for user content"
-  chmod 0700 $XDG_BIN_HOME
+    bullet "User scripts PATH: $XDG_BIN_HOME "
+    chmod 0700 $XDG_BIN_HOME
 else
-  error "Failed to create $XDG_BIN_HOME. Check permissions and re-run setup.sh"
-  exit 1
+    error "Failed to create $XDG_BIN_HOME. Check permissions and re-run setup.sh"
+    exit 1
 fi
 
 # Create ~/Developer folder in which to put local code repositorities
 if [[ -d "$HOME/Developer/" ]]; then
-  bullet "$HOME/Developer exists. Use this folder for personal repositories"
+    bullet "Personal projects: $HOME/Developer"
 else
-  mkdir $HOME/Developer
-  message "✅ $HOME/Developer - created folder for personal developer work"
+    mkdir $HOME/Developer
+    message "✅ $HOME/Developer : created folder for personal development work"
 fi
 
 # Create a ~/Documents folder if it doesn't exist already (on macOS likely does)
 if [[ -d "$HOME/Documents/" ]]; then
-  bullet "$HOME/Documents exists. Use this folder for work repositories"
+    bullet "Work repositories: $HOME/Documents"
 else
-  mkdir $HOME/Documents
-  message "✅ $HOME/Documents - use this folder for work repositories"
+    mkdir $HOME/Documents
+    message "✅ $HOME/Documents : created for work repositories"
 fi
 
 # Claim ownership of all my dotfiles
@@ -96,18 +70,8 @@ xattr -d com.apple.quarantine $DOTFILES/* 2> /dev/null
 
 
 # =============================================================================
-# Check if the ~/local.sh file exists, if not then copy the template to $HOME
-if [[ -f "$XDG_CONFIG_HOME/local.sh" ]]; then
-  bullet "$XDG_CONFIG_HOME/local.sh file exists. Delete and re-run to install from template"
-else
-  message "🏠 Local.sh" "Creating in $XDG_BIN_HOME/local.sh"
-  cp $DOTFILES/local.sh $XDG_BIN_HOME/local.sh
-fi
-
-
-# =============================================================================
 # Copy the global files that work on both macOS and Linux
-message "🔧 Dotfiles @ root" "Overwriting dot-config files (.bashrc, etc) at $HOME"
+message "🔧 Dotfiles" "Copying .profile, .zshrc, and others to root"
 cp $DOTFILES/Shell/profile.sh $HOME/.profile
 cp $DOTFILES/Shell/zshrc.sh $HOME/.zshrc
 cp $DOTFILES/Shell/zshenv.sh $HOME/.zshenv
@@ -125,48 +89,54 @@ cp $DOTFILES/Vim/vimrc $HOME/.vimrc
 # Copy VSCode settings -- commented out while using GitHub sync
 # cp $DOTFILES/VSCode/settings.json "$HOME/Library/Application Support/Code/User/"
 
-message "📂 Scripts @ PATH" "Copying to $XDG_BIN_HOME for user scripts"
+
+# =============================================================================
+# Check if the ~/local.sh file exists, if not then copy the template to $HOME
+if [[ -f "$XDG_BIN_HOME/local.sh" ]]; then
+    bullet "Configure local settings by editing $XDG_BIN_HOME/local.sh"
+else
+    message "🏠 Local.sh" "Creating in $XDG_BIN_HOME/local.sh"
+    cp $DOTFILES/Shell/local.sh $XDG_BIN_HOME/local.sh
+fi
+
+bullet "git config --global user.name = \"$(git config --get user.name)\""
+bullet "git config --global user.email = \"$(git config --get user.email)\""
+
+# Copy dotfiles custom scripts into the additional PATH folder
 cp $DOTFILES/Bin/* $XDG_BIN_HOME
 
-
-# =============================================================================
-# Copy the macOS-only files
-if [[ $MACOS == 1 ]]; then
-  message "🍎 macOS extras" "Installing Mac-specific files"
-  message "👩‍💻 App preferences" "Overwriting Terminal, Xcode, and other settings"
-
-  #  Mac-specific Git configuration files (assumes ./Documents for work repos)
-  cp $DOTFILES/Git/gitconfig-mac $HOME/.gitconfig
-  # Copy app settings
-  cp $DOTFILES/Terminal/* $HOME/Library/Preferences/
-  # Copy Xcode preferences (fails silently if no Xcode installed)
-  cp -R $DOTFILES/Xcode/* $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/ 2> /dev/null
-  # Remaining Mac-custom settings
-  source $DOTFILES/Mac/setup-mac.sh
-fi
-
-
-# =============================================================================
-# Copy the Linux-only files
-if [[ $LINUX == 1 ]]; then
-  message "🐢 Linux extras" "Installing Linux-specific files"
-  
-  #  Linux-specific Git configuration files (assumes ./Documents for work repos)
-  cp $DOTFILES/Git/gitconfig-linux $HOME/.gitconfig
-  # Remaining Linux-custom settings
-  source $DOTFILES/Linux/setup-linux.sh
-fi
 
 # =========================================================================
 # Add the DOTFILES environment setting to the end of the .profile file
 echo " " >> $HOME/.profile
-echo "# Add global DOTFILES pointing Dotfiles install folder" >> $HOME/.profile
+echo "# Set DOTFILES to point at this install folder" >> $HOME/.profile
 echo "export DOTFILES=$DOTFILES" >> $HOME/.profile
-echo
+
+
+# =============================================================================
+# Setup macOS-specific bits
+if [[ $MACOS == 1 ]]; then
+    #  Mac-specific Git configuration files (assumes ./Documents for work repos)
+    cp $DOTFILES/Git/gitconfig-mac $HOME/.gitconfig
+  
+    # Remaining Mac-custom settings
+    source $DOTFILES/Mac/setup-mac.sh
+fi
+
+
+# =============================================================================
+# Setup Linux-specific bits
+if [[ $LINUX == 1 ]]; then
+    #  Linux-specific Git configuration files (assumes ./Documents for work repos)
+    cp $DOTFILES/Git/gitconfig-linux $HOME/.gitconfig
+    # Remaining Linux-custom settings
+    source $DOTFILES/Linux/setup-linux.sh
+fi
 
 
 # =========================================================================
-message "🎉 Success!" "Restart Terminal and run setup-brew.sh"
+echo
+message "🎉 Success" "Restart Terminal."
 echo
 
 exit 0
@@ -196,13 +166,11 @@ exit 0
 #   $DOTFILES/Linux/setup-linux.sh
 # fi
 
-
 # -- This is the name of the actual file that was run
 # DOTFILES_SETUP_FILE=${0:a}
 
 # -- This was how to get the containing folder via zsh
 # export DOTFILES=${0:a:h}
-
 
 # This piece of script would require that you launch the setup while
 # already located inside the ~/dotfiles folder - this isn't needed

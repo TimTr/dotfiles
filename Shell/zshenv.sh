@@ -1,3 +1,3 @@
-# .zshenv - Mac version - Loaded in every session, great for PATH.
+# .zshenv - Loaded in every session (e.g. PATH)
 
 source $HOME/.profile
