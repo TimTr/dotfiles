@@ -9,19 +9,25 @@ This file includes notes about how to do things from past research, but not need
 
 
 # ========================================================================
-# TODO: removing the creation of Homebrew folders - let Homebrew install do that
-# Homebrew uses /opt/homebrew on ARM and /usr/local on Intel, and /opt/bin on Linux
-# Create these directories "just in case" on macOS
-# sudo mkdir -p /opt/homebrew/bin
-# sudo mkdir -p /usr/local/bin
+TODO: removing the creation of Homebrew folders - let Homebrew install do that
+Homebrew uses /opt/homebrew on ARM and /usr/local on Intel, and /opt/bin on Linux
+Create these directories "just in case" on macOS
 
-# Reset ownership, note the directory name does not end in / or /*
-# sudo chown -R "$USER":admin /opt/homebrew
-# sudo chown -R "$USER":admin /usr/local/bin
+sudo mkdir -p /opt/homebrew/bin
+sudo mkdir -p /usr/local/bin
 
-# Set the permissions for the folders (read for all, write for just me)
-# sudo chmod 744 /opt/homebrew/bin
-# sudo chmod 744 /usr/local/bin
+#### Reset ownership, note the directory name does not end in / or /*
+``
+sudo chown -R "$USER":admin /opt/homebrew
+sudo chown -R "$USER":admin /usr/local/bin
+``
+    
+    
+#### Set the permissions for the folders (read for all, write for just me)
+``
+    sudo chmod 744 /opt/homebrew/bin
+    sudo chmod 744 /usr/local/bin
+``
 
 
 # ========================================================================
@@ -80,6 +86,7 @@ This file includes notes about how to do things from past research, but not need
 
 # Automatically hide and show the Dock
 # defaults write com.apple.dock autohide -bool true
+
 
 
 
