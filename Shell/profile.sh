@@ -35,5 +35,5 @@ if [[  $MACOS == 1 ]]; then
 fi
 
 # Load local custom settings (e.g. security keys that don't belong in Git)
-source $XDG_BIN_HOME/local.sh
+source $HOME/.profile.local
 

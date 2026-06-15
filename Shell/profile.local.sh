@@ -1,3 +1,6 @@
+# .local files are blocked via .gitignore
+
+
 # Customize this file once installed with settings you don't want
 # to check into the repository. e.g. API tokens, keys, etc.
 #

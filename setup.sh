@@ -91,13 +91,15 @@ cp $DOTFILES/Vim/vimrc $HOME/.vimrc
 
 
 # =============================================================================
-# Check if the ~/local.sh file exists, if not then copy the template to $HOME
-if [[ -f "$XDG_BIN_HOME/local.sh" ]]; then
-    bullet "Configure local settings by editing $XDG_BIN_HOME/local.sh"
+# Check if the ~/.profile.local file exists, if not then copy the template to $HOME
+if [[ -f "$XHOME/.profile.local" ]]; then
+    bullet "Configure local settings by editing $HOME/.profile.local"
 else
-    message "🏠 Local.sh" "Creating in $XDG_BIN_HOME/local.sh"
-    cp $DOTFILES/Shell/local.sh $XDG_BIN_HOME/local.sh
+    message "🏠 Local settints" "Creating: $HOME/.profile.local"
+    bullet "Configure local settings by editing $HOME/.profile.local"
+    cp $DOTFILES/Shell/profile.local.sh $HOME/.profile.local
 fi
+
 
 bullet "git config --global user.name = \"$(git config --get user.name)\""
 bullet "git config --global user.email = \"$(git config --get user.email)\""
