@@ -8,17 +8,18 @@
 
 # =============================================================================
 echo
+# Set DOTFILES value to be the directory in which `./setup.sh` was run
+export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 # This will setup common variables and define current OS
 source "${DOTFILES}/Shell/profile.sh"
 source "${DOTFILES}/Shell/functions.sh"
-
-# Set DOTFILES value to be the directory in which `./setup.sh` was run
-export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 
 # =============================================================================
 # Running output (first the setup configuration)
 message "🟢 \$DOTFILES =" "${DOTFILES}"
+
 
 # =============================================================================
 # Create directories to match the XDG definitions in .profile
@@ -71,7 +72,7 @@ xattr -d com.apple.quarantine $DOTFILES/* 2> /dev/null
 
 # =============================================================================
 # Copy the global files that work on both macOS and Linux
-message "🔧 Dotfiles" "Copying .profile, .zshrc, and others to root"
+message "🔧 Shell" "Copying .profile, .zshrc, and other dotfiles to root"
 cp $DOTFILES/Shell/profile.sh $HOME/.profile
 cp $DOTFILES/Shell/zshrc.sh $HOME/.zshrc
 cp $DOTFILES/Shell/zshenv.sh $HOME/.zshenv
@@ -91,19 +92,6 @@ cp $DOTFILES/Vim/vimrc $HOME/.vimrc
 
 
 # =============================================================================
-# Check if the ~/.profile.local file exists, if not then copy the template to $HOME
-if [[ -f "$XHOME/.profile.local" ]]; then
-    bullet "Configure local settings by editing $HOME/.profile.local"
-else
-    message "🏠 Local settints" "Creating: $HOME/.profile.local"
-    bullet "Configure local settings by editing $HOME/.profile.local"
-    cp $DOTFILES/Shell/profile.local.sh $HOME/.profile.local
-fi
-
-
-bullet "git config --global user.name = \"$(git config --get user.name)\""
-bullet "git config --global user.email = \"$(git config --get user.email)\""
-
 # Copy dotfiles custom scripts into the additional PATH folder
 cp $DOTFILES/Bin/* $XDG_BIN_HOME
 
@@ -134,6 +122,24 @@ if [[ $LINUX == 1 ]]; then
     # Remaining Linux-custom settings
     source $DOTFILES/Linux/setup-linux.sh
 fi
+
+
+# =============================================================================
+# Check if the ~/.profile.local file exists, if not then copy the template to $HOME
+if [[ -f "$HOME/.profile.local" ]]; then
+    bullet "Configure local settings by editing $HOME/.profile.local"
+else
+    message "🏠 Creating local profile" "Creating: $HOME/.profile.local"
+    bullet "Configure local settings by editing $HOME/.profile.local"
+    cp $DOTFILES/Shell/profile.local.sh $HOME/.profile.local
+fi
+
+# =============================================================================
+# Print out current config settings such as Git, etc.
+message "👀 Current settings" "General settings you may wish to update:"
+
+bullet "git config --global user.name = \"$(git config --get user.name)\""
+bullet "git config --global user.email = \"$(git config --get user.email)\""
 
 
 # =========================================================================
