@@ -8,11 +8,12 @@
 
 
 # Alias commands to login to servers
-# ALERT: Edit locally, outside of dotfiles, and do not commit to GitHub!
+# ALERT: Edit locally, outside of dotfiles, and do not commit to GitHub
 alias ssh-example="ssh username@example.server.com"
 
 # To enable latest Swift.org toolchain in /Library/Developer/Toolchains/"
 #  export TOOLCHAINS=swift ("swift" = use Swift.org tools, empty = use Xcode)
+
 export TOOLCHAINS=
 
 

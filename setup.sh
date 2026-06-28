@@ -125,9 +125,9 @@ fi
 
 
 # =============================================================================
-# Check if the ~/.profile.local file exists, if not then copy the template to $HOME
+# Check if the ~/.profile.local file exists, if not then install from template
 if [[ -f "$HOME/.profile.local" ]]; then
-    bullet "Configure local settings by editing $HOME/.profile.local"
+    bullet "$HOME/.profile.local -- edit to make changes for this computer"
 else
     message "🏠 Creating local profile" "Creating: $HOME/.profile.local"
     bullet "Configure local settings by editing $HOME/.profile.local"

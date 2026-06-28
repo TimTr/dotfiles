@@ -10,6 +10,13 @@ source $HOME/.zshenv
 source $HOME/.aliases
 source $HOME/.functions
 
+# This exports the current directory to iTerm for the tab UI name
+if [ $ITERM_SESSION_ID ]; then
+  precmd() {
+    echo -ne "\033]0;${PWD##*/}\007"
+  }
+fi
+
 # Warn about installing Homebrew if it is not yet present
 which -s brew &> /dev/null
 if [[ $? != 0 ]] ; then
@@ -36,7 +43,7 @@ parse_git_branch() {
 setopt PROMPT_SUBST
 HOSTNAME=$(hostname -s)
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}🐠 %F{#ff6a00}% %9c% %f  %F{#203a47}% ${HOSTNAME} %F{#0096ff}% $(parse_git_branch) ${NEWLINE}%F{#203a47}% $USER %F{#eef8ff}% 〉%f'
+PROMPT='${NEWLINE}%F{#ff6a00}% %9c% %f  %F{#203a47}% ${HOSTNAME} %F{#0096ff}% $(parse_git_branch) ${NEWLINE}%F{#203a47}% $USER %F{#eef8ff}% 〉%f'
 
 
 # end of file
