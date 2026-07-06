@@ -34,10 +34,12 @@ else
     message "🔔 TODO: Install Homebrew" "After Restart, run setup-brew.sh"
 fi
 
-
-
-# Copy app settings
+# Copy macOS Terminal settings
 cp $DOTFILES/Terminals/* $HOME/Library/Preferences/
+  
+# Copy macOS iTerm2 settings
+cp $DOTFILES/Terminals/* $HOME/Library/Preferences/
+  
   
 # Copy Xcode preferences (fails silently if no Xcode installed)
 # cp -R $DOTFILES/Xcode/* $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/ 2> /dev/null

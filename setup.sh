@@ -87,6 +87,12 @@ git config --global core.excludesfile $HOME/.gitignore
 # Common app settings across platforms
 cp $DOTFILES/Vim/vimrc $HOME/.vimrc
 
+# Copy settings for Ghostty and CMUX terminals
+mkdir -p $XDG_CONFIG_HOME/ghostty/themes 2> /dev/null
+cp $DOTFILES/Terminals/ghostty.config ~/.config/ghostty/config
+cp $DOTFILES/Terminals/ghostty-timtr-theme ~/.config/ghostty/themes/TimTr
+  
+
 # Copy VSCode settings -- commented out while using GitHub sync
 # cp $DOTFILES/VSCode/settings.json "$HOME/Library/Application Support/Code/User/"
 
