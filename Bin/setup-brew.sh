@@ -22,7 +22,7 @@ else
   brew upgrade
   
   # eza (ls replacement), gh (github) are favorites
-  brew install automake bison openssl readline libyaml gdbm libffi wget eza gh
+  brew install automake bison openssl readline libyaml gdbm libffi wget eza gh btop
   
   message "Homebrew update complete" "Reporting current tool versions:"
   python3 --version
