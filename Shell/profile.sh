@@ -1,5 +1,7 @@
 # .profile - imported by bash and zsh for common settings
 
+echo ".profile - loading..."
+
 # This script reacts based on macOS, Linux, or Windows host
 export MACOS= LINIX= WINDOWS= WSL=
 PLATFORM="$(uname -s)"

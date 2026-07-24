@@ -23,7 +23,8 @@ This is the personal collection of setup scripts for macOS and Linux (WIP). It i
 
 Defaults such as `~/.local/bin` are used, leaving the `$XDG_DATA_HOME` and related variables empty for now. You may want to update the `~/.local/share/local.sh` file to augment local behavior that you don't want to see in a shared repository.
 
-[TODO: Rename "local.sh" to less conflicting with XDG folders](http://timtr.com)
+[TODO: Rename "local.sh" to less conflicting with XDG folders](./changelog.md)
+
 
 ## Work and home Git configuration
 
@@ -32,7 +33,8 @@ The macOS install includes a `dot-gitconfig-work` file that is installed to cont
 
 ## Setup SSH keys to easily login to remote servers
 
-[TODO: Add scripts and docs for setting up SSH keys](http://timtr.com)
+[TODO: Add scripts and docs for setting up SSH keys](./changelog.md)
+
 
 ## Features
 
@@ -80,4 +82,4 @@ For reference, `zsh` config files are loaded in the following order:
 
 
 
-`// end of file.`
+#### // end of file.

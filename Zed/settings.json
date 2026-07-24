@@ -1,0 +1,119 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "tabs": {
+    "file_icons": false,
+    "git_status": false
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": true,
+    "show_tab_bar_buttons": true,
+    "show": true
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_sign_in": false,
+    "show_branch_status_icon": true
+  },
+  "status_bar": {
+    "show_active_file": false
+  },
+  "ui_font_weight": 400.0,
+  "buffer_font_weight": 300.0,
+  "cli_default_open_behavior": "existing_window",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "file_types": {
+    "shellscript": [
+      ".profile.local"
+    ]
+  },
+  "terminal": {
+    "font_weight": 300.0,
+    "font_size": 15.0,
+    "line_height": {
+      "custom": 1.1
+    }
+  },
+  "project_panel": {
+    "hide_root": true,
+    "git_status_indicator": true,
+    "hide_gitignore": true,
+    "dock": "left",
+    "sort_mode": "directories_first",
+    "sort_order": "upper"
+  },
+  "global_lsp_settings": {
+    "semantic_token_rules": [
+      {
+        "token_type": "class",
+        "token_modifiers": [],
+        "style": [],
+        "foreground_color": "#ff9999ff",
+        "background_color": null,
+        "underline": null,
+        "strikethrough": null,
+        "font_weight": null,
+        "font_style": null
+      },
+      {
+        "token_type": "class",
+        "token_modifiers": [],
+        "style": [],
+        "foreground_color": "#ff9999ff",
+        "background_color": null,
+        "underline": null,
+        "strikethrough": null,
+        "font_weight": null,
+        "font_style": null
+      }
+    ]
+  },
+  "base_keymap": "VSCode",
+  "preview_tabs": {
+    "enabled": false
+  },
+  "gutter": {
+    "line_numbers": true,
+    "folds": false
+  },
+  "minimap": {
+    "show": "never"
+  },
+  "selection_highlight": false,
+  "buffer_font_fallbacks": [
+    "SF Mono",
+    "Menlo",
+    "Courier New",
+    "monospace"
+  ],
+  "buffer_font_family": "BlexMono Nerd Font",
+  "indent_guides": {
+    "enabled": false
+  },
+  "soft_wrap": "editor_width",
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "bottom_dock_layout": "full",
+  "ui_font_size": 17.0,
+  "buffer_font_size": 15.0,
+  "theme": {
+    "mode": "dark",
+    "light": "Ayu Light",
+    "dark": "Ayu Dark",
+  },
+}

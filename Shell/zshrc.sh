@@ -6,7 +6,7 @@
 # For those global (no shell visible) cases, use the `.zshenv` file.
 # ========================================================================
 
-source $HOME/.zshenv
+# Note that .profile is auto-loaded by .zshenv so assume it is already loaded
 source $HOME/.aliases
 source $HOME/.functions
 

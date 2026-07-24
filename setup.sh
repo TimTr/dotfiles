@@ -71,7 +71,7 @@ xattr -d com.apple.quarantine $DOTFILES/* 2> /dev/null
 
 
 # =============================================================================
-# Copy the global files that work on both macOS and Linux
+# Shell:  copy the global files that work on both macOS and Linux
 message "🔧 Shell" "Copying .profile, .zshrc, and other dotfiles to root"
 cp $DOTFILES/Shell/profile.sh $HOME/.profile
 cp $DOTFILES/Shell/zshrc.sh $HOME/.zshrc
@@ -79,20 +79,32 @@ cp $DOTFILES/Shell/zshenv.sh $HOME/.zshenv
 cp $DOTFILES/Shell/aliases.sh $HOME/.aliases
 cp $DOTFILES/Shell/functions.sh $HOME/.functions
 
-# Common Git settings across platforms, and register those settings
+
+# =============================================================================
+# Git:   settings across platforms, and register those settings
 cp $DOTFILES/Git/gitignore $HOME/.gitignore
 cp $DOTFILES/Git/gitconfig-work $HOME/Documents/.gitconfig-work
 git config --global core.excludesfile $HOME/.gitignore
 
-# Common app settings across platforms
+
+# =============================================================================
+# Vim:  ommon app settings across platforms
 cp $DOTFILES/Vim/vimrc $HOME/.vimrc
 
-# Copy settings for Ghostty and CMUX terminals
+
+# =============================================================================
+# Zed:  ommon app settings across platforms
+cp $DOTFILES/Zed/settings.json $HOME/.config/zed
+
+
+# =============================================================================
+# CMUX and Ghostty:  Copy settings for Ghostty-based terminals
 mkdir -p $XDG_CONFIG_HOME/ghostty/themes 2> /dev/null
 cp $DOTFILES/Terminals/ghostty.config ~/.config/ghostty/config
 cp $DOTFILES/Terminals/ghostty-timtr-theme ~/.config/ghostty/themes/TimTr
-  
 
+
+# =============================================================================
 # Copy VSCode settings -- commented out while using GitHub sync
 # cp $DOTFILES/VSCode/settings.json "$HOME/Library/Application Support/Code/User/"
 
@@ -114,7 +126,7 @@ echo "export DOTFILES=$DOTFILES" >> $HOME/.profile
 if [[ $MACOS == 1 ]]; then
     #  Mac-specific Git configuration files (assumes ./Documents for work repos)
     cp $DOTFILES/Git/gitconfig-mac $HOME/.gitconfig
-  
+
     # Remaining Mac-custom settings
     source $DOTFILES/Mac/setup-mac.sh
 fi
@@ -236,8 +248,3 @@ exit 0
 #   error "ABORT" "You must run the installer from within the dotfiles folder"
 #   exit 0
 # fi
-
-
-
-
-
