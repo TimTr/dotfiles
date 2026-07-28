@@ -11,7 +11,7 @@ echo
 # Set DOTFILES value to be the directory in which `./setup.sh` was run
 export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# This will setup common variables and define current OS
+# Source setup files, note that profile.sh (.profile) works in all shells
 source "${DOTFILES}/Shell/profile.sh"
 source "${DOTFILES}/Shell/functions.sh"
 
@@ -40,23 +40,26 @@ else
     exit 1
 fi
 
-# Create ~/Developer folder in which to put local code repositorities
-if [[ -d "$HOME/Developer/" ]]; then
-    bullet "Personal projects: $HOME/Developer"
+
+# =============================================================================
+# Create default directories for common work
+
+if [[ -d "$HOME/Developer/" ]]; then bullet "Personal repos: $HOME/Developer"
 else
     mkdir $HOME/Developer
     message "✅ $HOME/Developer : created folder for personal development work"
 fi
 
-# Create a ~/Documents folder if it doesn't exist already (on macOS likely does)
-if [[ -d "$HOME/Documents/" ]]; then
-    bullet "Work repositories: $HOME/Documents"
+if [[ -d "$HOME/Documents/" ]]; then bullet "Work repos: $HOME/Documents"
 else
     mkdir $HOME/Documents
     message "✅ $HOME/Documents : created for work repositories"
 fi
 
+
+# =============================================================================
 # Claim ownership of all my dotfiles
+
 chown -R $USER $DOTFILES     2> /dev/null
 
 # Make all directories (-type d) 755 executable, files (-type f) as 644
@@ -72,33 +75,32 @@ xattr -d com.apple.quarantine $DOTFILES/* 2> /dev/null
 
 # =============================================================================
 # Shell:  copy the global files that work on both macOS and Linux
+
 message "🔧 Shell" "Copying .profile, .zshrc, and other dotfiles to root"
 cp $DOTFILES/Shell/profile.sh $HOME/.profile
 cp $DOTFILES/Shell/zshrc.sh $HOME/.zshrc
 cp $DOTFILES/Shell/zshenv.sh $HOME/.zshenv
+cp $DOTFILES/Shell/zprofile.sh $HOME/.zprofile
 cp $DOTFILES/Shell/aliases.sh $HOME/.aliases
 cp $DOTFILES/Shell/functions.sh $HOME/.functions
-
-
-# =============================================================================
-# Git:   settings across platforms, and register those settings
-cp $DOTFILES/Git/gitignore $HOME/.gitignore
-cp $DOTFILES/Git/gitconfig-work $HOME/Documents/.gitconfig-work
-git config --global core.excludesfile $HOME/.gitignore
+cp $DOTFILES/Shell/zshrc.local.sh $HOME/.zshrc.local
 
 
 # =============================================================================
 # Vim:  ommon app settings across platforms
+
 cp $DOTFILES/Vim/vimrc $HOME/.vimrc
 
 
 # =============================================================================
 # Zed:  ommon app settings across platforms
+
 cp $DOTFILES/Zed/settings.json $HOME/.config/zed
 
 
 # =============================================================================
 # CMUX and Ghostty:  Copy settings for Ghostty-based terminals
+
 mkdir -p $XDG_CONFIG_HOME/ghostty/themes 2> /dev/null
 cp $DOTFILES/Terminals/ghostty.config ~/.config/ghostty/config
 cp $DOTFILES/Terminals/ghostty-timtr-theme ~/.config/ghostty/themes/TimTr
@@ -111,45 +113,46 @@ cp $DOTFILES/Terminals/ghostty-timtr-theme ~/.config/ghostty/themes/TimTr
 
 # =============================================================================
 # Copy dotfiles custom scripts into the additional PATH folder
+
 cp $DOTFILES/Bin/* $XDG_BIN_HOME
 
 
 # =========================================================================
 # Add the DOTFILES environment setting to the end of the .profile file
+
 echo " " >> $HOME/.profile
 echo "# Set DOTFILES to point at this install folder" >> $HOME/.profile
 echo "export DOTFILES=$DOTFILES" >> $HOME/.profile
 
 
 # =============================================================================
-# Setup macOS-specific bits
-if [[ $MACOS == 1 ]]; then
-    #  Mac-specific Git configuration files (assumes ./Documents for work repos)
-    cp $DOTFILES/Git/gitconfig-mac $HOME/.gitconfig
+# Setup Git with customization for platform or work directories
 
-    # Remaining Mac-custom settings
-    source $DOTFILES/Mac/setup-mac.sh
-fi
+[[ $MACOS == 1 ]] && cp $DOTFILES/Git/gitconfig-mac $HOME/.gitconfig
+[[ $LINUX == 1 ]] && cp $DOTFILES/Git/gitconfig-linux $HOME/.gitconfig
 
+cp $DOTFILES/Git/gitignore $HOME/.gitignore
+cp $DOTFILES/Git/gitconfig-work $HOME/Documents/.gitconfig-work
+git config --global core.excludesfile $HOME/.gitignore
 
-# =============================================================================
-# Setup Linux-specific bits
-if [[ $LINUX == 1 ]]; then
-    #  Linux-specific Git configuration files (assumes ./Documents for work repos)
-    cp $DOTFILES/Git/gitconfig-linux $HOME/.gitconfig
-    # Remaining Linux-custom settings
-    source $DOTFILES/Linux/setup-linux.sh
-fi
 
 
 # =============================================================================
-# Check if the ~/.profile.local file exists, if not then install from template
-if [[ -f "$HOME/.profile.local" ]]; then
-    bullet "$HOME/.profile.local -- edit to make changes for this computer"
+# Setup platform-specific bits
+
+[[ $MACOS == 1 ]] && source "$DOTFILES/Mac/setup-mac.sh"
+
+[[ $LINUX == 1 ]] && source $DOTFILES/Linux/setup-linux.sh
+
+
+# =============================================================================
+# Check if the ~/.zshrc.local file exists, if not then install from template
+if [[ -f "$HOME/.zshrc.local" ]]; then
+    bullet "$HOME/.zshrc.local -- edit to make changes for this computer"
 else
-    message "🏠 Creating local profile" "Creating: $HOME/.profile.local"
-    bullet "Configure local settings by editing $HOME/.profile.local"
-    cp $DOTFILES/Shell/profile.local.sh $HOME/.profile.local
+    message "🏠 Creating local profile" "Creating: $HOME/.zshrc.local"
+    bullet "Configure local settings by editing $HOME/.zshrc.local"
+    cp $DOTFILES/Shell/zshrc.local.sh $HOME/.zshrc.local
 fi
 
 # =============================================================================
@@ -165,86 +168,6 @@ echo
 message "🎉 Success" "Restart Terminal."
 echo
 
+# end of file.
+
 exit 0
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ==============================================================================
-# Saved script tidbits may want later
-# ==============================================================================
-
-
-# if [[ ${MACOS} ]]; then
-#    $DOTFILES/Mac/setup-mac.sh
-# fi
-
-# if [[ ${LINUX} ]]; then
-#   $DOTFILES/Linux/setup-linux.sh
-# fi
-
-# -- This is the name of the actual file that was run
-# DOTFILES_SETUP_FILE=${0:a}
-
-# -- This was how to get the containing folder via zsh
-# export DOTFILES=${0:a:h}
-
-# This piece of script would require that you launch the setup while
-# already located inside the ~/dotfiles folder - this isn't needed
-#
-# if [ "$(basename "$PWD")" != "dotfiles" ]; then
-#   echo "ABORT" "You must run the installer from within the dotfiles folder"
-#   exit 0
-# fi
-
-
-# Ask to enter a key to continue
-# read -s -k $'?Press any key to continue. Hit Control-C to abort now.\n'
-
-
-# Handle parameters from the command line - e.g. "update"
-# if [ "$1" = "install" ]; then
-#   echo "\nDOT.SH:  Attempting initial install of the dotfiles..."
-
-
-# Diagnostic - delete later
-#   echo "$(basename "$PWD")"
-#   echo "$PWD"
-#
-#   First make sure the installer is run from within the ~/dotfiles folder
-#   if [ "$PWD" != "$HOME/dotfiles" ]; then
-#     echo " - ABORT: You must install from within the ~./dotfiles folder"
-#     exit 0
-#   fi
-# fi
-
-
-# If there were no parameters, explain how to use the tool
-# if [ $# -eq 0 ]; then
-#  echo "DOT.SH: Attempting to update (no parameters). Usage syntax:"
-#  echo "        - dot.sh reset"
-#  echo "        - dot.sh update"
-#  echo "        - dot.sh install   (must be run from within ~/dotfiles"
-#fi
-
-# If no parameters, or had entered `update` then proceed to update
-# if [[ "$1" = "update" || $# -eq 0  ]]; then
-#   echo "\nDOT.SH:  Updating..."
-#   Verify that the install had previously succeeded
-# fi
-
-
-# First make sure the installer is run from within the dotfiles folder
-# if [ "$(basename "$PWD")" != "dotfiles" ]; then
-#   error "ABORT" "You must run the installer from within the dotfiles folder"
-#   exit 0
-# fi

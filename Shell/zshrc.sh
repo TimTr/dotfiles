@@ -6,9 +6,11 @@
 # For those global (no shell visible) cases, use the `.zshenv` file.
 # ========================================================================
 
-# Note that .profile is auto-loaded by .zshenv so assume it is already loaded
 source $HOME/.aliases
 source $HOME/.functions
+
+typeset -U PATH path
+
 
 # This exports the current directory to iTerm for the tab UI name
 if [ $ITERM_SESSION_ID ]; then

@@ -11,19 +11,19 @@ To install, clone the repo and run `./setup.sh` as follows:
 ```
 
 On macOS, install Xcode first. Linux uses `zsh` and will attempt to install if missing.
-The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. The `./local.sh` file is installed in `~/.config` to further customize the local environment. Scripts, binaries, and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. 
+The `.zshrc.local` file is installed in your `$HOME` to further customize the local environment. Scripts, binaries, and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. 
+
 
 ### [Documentation](./Docs/)
 
 Documentation (work in progress) is generated within [GitHub Pages](https://timtr.github.io/dotfiles/Docs/). Moving to a local setup of documentation using [Swift-DocC](https://www.swift.org/documentation/docc/) but not yet implemented.
+
 
 ## Overview
 
 This is the personal collection of setup scripts for macOS and Linux (WIP). It includes settings for macOS using `zsh` shell, `eza` for `ls` replacement, Terminal, Xcode, Swift, Homebrew, and Ruby. The Linux install is based on `bash` and still uses mostly default tools.f
 
 Defaults such as `~/.local/bin` are used, leaving the `$XDG_DATA_HOME` and related variables empty for now. You may want to update the `~/.local/share/local.sh` file to augment local behavior that you don't want to see in a shared repository.
-
-[TODO: Rename "local.sh" to less conflicting with XDG folders](./changelog.md)
 
 
 ## Work and home Git configuration
