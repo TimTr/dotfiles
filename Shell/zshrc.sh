@@ -45,7 +45,7 @@ parse_git_branch() {
 setopt PROMPT_SUBST
 HOSTNAME=$(hostname -s)
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}%F{#ff6a00}% %9c% %f    %F{#203a47}% $USER|${HOSTNAME} %F{#0096ff}% $(parse_git_branch) ${NEWLINE}%F{#eef8ff}% 〉%f'
+PROMPT='${NEWLINE}%F{#ff6a00}% %9c% %f   %F{#3d3a6c}% $USER %F{#203a47} ${HOSTNAME} %F{#0096ff}% $(parse_git_branch) ${NEWLINE}%F{#eef8ff}% 〉%f'
 
 
 
