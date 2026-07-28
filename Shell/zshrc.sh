@@ -19,14 +19,6 @@ if [ $ITERM_SESSION_ID ]; then
   }
 fi
 
-# Warn about installing Homebrew if it is not yet present
-which -s brew &> /dev/null
-if [[ $? != 0 ]] ; then
-  error "Missing Homebrew. Run setup-brew.sh"
-else
-  message "Found Homebrew" "Installed brew tools supercede system tools (e.g. Ruby)"
-fi
-
 
 # ==============================================================================
 # ls and eza  -- sets colors and sorting for file and directory listing

@@ -5,8 +5,8 @@
 #  This script is setup to launch using the BASH shell since it is
 #  common across supported platforms. Likely works in zsh as well.
 #  On macOS, `zsh` is the default. Most Linux systems default to `bash`.
-
 # =============================================================================
+
 echo
 # Set DOTFILES value to be the directory in which `./setup.sh` was run
 export DOTFILES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -43,14 +43,13 @@ fi
 
 # =============================================================================
 # Create default directories for common work
-
-if [[ -d "$HOME/Developer/" ]]; then bullet "Personal repos: $HOME/Developer"
+if [[ -d "$HOME/Developer/" ]]; then bullet "Personal projects: $HOME/Developer"
 else
     mkdir $HOME/Developer
     message "✅ $HOME/Developer : created folder for personal development work"
 fi
 
-if [[ -d "$HOME/Documents/" ]]; then bullet "Work repos: $HOME/Documents"
+if [[ -d "$HOME/Documents/" ]]; then bullet "Work repositories: $HOME/Documents"
 else
     mkdir $HOME/Documents
     message "✅ $HOME/Documents : created for work repositories"
@@ -59,7 +58,6 @@ fi
 
 # =============================================================================
 # Claim ownership of all my dotfiles
-
 chown -R $USER $DOTFILES     2> /dev/null
 
 # Make all directories (-type d) 755 executable, files (-type f) as 644
@@ -75,7 +73,6 @@ xattr -d com.apple.quarantine $DOTFILES/* 2> /dev/null
 
 # =============================================================================
 # Shell:  copy the global files that work on both macOS and Linux
-
 message "🔧 Shell" "Copying .profile, .zshrc, and other dotfiles to root"
 cp $DOTFILES/Shell/profile.sh $HOME/.profile
 cp $DOTFILES/Shell/zshrc.sh $HOME/.zshrc
@@ -88,19 +85,16 @@ cp $DOTFILES/Shell/zshrc.local.sh $HOME/.zshrc.local
 
 # =============================================================================
 # Vim:  ommon app settings across platforms
-
 cp $DOTFILES/Vim/vimrc $HOME/.vimrc
 
 
 # =============================================================================
 # Zed:  ommon app settings across platforms
-
 cp $DOTFILES/Zed/settings.json $HOME/.config/zed
 
 
 # =============================================================================
-# CMUX and Ghostty:  Copy settings for Ghostty-based terminals
-
+# Terminals: cross-platform CMUX and Ghostty terminal settings install
 mkdir -p $XDG_CONFIG_HOME/ghostty/themes 2> /dev/null
 cp $DOTFILES/Terminals/ghostty.config ~/.config/ghostty/config
 cp $DOTFILES/Terminals/ghostty-timtr-theme ~/.config/ghostty/themes/TimTr
@@ -113,13 +107,11 @@ cp $DOTFILES/Terminals/ghostty-timtr-theme ~/.config/ghostty/themes/TimTr
 
 # =============================================================================
 # Copy dotfiles custom scripts into the additional PATH folder
-
 cp $DOTFILES/Bin/* $XDG_BIN_HOME
 
 
 # =========================================================================
 # Add the DOTFILES environment setting to the end of the .profile file
-
 echo " " >> $HOME/.profile
 echo "# Set DOTFILES to point at this install folder" >> $HOME/.profile
 echo "export DOTFILES=$DOTFILES" >> $HOME/.profile
@@ -127,7 +119,6 @@ echo "export DOTFILES=$DOTFILES" >> $HOME/.profile
 
 # =============================================================================
 # Setup Git with customization for platform or work directories
-
 [[ $MACOS == 1 ]] && cp $DOTFILES/Git/gitconfig-mac $HOME/.gitconfig
 [[ $LINUX == 1 ]] && cp $DOTFILES/Git/gitconfig-linux $HOME/.gitconfig
 
@@ -136,12 +127,9 @@ cp $DOTFILES/Git/gitconfig-work $HOME/Documents/.gitconfig-work
 git config --global core.excludesfile $HOME/.gitignore
 
 
-
 # =============================================================================
 # Setup platform-specific bits
-
 [[ $MACOS == 1 ]] && source "$DOTFILES/Mac/setup-mac.sh"
-
 [[ $LINUX == 1 ]] && source $DOTFILES/Linux/setup-linux.sh
 
 
@@ -155,6 +143,7 @@ else
     cp $DOTFILES/Shell/zshrc.local.sh $HOME/.zshrc.local
 fi
 
+
 # =============================================================================
 # Print out current config settings such as Git, etc.
 message "👀 Current settings" "General settings you may wish to update:"
@@ -164,8 +153,7 @@ bullet "git config --global user.email = \"$(git config --get user.email)\""
 
 
 # =========================================================================
-echo
-message "🎉 Success" "Restart Terminal."
+message "\n🎉 Success" "Restart Terminal."
 echo
 
 # end of file.

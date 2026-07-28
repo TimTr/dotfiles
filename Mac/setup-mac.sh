@@ -16,6 +16,14 @@ if [[ $MACOS == 1 ]]; then
 fi
 bullet "xcode-select -p = ${XCODE}"
 
+# Warn about installing Homebrew if it is not yet present
+which -s brew &> /dev/null
+if [[ $? != 0 ]] ; then
+  error "Missing Homebrew. Run:  setup-brew.sh"
+else
+  message "Found Homebrew" "Installed brew tools supercede system tools (e.g. Ruby)"
+fi
+
 
 # Verify the ZSH shell is default -- changing to expect this in Linux too
 if [[ $SHELL == *zsh* ]]; then
@@ -34,12 +42,11 @@ else
     message "🔔 TODO: Install Homebrew" "After Restart, run setup-brew.sh"
 fi
 
-# Copy macOS Terminal settings
+
+# ==============================================================================
+# Copy macOS Terminal settings (cross-platform terminals already installed)
 cp $DOTFILES/Terminals/* $HOME/Library/Preferences/
-  
-# Copy macOS iTerm2 settings
-cp $DOTFILES/Terminals/* $HOME/Library/Preferences/
-  
+
   
 # Copy Xcode preferences (fails silently if no Xcode installed)
 # cp -R $DOTFILES/Xcode/* $HOME/Library/Developer/Xcode/UserData/FontAndColorThemes/ 2> /dev/null
