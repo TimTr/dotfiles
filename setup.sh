@@ -26,19 +26,16 @@ message "🟢 \$DOTFILES =" "${DOTFILES}"
 # XDG reference:  https://specifications.freedesktop.org/basedir/latest/
 message "📂 Directories" "Creating and configuring XDG and other directories"
 
-mkdir -p $XDG_BIN_HOME    2> /dev/null
+mkdir -p   $XDG_BIN_HOME    2> /dev/null
+chmod 0700 $XDG_BIN_HOME
+bullet "User scripts PATH: $XDG_BIN_HOME "
+
 mkdir -p $XDG_CONFIG_HOME 2> /dev/null
+bullet "App config folder: $XDG_CONFIG_HOME "
+
 mkdir -p $XDG_DATA_HOME    2> /dev/null
 mkdir -p $XDG_STATE_HOME   2> /dev/null
 mkdir -p $XDG_CACHE_HOME   2> /dev/null
-
-if [[ -d "$XDG_BIN_HOME" ]]; then
-    bullet "User scripts PATH: $XDG_BIN_HOME "
-    chmod 0700 $XDG_BIN_HOME
-else
-    error "Failed to create $XDG_BIN_HOME. Check permissions and re-run setup.sh"
-    exit 1
-fi
 
 
 # =============================================================================
@@ -73,7 +70,7 @@ xattr -d com.apple.quarantine $DOTFILES/* 2> /dev/null
 
 # =============================================================================
 # Shell:  copy the global files that work on both macOS and Linux
-message "🔧 Shell" "Copying .profile, .zshrc, and other dotfiles to root"
+bullet "Copying .profile, .zshrc, and others to override root files"
 cp $DOTFILES/Shell/profile.sh $HOME/.profile
 cp $DOTFILES/Shell/zshrc.sh $HOME/.zshrc
 cp $DOTFILES/Shell/zshenv.sh $HOME/.zshenv
@@ -81,12 +78,6 @@ cp $DOTFILES/Shell/zprofile.sh $HOME/.zprofile
 cp $DOTFILES/Shell/aliases.sh $HOME/.aliases
 cp $DOTFILES/Shell/functions.sh $HOME/.functions
 cp $DOTFILES/Shell/zshrc.local.sh $HOME/.zshrc.local
-
-
-# =============================================================================
-# Vim: common app settings across platforms
-mkdir -p $HOME/.vimrc 2> /dev/null
-cp $DOTFILES/Vim/vimrc $HOME/.vimrc
 
 
 # =============================================================================
@@ -142,22 +133,22 @@ git config --global core.excludesfile $HOME/.gitignore
 
 
 # =============================================================================
-# Check if the ~/.zshrc.local file exists, if not then install from template
-if [[ -f "$HOME/.zshrc.local" ]]; then
-    bullet "$HOME/.zshrc.local -- edit to make changes for this computer"
-else
-    message "🏠 Creating local profile" "Creating: $HOME/.zshrc.local"
-    bullet "Configure local settings by editing $HOME/.zshrc.local"
-    cp $DOTFILES/Shell/zshrc.local.sh $HOME/.zshrc.local
-fi
-
-
-# =============================================================================
 # Print out current config settings such as Git, etc.
 message "👀 Current settings" "General settings you may wish to update:"
 
 bullet "git config --global user.name = \"$(git config --get user.name)\""
 bullet "git config --global user.email = \"$(git config --get user.email)\""
+
+
+# =============================================================================
+# Check if the ~/.zshrc.local file exists, if not then install from template
+if [[ -f "$HOME/.zshrc.local" ]]; then
+    message "🏠 ~/.zshrc.local" "Edit this file for settings specific to this computer"
+else
+    message "🏠 Creating local profile" "Creating: $HOME/.zshrc.local"
+    bullet "Configure local settings by editing $HOME/.zshrc.local"
+    cp $DOTFILES/Shell/zshrc.local.sh $HOME/.zshrc.local
+fi
 
 
 # =========================================================================

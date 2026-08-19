@@ -19,16 +19,14 @@ bullet "xcode-select -p = ${XCODE}"
 # Warn about installing Homebrew if it is not yet present
 which -s brew &> /dev/null
 if [[ $? != 0 ]] ; then
-  error "Missing Homebrew. Run:  setup-brew.sh"
+  error "‼️ Homebrew is missing. Run \"setup-brew.sh\"  then restart"
 else
-  message "Found Homebrew" "Installed brew tools supercede system tools (e.g. Ruby)"
+  bullet "brew --version = $(brew --version)  $(which brew)"
 fi
 
 
 # Verify the ZSH shell is default -- changing to expect this in Linux too
-if [[ $SHELL == *zsh* ]]; then
-    bullet "ZSH is already the default shell" >> /dev/null
-else
+if [[ $SHELL != *zsh* ]]; then
     alert "Setting ZSH as the default shell, chsh will prompt for your password:"
     chsh -s /usr/local/zsh
   
@@ -36,11 +34,7 @@ else
     exit 0
 fi
 
-if [[ -f "/opt/homebrew/bin/brew" ]]; then
-    message "🎉 Success" "Restart Terminal." >> /dev/null
-else
-    message "🔔 TODO: Install Homebrew" "After Restart, run setup-brew.sh"
-fi
+message "🎉 Success" "Restart Terminal." >> /dev/null
 
 
 # ==============================================================================
