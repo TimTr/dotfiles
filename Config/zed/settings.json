@@ -113,7 +113,7 @@
   "buffer_font_size": 15.0,
   "theme": {
     "mode": "dark",
-    "light": "Ayu Light",
-    "dark": "Ayu Dark",
+    "light": "TimTr Light",
+    "dark": "TimTr Dark",
   },
 }

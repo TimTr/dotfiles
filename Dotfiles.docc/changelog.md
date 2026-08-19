@@ -9,6 +9,7 @@
 
 The list shows the latest changes at the top. Sorry, no dates being tracked.
 
+- Migrated back to using ~/Code as the location for personal repositories since all the non-repo files are now installed into the `$HOME` or `XDG*` directories.
 - Setup the XDG directories, and include .local/bin in the PATH. For reference: https://specifications.freedesktop.org/basedir/latest/
 - Ugh, differences in Linux and Mac setups rolled back the `/usr/local/bin/$USER` solution. Back to creating a `$USER/Bin` folder and adding it to the PATH.
 - Move PATH files to `/usr/local/bin/$USER` and don't put dotfiles themselves directly into the PATH anymore. This allows files to be created on-the-fly into the PATH, and not put into a folder that may be under source control.

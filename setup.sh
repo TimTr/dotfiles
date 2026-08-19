@@ -43,10 +43,10 @@ fi
 
 # =============================================================================
 # Create default directories for common work
-if [[ -d "$HOME/Developer/" ]]; then bullet "Personal projects: $HOME/Developer"
+if [[ -d "$HOME/Code/" ]]; then bullet "Personal projects: $HOME/Code"
 else
-    mkdir $HOME/Developer
-    message "✅ $HOME/Developer : created folder for personal development work"
+    mkdir $HOME/Code
+    message "✅ $HOME/Code : created folder for personal development work"
 fi
 
 if [[ -d "$HOME/Documents/" ]]; then bullet "Work repositories: $HOME/Documents"
@@ -84,20 +84,28 @@ cp $DOTFILES/Shell/zshrc.local.sh $HOME/.zshrc.local
 
 
 # =============================================================================
-# Vim:  ommon app settings across platforms
+# Vim: common app settings across platforms
+mkdir -p $HOME/.vimrc 2> /dev/null
 cp $DOTFILES/Vim/vimrc $HOME/.vimrc
 
 
 # =============================================================================
+# XDG based ./config filder:  ommon app settings across platforms
+mkdir -p $HOME/.config 2> /dev/null
+cp -r $DOTFILES/Config/* $HOME/.config
+
+# =============================================================================
 # Zed:  ommon app settings across platforms
-cp $DOTFILES/Zed/settings.json $HOME/.config/zed
+# mkdir -p $HOME/.config/zed/themes 2> /dev/null
+# cp $DOTFILES/Zed/settings.json $HOME/.config/zed
+# cp $DOTFILES/Zed/zed-theme*.json $HOME/.config/zed/themes
 
 
 # =============================================================================
 # Terminals: cross-platform CMUX and Ghostty terminal settings install
-mkdir -p $XDG_CONFIG_HOME/ghostty/themes 2> /dev/null
-cp $DOTFILES/Terminals/ghostty.config ~/.config/ghostty/config
-cp $DOTFILES/Terminals/ghostty-timtr-theme ~/.config/ghostty/themes/TimTr
+# mkdir -p $XDG_CONFIG_HOME/ghostty/themes 2> /dev/null
+# cp $DOTFILES/Terminals/ghostty.config ~/.config/ghostty/config
+# cp $DOTFILES/Terminals/ghostty-timtr-theme ~/.config/ghostty/themes/TimTr
 
 
 # =============================================================================

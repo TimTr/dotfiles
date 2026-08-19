@@ -10,6 +10,8 @@ Dotfiles history and currently open to-do items
 
 ## Change history
 
+Moved any XDG-supporting config into the `./Config` directory to easily copy into `~/.config/` directory at install.
+
 Added `.zprofile` to the list - and moved PATH config to it
 - Fixes that `path_helper` via `/etc/zprofile` was blasting over `PATH` settings
 
