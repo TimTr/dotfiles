@@ -27,6 +27,9 @@ export CLICOLOR=1
 export LSCOLORS=gxFxCxDxdxExBxAxaxaxex
 export EZA_COLORS="*.md=92:fi=0:ex=96:di=38;5;75:da= 30:mp=31:lp=33:ln=31:uu=0:gu=0:sn=0:sb=0:xx=0"
 
+# ========================================================================
+# Disable PROMPT_EOL_MARK to suppress odd characters on session restore
+PROMPT_EOL_MARK=''
 
 # ========================================================================
 # Setup the prompt with git branch info included (needs this function)
@@ -37,7 +40,9 @@ parse_git_branch() {
 setopt PROMPT_SUBST
 HOSTNAME=$(hostname -s)
 NEWLINE=$'\n'
-PROMPT='${NEWLINE}%F{#ff6a00}% %9c% %f   %F{#3d3a6c}% $USER %F{#203a47} ${HOSTNAME} %F{#0096ff}% $(parse_git_branch) ${NEWLINE}%F{#eef8ff}% 〉%f'
+
+PROMPT='${NEWLINE}%F{#ff6a00}%9c%f   %F{#3d3a6c}$USER %F{#203a47}${HOSTNAME} %F{#0096ff}$(parse_git_branch) ${NEWLINE}%F{#eef8ff}〉%f'
+
 
 
 
