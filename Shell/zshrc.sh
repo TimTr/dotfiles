@@ -12,7 +12,8 @@ source $HOME/.functions
 typeset -U PATH path
 
 
-# This exports the current directory to iTerm for the tab UI name
+# ==============================================================================
+# Export the current directory to iTerm for the tab UI name
 if [ $ITERM_SESSION_ID ]; then
   precmd() {
     echo -ne "\033]0;${PWD##*/}\007"
@@ -21,7 +22,7 @@ fi
 
 
 # ==============================================================================
-# ls and eza  -- sets colors and sorting for file and directory listing
+# ls and eza  -- set colors and sorting for file and directory listing
 autoload colors; colors;
 export CLICOLOR=1
 export LSCOLORS=gxFxCxDxdxExBxAxaxaxex
