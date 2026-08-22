@@ -101,7 +101,7 @@
   },
   "title_bar": {
     "show_menus": false,
-    "show_sign_in": true,
+    "show_sign_in": false,
     "show_branch_status_icon": true,
     "show_branch_name": true,
     "show_user_menu": false,
@@ -145,6 +145,9 @@
     "sort_mode": "directories_first",
     "sort_order": "upper",
     "auto_fold_dirs": false,
+    "scrollbar": {
+      "show": "auto",
+    }
   },
   "base_keymap": "VSCode",
   "preview_tabs": {
