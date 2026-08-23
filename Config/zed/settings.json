@@ -1,0 +1,188 @@
+// Zed settings
+//
+// NOTE: This are ONLY override settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "active_pane_modifiers": {
+    "border_size": 2.0
+  },
+  "icon_theme": "Warm Charmed Icons",    // Added by TimTr
+  "bottom_dock_layout": "full",
+  "ui_font_size": 18.0,
+  "buffer_font_size": 15.0,
+  "agent_buffer_font_size": 18.0,
+  "theme": "TimTr Dark",
+  "theme_overrides": {
+    "TimTr Dark": {
+      "text": "#BEC1C4",
+      "background": "#101519",
+      "text.muted": "#8b9bb4",
+      "text.accent": "#ff6a00",
+
+      // Text area
+      "border.variant": "#161b25",
+      "border": "#161b25",
+
+      // File tree git status text colors
+      "created": "#e7f647",
+      "modified": "#ff6a00",
+      "deleted": "#ff0013",
+      "ignored": "#4c566a",
+
+      // Borders and tab bar
+      "tab_bar.background": "#040507",
+      "border.disabled": "#040507",
+      "border.focused": "#040507",
+      "panel.focused_border": "#040507",
+      "border.selected": "#040507",
+      "tab.inactive_background": "#040507",
+      "title_bar.background": "#040507",
+      "status_bar.background": "#040507",
+
+      // Panels
+      "panel.background": "#040507",
+      "pane.focused_border": "#040507",
+      "players": [
+        {
+          "cursor": "#ff6a00",
+        },
+      ],
+      "syntax": {
+        "title": {
+          "color": "#ff6a00",
+          "font_weight": 700,
+          "font_style": "italic",
+        },
+        "comment": {
+          "color": "#6d6db7",
+          "font_style": "italic",
+        },
+        "string": {
+          "color": "#01f900",
+          "font_weight": 100,
+          "font_style": "italic",
+        }
+      }
+    },
+  },
+  "scrollbar": {
+    "show": "auto",
+    "cursors": false,        // Hide cursor positions
+    "git_diff": false,       // Hide git modification indicators
+    "search_results": false, // Hide search match highlights
+    "diagnostics": "none"    // Options: "all", "warning", "error", "none"
+  },
+  "git": {                         // Added by TimTr
+    "inline_blame": {
+      "enabled": false,            // For now set to not show at all
+      "delay_ms": 1000,            // Only show after resting cursor for 1 second
+      "show_commit_summary": false // Show the author and date, no commit message
+    }
+  },
+  /* Duplicated key auto-commented: "agent": {
+    "dock": "right",
+    "sidebar_side": "right",
+    "enabled": true
+  }, */
+  "git_panel": {
+    "tree_view": true,
+    "default_width": 340.0
+  },
+  "tabs": {
+    "file_icons": false,
+    "git_status": false
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": true,
+    "show_tab_bar_buttons": true,
+    "show": true
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_sign_in": false,
+    "show_branch_status_icon": true,
+    "show_branch_name": true,
+    "show_user_menu": false,
+  },
+  "status_bar": {
+    "show_active_file": false
+  },
+  "ui_font_weight": 400.0,
+  "buffer_font_weight": 300.0,
+  "cli_default_open_behavior": "existing_window",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "file_types": {
+    "shellscript": [
+      ".profile.local"
+    ]
+  },
+  "terminal": {
+    "font_weight": 300.0,
+    "font_size": 15.0,
+    "line_height": {
+      "custom": 1.1
+    }
+  },
+  "collaboration_panel": {
+    "button": false,
+  },
+  "agent": {
+    "sidebar_side": "right",
+    "button": true,
+  },
+  "project_panel": {
+    "indent_guides": {
+      "show": "never"
+    },
+    "indent_size": 20.0,
+    "entry_spacing": "comfortable",
+    "default_width": 350.0,             // Much wider than normal
+    "hide_root": true,
+    "git_status_indicator": true,
+    "hide_gitignore": true,
+    "dock": "left",
+    "sort_mode": "directories_first",
+    "sort_order": "upper",
+    "auto_fold_dirs": false,
+    "scrollbar": {
+      "show": "auto",
+    }
+  },
+  "base_keymap": "VSCode",
+  "preview_tabs": {
+    "enabled": false
+  },
+  "gutter": {
+    "line_numbers": true,
+    "folds": false
+  },
+  "minimap": {
+    "show": "never"
+  },
+  "selection_highlight": false,
+  "buffer_font_fallbacks": [
+    "SF Mono",
+    "Menlo",
+    "Courier New",
+    "monospace"
+  ],
+
+  "soft_wrap": "editor_width",
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+}

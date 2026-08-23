@@ -1,0 +1,17 @@
+.DS_Store
+.build
+.swiftpm
+.vscode
+Package.resolved
+*~
+\#*
+.\#*
+*.swp
+*.out
+*.local
+*.xcuserstate
+*.xcuserdata
+xcuserdata
+DerivedData
+
+
