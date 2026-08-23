@@ -16,6 +16,7 @@
   "bottom_dock_layout": "full",
   "ui_font_size": 18.0,
   "buffer_font_size": 15.0,
+  "agent_buffer_font_size": 18.0,
   "theme": "TimTr Dark",
   "theme_overrides": {
     "TimTr Dark": {
@@ -35,11 +36,14 @@
       "ignored": "#4c566a",
 
       // Borders and tab bar
-      "tab_bar.background": "#161b25",
+      "tab_bar.background": "#040507",
       "border.disabled": "#040507",
-      "tab.inactive_background": "#161b25",
-      "title_bar.background": "#161b25",
-      "status_bar.background": "#161b25",
+      "border.focused": "#040507",
+      "panel.focused_border": "#040507",
+      "border.selected": "#040507",
+      "tab.inactive_background": "#040507",
+      "title_bar.background": "#040507",
+      "status_bar.background": "#040507",
 
       // Panels
       "panel.background": "#040507",
@@ -81,11 +85,11 @@
       "show_commit_summary": false // Show the author and date, no commit message
     }
   },
-  "agent": {
+  /* Duplicated key auto-commented: "agent": {
     "dock": "right",
     "sidebar_side": "right",
-    "enabled": false
-  },
+    "enabled": true
+  }, */
   "git_panel": {
     "tree_view": true,
     "default_width": 340.0
@@ -130,6 +134,13 @@
     "line_height": {
       "custom": 1.1
     }
+  },
+  "collaboration_panel": {
+    "button": false,
+  },
+  "agent": {
+    "sidebar_side": "right",
+    "button": true,
   },
   "project_panel": {
     "indent_guides": {
