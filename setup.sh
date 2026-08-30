@@ -77,7 +77,6 @@ cp $DOTFILES/Shell/zshenv.sh $HOME/.zshenv
 cp $DOTFILES/Shell/zprofile.sh $HOME/.zprofile
 cp $DOTFILES/Shell/aliases.sh $HOME/.aliases
 cp $DOTFILES/Shell/functions.sh $HOME/.functions
-cp $DOTFILES/Shell/profile.local.sh $HOME/.profile.local
 
 
 # =============================================================================
