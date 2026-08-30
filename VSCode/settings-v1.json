@@ -2100,7 +2100,7 @@
         "debugExceptionWidget.border": "#474747"
     },
     "editor.minimap.enabled": false,
-    "__comment": "TODO Below this line are manual customizations by TimTr ***********",
+    "__comment": "Below this line are manual customizations ***********",
     "workbench.colorCustomizations": 
     {
         "foreground": "#bbc9d5",
@@ -2112,7 +2112,7 @@
         "sideBarSectionHeader.border": "#cccccc33",
         "sideBarTitle.foreground": "#bbbbbb",
         "statusBar.foreground": "#ffffff",
-        "statusBar.background": "#000000",
+        "statusBar.background": "#111111",
         "statusBarItem.hoverBackground": "#ffffff1f",
         "statusBar.debuggingBackground": "#cc6633",
         "statusBar.debuggingForeground": "#ffffff",
@@ -2234,11 +2234,11 @@
         "breadcrumb.focusForeground": "#e0e0e0",
         "editorGroupHeader.tabsBackground": "#000000",
         "tab.activeForeground": "#ffffff",
-        "tab.border": "#00000000",
-        "tab.activeBackground": "#32354e",
+        "tab.border": "#252526",
+        "tab.activeBackground": "#555555",
         "tab.activeBorder": "#00000000",
         "tab.activeBorderTop": "#00000000",
-        "tab.inactiveBackground": "#050505",
+        "tab.inactiveBackground": "#111111",
         "tab.inactiveForeground": "#ffffff80",
         "scrollbarSlider.background": "#79797966",
         "scrollbarSlider.hoverBackground": "#646464b3",
@@ -2268,7 +2268,7 @@
         "gitDecoration.ignoredResourceForeground": "#8c8c8c",
         "gitDecoration.modifiedResourceForeground": "#e2c08d",
         "gitDecoration.stageDeletedResourceForeground": "#c74e39",
-        "gitDecoration.stageModifiedResourceForeground": "#65b1cb",
+        "gitDecoration.stageModifiedResourceForeground": "#e2c08d",
         "gitDecoration.submoduleResourceForeground": "#8db9e2",
         "gitDecoration.untrackedResourceForeground": "#73c991",
         "editorMarkerNavigation.background": "#2d2d30",
@@ -2353,6 +2353,8 @@
                 ],
                 "settings": {
                     "foreground": "#00f900",
+                    "fontStyle": "normal",
+
                 }              
             },
             {
@@ -2493,21 +2495,12 @@
     "http.systemCertificatesNode": true,
     "geminicodeassist.agentDebugMode": true,
     "geminicodeassist.outlines.automaticOutlineGeneration": true,
-    "editor.lineNumbers": "on",
+    "editor.lineNumbers": "off",
     "editor.overviewRulerBorder": false,
     "editor.hideCursorInOverviewRuler": true,
     "claudeCode.useTerminal": true,
     "editor.inlineSuggest.edits.showLongDistanceHint": false,
     "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
     "chat.disableAIFeatures": true,
-    "editor.fontSize": 13,
-    "files.associations": {
-        ".profile.local": "shellscript"
-    },
-    "workbench.tree.indent": 20,
-    "workbench.tree.renderIndentGuides": "none",
-    "window.zoomPerWindow": false,
-    "window.zoomLevel": 1,
-    "workbench.experimental.modernUIUppercaseViewHeaders": true,
-    "window.systemColorTheme": "dark"
+    "editor.fontSize": 14
 }

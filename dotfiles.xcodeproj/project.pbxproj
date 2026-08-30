@@ -12,7 +12,6 @@
 
 /* Begin PBXFileReference section */
 		BA2E38BE2F3919B9006F5F1C /* dotfiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dotfiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA3816772FF9CE8D0090B8D9 /* todo.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = todo.md; sourceTree = "<group>"; };
 		BA9EB74E2F39205A007C8012 /* Dotfiles.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Dotfiles.docc; sourceTree = "<group>"; };
 		BAD0E0162E5395CD00274CAF /* license.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		BAD0E0172E5395CD00274CAF /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
@@ -33,11 +32,6 @@
 		BA60ECE42F9424CF00B86BDD /* Git */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Git;
-			sourceTree = "<group>";
-		};
-		BA60ECE52F9424E100B86BDD /* Vim */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Vim;
 			sourceTree = "<group>";
 		};
 		BA60ECE72F9424F400B86BDD /* VSCode */ = {
@@ -105,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				BAD0E0172E5395CD00274CAF /* readme.md */,
-				BA3816772FF9CE8D0090B8D9 /* todo.md */,
 				BA9EB74E2F39205A007C8012 /* Dotfiles.docc */,
 				BAD0DFF92E5395B200274CAF /* Docs */,
 				BAD0E0142E5395B200274CAF /* Mac */,
@@ -117,7 +110,6 @@
 				BA60ECEA2F94255600B86BDD /* Terminals */,
 				BA360DC42F9E650C00F81106 /* Agents */,
 				BA60ECF22F94261C00B86BDD /* Xcode */,
-				BA60ECE52F9424E100B86BDD /* Vim */,
 				BA60ECE72F9424F400B86BDD /* VSCode */,
 				BAD0E0162E5395CD00274CAF /* license.txt */,
 				BAD0E0182E5395CD00274CAF /* setup.sh */,

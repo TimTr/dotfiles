@@ -77,7 +77,7 @@ cp $DOTFILES/Shell/zshenv.sh $HOME/.zshenv
 cp $DOTFILES/Shell/zprofile.sh $HOME/.zprofile
 cp $DOTFILES/Shell/aliases.sh $HOME/.aliases
 cp $DOTFILES/Shell/functions.sh $HOME/.functions
-cp $DOTFILES/Shell/zshrc.local.sh $HOME/.zshrc.local
+cp $DOTFILES/Shell/profile.local.sh $HOME/.profile.local
 
 
 # =============================================================================
@@ -141,13 +141,13 @@ bullet "git config --global user.email = \"$(git config --get user.email)\""
 
 
 # =============================================================================
-# Check if the ~/.zshrc.local file exists, if not then install from template
-if [[ -f "$HOME/.zshrc.local" ]]; then
-    message "🏠 ~/.zshrc.local" "Edit this file for settings specific to this computer"
+# Check if the ~/.profile.local file exists, if not then install from template
+if [[ -f "$HOME/.profile.local" ]]; then
+    message "🏠 ~/.profile.local" "Customize specific to this computer"
 else
-    message "🏠 Creating local profile" "Creating: $HOME/.zshrc.local"
-    bullet "Configure local settings by editing $HOME/.zshrc.local"
-    cp $DOTFILES/Shell/zshrc.local.sh $HOME/.zshrc.local
+    message "🏠 Creating local profile" "Creating: $HOME/.profile.local"
+    bullet "Configure local settings by editing $HOME/.profile.local"
+    cp $DOTFILES/Shell/profile.local.sh $HOME/.profile.local
 fi
 
 

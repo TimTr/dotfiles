@@ -1,8 +1,8 @@
 # Dotfiles for Tim Triemstra
 
 To install, clone the repo and run `./setup.sh` as follows:
-```shell
 
+```shell
   git clone https://github.com/timtr/dotfiles.git
   cd dotfiles
   ./setup.sh
@@ -10,8 +10,8 @@ To install, clone the repo and run `./setup.sh` as follows:
   # Quit and re-launch terminal for changes to take effect
 ```
 
-On macOS, install Xcode first. Linux uses `zsh` and will attempt to install if missing.
-The `.zshrc.local` file is installed in your `$HOME` to further customize the local environment. Scripts, binaries, and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. 
+On macOS, install Xcode first. Linux requires `zsh` and will set it up if missing.
+The file `~/.profile.local`  is installed in your `$HOME` to further customize the local environment. Scripts, binaries, and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. 
 
 
 ### [Documentation](./Docs/)
