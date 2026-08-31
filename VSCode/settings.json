@@ -2100,7 +2100,7 @@
         "debugExceptionWidget.border": "#474747"
     },
     "editor.minimap.enabled": false,
-    "__comment": "TODO Below this line are manual customizations by TimTr ***********",
+    "__comment": "TODO Below this line are manual customizations by TimTr ***********",    
     "workbench.colorCustomizations": 
     {
         "foreground": "#bbc9d5",
@@ -2235,7 +2235,7 @@
         "editorGroupHeader.tabsBackground": "#000000",
         "tab.activeForeground": "#ffffff",
         "tab.border": "#00000000",
-        "tab.activeBackground": "#32354e",
+        "tab.activeBackground": "#101519",
         "tab.activeBorder": "#00000000",
         "tab.activeBorderTop": "#00000000",
         "tab.inactiveBackground": "#050505",
@@ -2502,12 +2502,18 @@
     "chat.disableAIFeatures": true,
     "editor.fontSize": 13,
     "files.associations": {
-        ".profile.local": "shellscript"
+        ".profile.local": "shellscript",
+        "*.txt": "markdown",
     },
-    "workbench.tree.indent": 20,
+    "workbench.tree.indent": 16,
     "workbench.tree.renderIndentGuides": "none",
     "window.zoomPerWindow": false,
     "window.zoomLevel": 1,
     "workbench.experimental.modernUIUppercaseViewHeaders": true,
-    "window.systemColorTheme": "dark"
+    "window.systemColorTheme": "dark",
+    "breadcrumbs.enabled": false,
+    "workbench.tree.enableStickyScroll": false,
+    "explorer.compactFolders": false,
+    "explorer.confirmDelete": true,
+    "explorer.confirmDragAndDrop": true,
 }
