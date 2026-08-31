@@ -5,7 +5,6 @@
 # things (see Shell/zprofile.sh for why).
 typeset -U PATH path
 
-
 # This script reacts based on macOS, Linux, or Windows host
 export MACOS= LINIX= WINDOWS= WSL=
 PLATFORM="$(uname -s)"
@@ -46,3 +45,4 @@ export ZSHENV_PATH=$PATH
 
 
 # end of file.
+#

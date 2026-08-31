@@ -107,14 +107,6 @@ cp -r $DOTFILES/Config/* $HOME/.config
 # Copy dotfiles custom scripts into the additional PATH folder
 cp $DOTFILES/Bin/* $XDG_BIN_HOME
 
-
-# =========================================================================
-# Add the DOTFILES environment setting to the end of the .profile file
-echo " " >> $HOME/.profile
-echo "# Set DOTFILES to point at this install folder" >> $HOME/.profile
-echo "export DOTFILES=$DOTFILES" >> $HOME/.profile
-
-
 # =============================================================================
 # Setup Git with customization for platform or work directories
 [[ $MACOS == 1 ]] && cp $DOTFILES/Git/gitconfig-mac $HOME/.gitconfig
@@ -148,6 +140,13 @@ else
     bullet "Configure local settings by editing $HOME/.profile.local"
     cp $DOTFILES/Shell/profile.local.sh $HOME/.profile.local
 fi
+
+
+# =========================================================================
+# Add the DOTFILES environment setting to the end of the .profile file
+echo " " >> $HOME/.zshenv
+echo "# Set DOTFILES to point at this install folder" >> $HOME/.zshenv
+echo "export DOTFILES=$DOTFILES" >> $HOME/.zshenv
 
 
 # =========================================================================

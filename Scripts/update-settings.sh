@@ -6,18 +6,18 @@
 set -euo pipefail
 
 usage() {
-    echo "Usage: $(basename "$0") [all] [zed] [vscode] [iterm] [terminal] [xcode]"
+    echo "Usage: $(basename "$0") [all] [xcode] [zed] [vscode] [iterm] [terminal]"
     echo "Options can be combined. 'all' activates every section."
     exit 1
 }
 
 # --- State Flags ---
 RUN_ALL=false
+RUN_XCODE=false
 RUN_ZED=false
 RUN_VSCODE=false
 RUN_ITERM=false
 RUN_TERMINAL=false
-RUN_XCODE=false
 
 # If no arguments passed, display usage (or set a default behavior)
 if [ $# -eq 0 ]; then
@@ -29,11 +29,11 @@ fi
 for arg in "$@"; do
     case "${arg:l}" in  # Convert to lowercase for case-insensitive matching
         all) RUN_ALL=true ;;
+        xcode) RUN_XCODE=true ;;
         zed) RUN_ZED=true ;;
         vscode) RUN_VSCODE=true ;;
         iterm) RUN_ITERM=true ;;
         terminal) RUN_TERMINAL=true ;;
-        xcode) RUN_XCODE=true ;;
         -h|--help) usage ;;
         *)
             echo "Error: Unknown option '$arg'" >&2
@@ -42,7 +42,16 @@ for arg in "$@"; do
 done
 
 
-# 1. Zed Section
+# 1. Xcode Section
+if [ "$RUN_ALL" = true ] || [ "$RUN_XCODE" = true ]; then
+    echo "==> Backing up Xcode..."
+    # --------------------------------------------------------------------------
+    # Put Xcode-specific setup here:
+    # e.g., copy DerivedData settings, code snippets, themes
+    # --------------------------------------------------------------------------
+fi
+
+# 2. Zed Section
 if [ "$RUN_ALL" = true ] || [ "$RUN_ZED" = true ]; then
     echo "==> Backing up Zed..."
     # --------------------------------------------------------------------------
@@ -52,7 +61,7 @@ if [ "$RUN_ALL" = true ] || [ "$RUN_ZED" = true ]; then
     # --------------------------------------------------------------------------
 fi
 
-# 2. VS Code Section
+# 3. VS Code Section
 if [ "$RUN_ALL" = true ] || [ "$RUN_VSCODE" = true ]; then
     echo "==> Backing up  VSCode..."
     # --------------------------------------------------------------------------
@@ -62,7 +71,7 @@ if [ "$RUN_ALL" = true ] || [ "$RUN_VSCODE" = true ]; then
     # --------------------------------------------------------------------------
 fi
 
-# 3. iTerm Section
+# 4. iTerm Section
 if [ "$RUN_ALL" = true ] || [ "$RUN_ITERM" = true ]; then
     echo "==> Backing up iTerm..."
     # --------------------------------------------------------------------------
@@ -71,21 +80,12 @@ if [ "$RUN_ALL" = true ] || [ "$RUN_ITERM" = true ]; then
     # --------------------------------------------------------------------------
 fi
 
-# 4. Terminal Section
+# 5. Terminal Section
 if [ "$RUN_ALL" = true ] || [ "$RUN_TERMINAL" = true ]; then
     echo "==> Backing up Terminal..."
     # --------------------------------------------------------------------------
     # Put Terminal.app-specific setup here:
     # e.g., export/import com.apple.Terminal.plist
-    # --------------------------------------------------------------------------
-fi
-
-# 5. Xcode Section
-if [ "$RUN_ALL" = true ] || [ "$RUN_XCODE" = true ]; then
-    echo "==> Backing up Xcode..."
-    # --------------------------------------------------------------------------
-    # Put Xcode-specific setup here:
-    # e.g., copy DerivedData settings, code snippets, themes
     # --------------------------------------------------------------------------
 fi
 
