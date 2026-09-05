@@ -6,6 +6,9 @@
 set -euo pipefail
 
 usage() {
+    echo
+    echo "Backs up settings to dotfiles folder at: ${DOTFILES}"
+    echo
     echo "Usage: $(basename "$0") [all] [xcode] [zed] [vscode] [iterm] [terminal]"
     echo "Options can be combined. 'all' activates every section."
     exit 1
@@ -19,11 +22,10 @@ RUN_VSCODE=false
 RUN_ITERM=false
 RUN_TERMINAL=false
 
-# If no arguments passed, display usage (or set a default behavior)
-if [ $# -eq 0 ]; then
-    echo "No options provided."
-    usage
-fi
+
+# If no arguments passed, display usage
+[[ $# -eq 0 ]] && usage
+
 
 # --- Argument Parsing ---
 for arg in "$@"; do
