@@ -28,7 +28,7 @@ Defaults such as `~/.local/bin` are used, leaving the `$XDG_DATA_HOME` and relat
 
 ## Work and home Git configuration
 
-The macOS install includes a `dot-gitconfig-work` file that is installed to control the Git behavior for respositories stored in the `~/Documents` directory. It sets up code signing at commit time, and changes the username and email for those commits to work accounts. This general approach can work for any sub-directory custom configuration.
+The macOS install includes a `dot-gitconfig-work` file that is installed to control the Git behavior for respositories stored in the `~/Documents` and `~/Documents/CodeWork` directories. It sets up code signing at commit time, and changes the username and email for those commits to work accounts. This general approach can work for any sub-directory custom configuration.
 
 
 ## Setup SSH keys to easily login to remote servers

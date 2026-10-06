@@ -2,6 +2,9 @@
 #
 # Good way to check if it is working is to run `git config user.email`
 # this should report the work email below.
+#
+# Folders to install into:  ~/Documents and ~/Documents/CodeWork
+
 
 [user]
         name = Tim Triemstra

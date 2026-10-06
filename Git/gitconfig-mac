@@ -17,4 +17,7 @@
 	helper = osxkeychain
 [includeIf "gitdir:~/Documents/"]
 	path = ~/Documents/.gitconfig-work
+[includeIf "gitdir:~/Documents/CodeWork/"]
+	path = ~/Documents/CodeWork/.gitconfig-work
+
 

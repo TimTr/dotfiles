@@ -84,24 +84,6 @@ cp $DOTFILES/Shell/functions.sh $HOME/.functions
 mkdir -p $HOME/.config 2> /dev/null
 cp -r $DOTFILES/Config/* $HOME/.config
 
-# =============================================================================
-# Zed:  ommon app settings across platforms
-# mkdir -p $HOME/.config/zed/themes 2> /dev/null
-# cp $DOTFILES/Zed/settings.json $HOME/.config/zed
-# cp $DOTFILES/Zed/zed-theme*.json $HOME/.config/zed/themes
-
-
-# =============================================================================
-# Terminals: cross-platform CMUX and Ghostty terminal settings install
-# mkdir -p $XDG_CONFIG_HOME/ghostty/themes 2> /dev/null
-# cp $DOTFILES/Terminals/ghostty.config ~/.config/ghostty/config
-# cp $DOTFILES/Terminals/ghostty-timtr-theme ~/.config/ghostty/themes/TimTr
-
-
-# =============================================================================
-# Copy VSCode settings -- commented out while using GitHub sync
-# cp $DOTFILES/VSCode/settings.json "$HOME/Library/Application Support/Code/User/"
-
 
 # =============================================================================
 # Copy dotfiles custom scripts into the additional PATH folder
@@ -113,8 +95,14 @@ cp $DOTFILES/Bin/* $XDG_BIN_HOME
 [[ $LINUX == 1 ]] && cp $DOTFILES/Git/gitconfig-linux $HOME/.gitconfig
 
 cp $DOTFILES/Git/gitignore $HOME/.gitignore
-cp $DOTFILES/Git/gitconfig-work $HOME/Documents/.gitconfig-work
 git config --global core.excludesfile $HOME/.gitignore
+
+# Work projects get special code-signing rules
+mkdir -p $HOME/Documents/CodeWork  2> /dev/null
+cp $DOTFILES/Git/gitconfig-work $HOME/Documents/CodeWork/.gitconfig-work
+cp $DOTFILES/Git/gitconfig-work $HOME/Documents/.gitconfig-work
+
+
 
 
 # =============================================================================
@@ -156,3 +144,25 @@ echo
 # end of file.
 
 exit 0
+
+
+
+
+# =============================================================================
+# Terminals: cross-platform CMUX and Ghostty terminal settings install
+# mkdir -p $XDG_CONFIG_HOME/ghostty/themes 2> /dev/null
+# cp $DOTFILES/Terminals/ghostty.config ~/.config/ghostty/config
+# cp $DOTFILES/Terminals/ghostty-timtr-theme ~/.config/ghostty/themes/TimTr
+
+
+# =============================================================================
+# Copy VSCode settings -- commented out while using GitHub sync
+# cp $DOTFILES/VSCode/settings.json "$HOME/Library/Application Support/Code/User/"
+
+# =============================================================================
+# Zed:  ommon app settings across platforms
+# mkdir -p $HOME/.config/zed/themes 2> /dev/null
+# cp $DOTFILES/Zed/settings.json $HOME/.config/zed
+# cp $DOTFILES/Zed/zed-theme*.json $HOME/.config/zed/themes
+
+
