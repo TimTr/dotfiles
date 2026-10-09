@@ -22,6 +22,11 @@ fi
 
 
 # ==============================================================================
+# Use Zed as the commit message editor (needs the `--wait` parameter)
+export GIT_EDITOR="zed --wait"
+
+
+# ==============================================================================
 # ls and eza  -- set colors and sorting for file and directory listing
 autoload colors; colors;
 export CLICOLOR=1

@@ -6,6 +6,10 @@ source $HOME/.profile
 source $HOME/.aliases
 source $HOME/.functions
 
+# Other settings
+export GIT_EDITOR="zed --wait"
+
+
 # ==============================================================================
 # ls and eza  -- sets colors and sorting for file and directory listing
 # Sort order with capital letters first in Linux
