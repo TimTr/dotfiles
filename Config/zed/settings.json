@@ -1,6 +1,6 @@
 // Zed settings
 //
-// NOTE: This are ONLY override settings
+// NOTE: These are override settings (all others are defaults)
 //
 // For information on how to configure Zed, see the Zed
 // documentation: https://zed.dev/docs/configuring-zed
@@ -17,7 +17,17 @@
   "ui_font_size": 18.0,
   "buffer_font_size": 15.0,
   "agent_buffer_font_size": 18.0,
+  "ui_font_weight": 400.0,
+  "buffer_font_weight": 300.0,
+  "cli_default_open_behavior": "existing_window",
   "theme": "TimTr Dark",
+  "indent_guides": {
+    "enabled": false,
+    "line_width": 1,                  // Width of guides in pixels [1-10]
+    "active_line_width": 1,           // Width of active guide in pixels [1-10]
+    "coloring": "fixed",              // disabled, fixed, indent_aware
+    "background_coloring": "disabled" // disabled, indent_aware
+  },
   "theme_overrides": {
     "TimTr Dark": {
       "text": "#BEC1C4",
@@ -85,11 +95,6 @@
       "show_commit_summary": false // Show the author and date, no commit message
     }
   },
-  /* Duplicated key auto-commented: "agent": {
-    "dock": "right",
-    "sidebar_side": "right",
-    "enabled": true
-  }, */
   "git_panel": {
     "tree_view": true,
     "default_width": 340.0
@@ -113,9 +118,6 @@
   "status_bar": {
     "show_active_file": false
   },
-  "ui_font_weight": 400.0,
-  "buffer_font_weight": 300.0,
-  "cli_default_open_behavior": "existing_window",
   "telemetry": {
     "diagnostics": false,
     "metrics": false
@@ -139,7 +141,16 @@
     "button": false,
   },
   "agent": {
-    "sidebar_side": "right",
+    "dock": "right",
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-5-5",
+      "enable_thinking": true,
+      "effort": "high",
+    },
+    "threads_sidebar": {
+      "position": "right"
+    },
     "button": true,
   },
   "project_panel": {
@@ -148,7 +159,7 @@
     },
     "indent_size": 20.0,
     "entry_spacing": "comfortable",
-    "default_width": 350.0,             // Much wider than normal
+    "default_width": 300.0,             // Much wider than normal
     "hide_root": true,
     "git_status_indicator": true,
     "hide_gitignore": true,
