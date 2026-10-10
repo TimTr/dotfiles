@@ -10,6 +10,12 @@
 - Use United States spelling and punctuation
 
 
+## Markdown
+
+- Prefer an empty line after any headings, and prefer two empty lines above the heading
+- Prefer single line Markdown heading using hash # signs, and do not use dashed lines below
+
+
 ## Git Commits
 
 - Never commit to default branches (main/master/trunk). Instead branch with a relevant name off origin/HEAD.
@@ -27,8 +33,8 @@
 
 ## Shell and scripts
 
-- Prefer the most readable shell over defensive parsing or micro-optimizations.
-- Make reasonable simplifying assumptions when they keep scripts obvious.
+- Prefer the most readable shell over defensive parsing or optimizations
+- Make reasonable simplifying assumptions when they keep scripts obvious
 - Temporary regression checks are fine while developing a fix.
 
 

@@ -1,7 +1,7 @@
-# Customize this file once installed with settings you
-# should NOT check into the repository. e.g. API tokens, keys, etc.
+# Customize this file once installed with settings that
+# do NOT belong in the repository. e.g. API tokens, keys, etc.
 #
-# !! Should only contain environment variables, functions, and aliases
+# Should only contain environment variables, functions, and aliases
 
 
 # Alias commands to login to servers

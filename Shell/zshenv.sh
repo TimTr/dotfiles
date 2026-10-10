@@ -5,7 +5,6 @@
 # things (see Shell/zprofile.sh for why).
 typeset -U PATH path
 
-
 # This script reacts based on macOS, Linux, or Windows host
 export MACOS= LINIX= WINDOWS= WSL=
 PLATFORM="$(uname -s)"
@@ -16,8 +15,8 @@ PLATFORM="$(uname -s)"
 
 # ========================================================================
 # Setup XDG: https://specifications.freedesktop.org/basedir/latest/
-export XDG_BIN_HOME=$HOME/.local/bin
 export XDG_CONFIG_HOME=$HOME/.config
+export XDG_BIN_HOME=$HOME/.local/bin
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME=$HOME/.local/cache
@@ -46,3 +45,4 @@ export ZSHENV_PATH=$PATH
 
 
 # end of file.
+#

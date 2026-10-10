@@ -77,7 +77,6 @@ cp $DOTFILES/Shell/zshenv.sh $HOME/.zshenv
 cp $DOTFILES/Shell/zprofile.sh $HOME/.zprofile
 cp $DOTFILES/Shell/aliases.sh $HOME/.aliases
 cp $DOTFILES/Shell/functions.sh $HOME/.functions
-cp $DOTFILES/Shell/zshrc.local.sh $HOME/.zshrc.local
 
 
 # =============================================================================
@@ -85,36 +84,10 @@ cp $DOTFILES/Shell/zshrc.local.sh $HOME/.zshrc.local
 mkdir -p $HOME/.config 2> /dev/null
 cp -r $DOTFILES/Config/* $HOME/.config
 
-# =============================================================================
-# Zed:  ommon app settings across platforms
-# mkdir -p $HOME/.config/zed/themes 2> /dev/null
-# cp $DOTFILES/Zed/settings.json $HOME/.config/zed
-# cp $DOTFILES/Zed/zed-theme*.json $HOME/.config/zed/themes
-
-
-# =============================================================================
-# Terminals: cross-platform CMUX and Ghostty terminal settings install
-# mkdir -p $XDG_CONFIG_HOME/ghostty/themes 2> /dev/null
-# cp $DOTFILES/Terminals/ghostty.config ~/.config/ghostty/config
-# cp $DOTFILES/Terminals/ghostty-timtr-theme ~/.config/ghostty/themes/TimTr
-
-
-# =============================================================================
-# Copy VSCode settings -- commented out while using GitHub sync
-# cp $DOTFILES/VSCode/settings.json "$HOME/Library/Application Support/Code/User/"
-
 
 # =============================================================================
 # Copy dotfiles custom scripts into the additional PATH folder
 cp $DOTFILES/Bin/* $XDG_BIN_HOME
-
-
-# =========================================================================
-# Add the DOTFILES environment setting to the end of the .profile file
-echo " " >> $HOME/.profile
-echo "# Set DOTFILES to point at this install folder" >> $HOME/.profile
-echo "export DOTFILES=$DOTFILES" >> $HOME/.profile
-
 
 # =============================================================================
 # Setup Git with customization for platform or work directories
@@ -122,8 +95,14 @@ echo "export DOTFILES=$DOTFILES" >> $HOME/.profile
 [[ $LINUX == 1 ]] && cp $DOTFILES/Git/gitconfig-linux $HOME/.gitconfig
 
 cp $DOTFILES/Git/gitignore $HOME/.gitignore
-cp $DOTFILES/Git/gitconfig-work $HOME/Documents/.gitconfig-work
 git config --global core.excludesfile $HOME/.gitignore
+
+# Work projects get special code-signing rules
+mkdir -p $HOME/Documents/CodeWork  2> /dev/null
+cp $DOTFILES/Git/gitconfig-work $HOME/Documents/CodeWork/.gitconfig-work
+cp $DOTFILES/Git/gitconfig-work $HOME/Documents/.gitconfig-work
+
+
 
 
 # =============================================================================
@@ -141,14 +120,21 @@ bullet "git config --global user.email = \"$(git config --get user.email)\""
 
 
 # =============================================================================
-# Check if the ~/.zshrc.local file exists, if not then install from template
-if [[ -f "$HOME/.zshrc.local" ]]; then
-    message "🏠 ~/.zshrc.local" "Edit this file for settings specific to this computer"
+# Check if the ~/.profile.local file exists, if not then install from template
+if [[ -f "$HOME/.profile.local" ]]; then
+    message "🏠 ~/.profile.local" "Customize specific to this computer"
 else
-    message "🏠 Creating local profile" "Creating: $HOME/.zshrc.local"
-    bullet "Configure local settings by editing $HOME/.zshrc.local"
-    cp $DOTFILES/Shell/zshrc.local.sh $HOME/.zshrc.local
+    message "🏠 Creating local profile" "Creating: $HOME/.profile.local"
+    bullet "Configure local settings by editing $HOME/.profile.local"
+    cp $DOTFILES/Shell/profile.local.sh $HOME/.profile.local
 fi
+
+
+# =========================================================================
+# Add the DOTFILES environment setting to the end of the .profile file
+echo " " >> $HOME/.zshenv
+echo "# Set DOTFILES to point at this install folder" >> $HOME/.zshenv
+echo "export DOTFILES=$DOTFILES" >> $HOME/.zshenv
 
 
 # =========================================================================
@@ -158,3 +144,25 @@ echo
 # end of file.
 
 exit 0
+
+
+
+
+# =============================================================================
+# Terminals: cross-platform CMUX and Ghostty terminal settings install
+# mkdir -p $XDG_CONFIG_HOME/ghostty/themes 2> /dev/null
+# cp $DOTFILES/Terminals/ghostty.config ~/.config/ghostty/config
+# cp $DOTFILES/Terminals/ghostty-timtr-theme ~/.config/ghostty/themes/TimTr
+
+
+# =============================================================================
+# Copy VSCode settings -- commented out while using GitHub sync
+# cp $DOTFILES/VSCode/settings.json "$HOME/Library/Application Support/Code/User/"
+
+# =============================================================================
+# Zed:  ommon app settings across platforms
+# mkdir -p $HOME/.config/zed/themes 2> /dev/null
+# cp $DOTFILES/Zed/settings.json $HOME/.config/zed
+# cp $DOTFILES/Zed/zed-theme*.json $HOME/.config/zed/themes
+
+

@@ -1,4 +1,96 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 # Asks the user which of the currect settings should be backed
 # up into the `DOTFILES` folder for this machine
+
+set -euo pipefail
+
+usage() {
+    echo
+    echo "Backs up settings to dotfiles folder at: ${DOTFILES}"
+    echo
+    echo "Usage: $(basename "$0") [all] [xcode] [zed] [vscode] [iterm] [terminal]"
+    echo "Options can be combined. 'all' activates every section."
+    exit 1
+}
+
+# --- State Flags ---
+RUN_ALL=false
+RUN_XCODE=false
+RUN_ZED=false
+RUN_VSCODE=false
+RUN_ITERM=false
+RUN_TERMINAL=false
+
+
+# If no arguments passed, display usage
+[[ $# -eq 0 ]] && usage
+
+
+# --- Argument Parsing ---
+for arg in "$@"; do
+    case "${arg:l}" in  # Convert to lowercase for case-insensitive matching
+        all) RUN_ALL=true ;;
+        xcode) RUN_XCODE=true ;;
+        zed) RUN_ZED=true ;;
+        vscode) RUN_VSCODE=true ;;
+        iterm) RUN_ITERM=true ;;
+        terminal) RUN_TERMINAL=true ;;
+        -h|--help) usage ;;
+        *)
+            echo "Error: Unknown option '$arg'" >&2
+            usage ;;
+    esac
+done
+
+
+# 1. Xcode Section
+if [ "$RUN_ALL" = true ] || [ "$RUN_XCODE" = true ]; then
+    echo "==> Backing up Xcode..."
+    # --------------------------------------------------------------------------
+    # Put Xcode-specific setup here:
+    # e.g., copy DerivedData settings, code snippets, themes
+    # --------------------------------------------------------------------------
+fi
+
+# 2. Zed Section
+if [ "$RUN_ALL" = true ] || [ "$RUN_ZED" = true ]; then
+    echo "==> Backing up Zed..."
+    # --------------------------------------------------------------------------
+    # Put Zed-specific setup here:
+    # e.g., symlink settings.json, keymap.json, install extensions/themes
+    # cp ./configs/zed/settings.json ~/.config/zed/settings.json
+    # --------------------------------------------------------------------------
+fi
+
+# 3. VS Code Section
+if [ "$RUN_ALL" = true ] || [ "$RUN_VSCODE" = true ]; then
+    echo "==> Backing up  VSCode..."
+    # --------------------------------------------------------------------------
+    # Put VS Code-specific setup here:
+    # e.g., code --install-extension <extension_id>
+    # cp ./configs/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+    # --------------------------------------------------------------------------
+fi
+
+# 4. iTerm Section
+if [ "$RUN_ALL" = true ] || [ "$RUN_ITERM" = true ]; then
+    echo "==> Backing up iTerm..."
+    # --------------------------------------------------------------------------
+    # Put iTerm-specific setup here:
+    # e.g., export/import com.googlecode.iterm2.plist
+    # --------------------------------------------------------------------------
+fi
+
+# 5. Terminal Section
+if [ "$RUN_ALL" = true ] || [ "$RUN_TERMINAL" = true ]; then
+    echo "==> Backing up Terminal..."
+    # --------------------------------------------------------------------------
+    # Put Terminal.app-specific setup here:
+    # e.g., export/import com.apple.Terminal.plist
+    # --------------------------------------------------------------------------
+fi
+
+
+
+## end of file

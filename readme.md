@@ -1,8 +1,8 @@
 # Dotfiles for Tim Triemstra
 
 To install, clone the repo and run `./setup.sh` as follows:
-```shell
 
+```shell
   git clone https://github.com/timtr/dotfiles.git
   cd dotfiles
   ./setup.sh
@@ -10,8 +10,8 @@ To install, clone the repo and run `./setup.sh` as follows:
   # Quit and re-launch terminal for changes to take effect
 ```
 
-On macOS, install Xcode first. Linux uses `zsh` and will attempt to install if missing.
-The `.zshrc.local` file is installed in your `$HOME` to further customize the local environment. Scripts, binaries, and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. 
+On macOS, install Xcode first. Linux requires `zsh` and will set it up if missing.
+The file `~/.profile.local` is installed in your `$HOME` to further customize the local environment. Scripts, binaries, and some config files are installed using the [XDG directory](https://specifications.freedesktop.org/basedir/latest/) structure. The setup adds `$HOME/.local/bin` and `/opt/homebrew/bin` to the PATH for local scripts and Homebrew support. 
 
 
 ### [Documentation](./Docs/)
@@ -28,7 +28,7 @@ Defaults such as `~/.local/bin` are used, leaving the `$XDG_DATA_HOME` and relat
 
 ## Work and home Git configuration
 
-The macOS install includes a `dot-gitconfig-work` file that is installed to control the Git behavior for respositories stored in the `~/Documents` directory. It sets up code signing at commit time, and changes the username and email for those commits to work accounts. This general approach can work for any sub-directory custom configuration.
+The macOS install includes a `dot-gitconfig-work` file that is installed to control the Git behavior for respositories stored in the `~/Documents` and `~/Documents/CodeWork` directories. It sets up code signing at commit time, and changes the username and email for those commits to work accounts. This general approach can work for any sub-directory custom configuration.
 
 
 ## Setup SSH keys to easily login to remote servers
