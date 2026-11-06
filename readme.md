@@ -1,4 +1,4 @@
-# Dotfiles for Tim Triemstra
+# Dotfiles - Updated November 6, 2026
 
 To install, clone the repo and run `./setup.sh` as follows:
 
